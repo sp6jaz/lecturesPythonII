@@ -58,3 +58,4 @@
 | 54 | 2026-02-22 | — | AUDYT: Sprawdź strukturę 4-częściową (Wprowadzenie, Materiał, Aktywność, Podsumowanie) we WSZYSTKICH plan_zajec.md i plan_lab.md. Raport tabelaryczny. |
 | 55 | 2026-02-22 | — | Napraw ALL groupby() bez observed=True w 6 plikach (tips dataset, kolumny kategoryczne day/time/sex/smoker). |
 | 56 | 2026-02-22 | — | Dodaj brakujące sekcje AKTYWNOŚĆ do 8 zaocznych plan_zajec.md (S01,S03,S04,S05,S06,S07,S08,S09) + PODSUMOWANIE do S04. Dodaj PODSUMOWANIE do dziennych W08 i W09 lab/plan_lab.md. |
+| 57 | 2026-02-22 | — | Push na główne repo + push W01/L01 (dzienne+zaoczne) na repo studenckie (python2-materialy). Tabelaryczne podsumowanie sesji. |

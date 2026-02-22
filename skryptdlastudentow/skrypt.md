@@ -1155,6 +1155,158 @@ pd.crosstab(df['day'], df['smoker'])
 
 ## 5. Matplotlib — wizualizacja danych
 
+### 5.1 Czym jest Matplotlib?
+
+Matplotlib to główna biblioteka do wizualizacji danych w Pythonie. Seaborn, Pandas `.plot()` i wiele innych narzędzi korzysta z Matplotlib pod spodem.
+
+```python
+import matplotlib.pyplot as plt    # konwencja — zawsze plt
+```
+
+### 5.2 Architektura: Figure i Axes
+
+Każdy wykres w Matplotlib składa się z dwóch obiektów:
+- **Figure** — "płótno" (cały rysunek, może mieć wiele wykresów)
+- **Axes** — "panel" (jeden konkretny wykres)
+
+```python
+fig, ax = plt.subplots()          # 1 wykres
+fig, axes = plt.subplots(2, 2)    # siatka 2×2 (4 wykresy)
+```
+
+### 5.3 Podstawowe typy wykresów
+
+```python
+# Wykres liniowy — trendy w czasie
+ax.plot(x, y, marker='o', label='Sprzedaż')
+
+# Wykres słupkowy — porównania kategorii
+ax.bar(kategorie, wartosci, color='steelblue')
+ax.barh(kategorie, wartosci)    # poziomy
+
+# Wykres punktowy — zależności między zmiennymi
+ax.scatter(x, y, alpha=0.6, c=kolory, s=rozmiary)
+
+# Histogram — rozkład wartości
+ax.hist(dane, bins=20, edgecolor='black')
+```
+
+### 5.4 Formatowanie wykresów
+
+```python
+ax.set_title('Tytuł wykresu', fontsize=14, fontweight='bold')
+ax.set_xlabel('Oś X')
+ax.set_ylabel('Oś Y')
+ax.legend()
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()     # dopasuj marginesy
+plt.savefig('wykres.png', dpi=150, bbox_inches='tight')
+plt.show()
+```
+
+### 5.5 Wiele wykresów (subplots)
+
+```python
+fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+
+axes[0, 0].bar(x, y)           # lewy górny
+axes[0, 1].scatter(x, y)       # prawy górny
+axes[1, 0].hist(dane)          # lewy dolny
+axes[1, 1].plot(x, y)          # prawy dolny
+
+fig.suptitle('Dashboard', fontsize=16)
+plt.tight_layout()
+```
+
+### 5.6 Pandas .plot() — szybki wykres z DataFrame
+
+```python
+# Pandas integruje się z Matplotlib
+df.groupby('day')['total_bill'].mean().plot(kind='bar')
+df['total_bill'].plot(kind='hist', bins=20)
+df.plot(kind='scatter', x='total_bill', y='tip')
+```
+
+Typy `kind`: `'line'`, `'bar'`, `'barh'`, `'hist'`, `'scatter'`, `'box'`, `'pie'`.
+
+### 5.7 Seaborn — piękne wykresy statystyczne
+
+Seaborn buduje na Matplotlib, ale daje piękniejsze wykresy z mniej kodu.
+
+```python
+import seaborn as sns
+
+# Wykres słupkowy z 95% przedziałem ufności
+sns.barplot(data=df, x='day', y='total_bill')
+
+# Boxplot — rozkład z kwartylem i outlierami
+sns.boxplot(data=df, x='day', y='total_bill')
+
+# Violinplot — rozkład z gęstością
+sns.violinplot(data=df, x='day', y='total_bill')
+
+# Heatmapa — korelacja
+sns.heatmap(df.corr(numeric_only=True), annot=True, cmap='coolwarm')
+
+# Pairplot — wszystkie pary zmiennych
+sns.pairplot(df, hue='species')
+```
+
+### 5.8 Parametr hue — podział na grupy
+
+```python
+# hue dodaje trzeci wymiar (kolor)
+sns.barplot(data=df, x='day', y='total_bill', hue='sex')
+sns.boxplot(data=df, x='day', y='total_bill', hue='smoker')
+sns.scatterplot(data=df, x='total_bill', y='tip', hue='time')
+```
+
+### 5.9 Dashboard — wiele wykresów na jednym rysunku
+
+```python
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+
+sns.barplot(data=df, x='day', y='total_bill', ax=axes[0, 0])
+axes[0, 0].set_title('Średni rachunek per dzień')
+
+sns.boxplot(data=df, x='day', y='tip', ax=axes[0, 1])
+axes[0, 1].set_title('Rozkład napiwków')
+
+sns.histplot(data=df, x='total_bill', bins=20, ax=axes[1, 0])
+axes[1, 0].set_title('Rozkład rachunków')
+
+sns.heatmap(df.corr(numeric_only=True), annot=True, ax=axes[1, 1])
+axes[1, 1].set_title('Korelacje')
+
+fig.suptitle('Dashboard restauracji', fontsize=16, fontweight='bold')
+plt.tight_layout()
+plt.savefig('dashboard.png', dpi=150, bbox_inches='tight')
+```
+
+### 5.10 Eksport i style
+
+```python
+# Eksport
+plt.savefig('wykres.png', dpi=150, bbox_inches='tight')
+plt.savefig('wykres.pdf')    # wektorowy
+
+# Style Seaborn
+sns.set_theme(style='whitegrid')    # białe tło z siatką
+sns.set_theme(style='darkgrid')     # ciemna siatka
+
+# Palety kolorów
+sns.set_palette('Set2')
+sns.color_palette('viridis', 5)     # 5 kolorów z palety
+```
+
+| Kiedy co? | Narzędzie |
+|-----------|-----------|
+| Szybki wykres z DataFrame | `df.plot()` |
+| Ładne wykresy statystyczne | Seaborn |
+| Pełna kontrola i dostosowanie | Matplotlib |
+| Dashboard / wiele wykresów | `plt.subplots()` + Seaborn |
+
 ---
 
 ## 6. Statystyka w Pythonie

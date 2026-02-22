@@ -97,3 +97,15 @@
 | 93 | 2026-02-22 | 14:35 | Weryfikacja i korekta odpowiedzi numerycznych (po_2021: 10, wynagrodzenie>6000: 7, mediana po dedup: 5100) |
 | 94 | 2026-02-22 | 14:40 | Kompletna weryfikacja 20 asercji numerycznych — wszystkie zaliczone po poprawkach |
 | 95 | 2026-02-22 | — | Aktualizacja skryptu studenta: 4.15-4.22 (NaN, duplikaty, typy, stringi, merge, concat, groupby, pivot) |
+| 96 | 2026-02-22 | 15:00 | Eksploracja struktury W08 jako wzorzec dla W09 (5 plików, konwencje, dane, format) |
+| 97 | 2026-02-22 | 15:05 | Weryfikacja środowiska: matplotlib 3.10.8, seaborn 0.13.2, pandas 2.3.3 |
+| 98 | 2026-02-22 | 15:10 | Utworzenie dzienne/W09/wyklad/plan_zajec.md — stenogram 90 min (Figure/Axes, plot/bar/scatter/hist, formatowanie, subplots, Pandas .plot()) |
+| 99 | 2026-02-22 | 15:15 | Utworzenie dzienne/W09/wyklad/quiz_w09.md — 5 pytań (2 powtórki W08, 3 nowe Matplotlib) |
+| 100 | 2026-02-22 | 15:20 | Utworzenie dzienne/W09/lab/plan_lab.md — instrukcja doktoranta + tabela troubleshooting (10 błędów) |
+| 101 | 2026-02-22 | 15:25 | Utworzenie dzienne/W09/lab/cwiczenia.md — 4 ćwiczenia (linia/słupki/scatter, formatowanie, tips analiza, subplots+commit) |
+| 102 | 2026-02-22 | 15:30 | Utworzenie dzienne/W09/wyklad/matplotlib_demo.ipynb — 11 komórek (architektura, plot, bar, barh, scatter, hist, subplots 2×2, Pandas .plot()) |
+| 103 | 2026-02-22 | 15:35 | Weryfikacja notebooka (nbconvert --execute) — sukces: 10 PNG wygenerowane, 0 błędów |
+| 104 | 2026-02-22 | 15:36 | Usunięcie executed_test.ipynb i artefaktów PNG |
+| 105 | 2026-02-22 | — | Utworzenie W10: plan_zajec.md (stenogram Seaborn/dashboard), seaborn_dashboard_demo.ipynb (zweryfikowany 16 komórek), quiz_w10.md |
+| 106 | 2026-02-22 | — | Utworzenie L10: plan_lab.md (doktorant, 13 błędów troubleshooting) + cwiczenia.md (barplot/boxplot/heatmap, subplots, dashboard, eksport) |
+| 107 | 2026-02-22 | — | Aktualizacja skryptu studenta: 5.1-5.10 (Matplotlib, Seaborn, subplots, dashboard, eksport, style) |

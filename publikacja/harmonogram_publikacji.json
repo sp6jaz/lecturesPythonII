@@ -1,0 +1,57 @@
+{
+  "opis": "Harmonogram publikacji materiałów dla studentów. Materiały stają się widoczne w dniu publication_date.",
+  "uwagi": "Zjazdy zaoczne wyestymowane z kalendarza akademickiego - do weryfikacji z prowadzącym.",
+
+  "dzienne": {
+    "dzien_tygodnia": "poniedziałek",
+    "tygodnie": [
+      {"nr": "W01", "data": "2026-02-23", "katalog": "dzienne/W01"},
+      {"nr": "W02", "data": "2026-03-02", "katalog": "dzienne/W02"},
+      {"nr": "W03", "data": "2026-03-09", "katalog": "dzienne/W03"},
+      {"nr": "W04", "data": "2026-03-16", "katalog": "dzienne/W04"},
+      {"nr": "W05", "data": "2026-03-23", "katalog": "dzienne/W05"},
+      {"nr": "W06", "data": "2026-03-30", "katalog": "dzienne/W06"},
+      {"nr": "W07", "data": "2026-04-13", "katalog": "dzienne/W07"},
+      {"nr": "W08", "data": "2026-04-20", "katalog": "dzienne/W08"},
+      {"nr": "W09", "data": "2026-04-27", "katalog": "dzienne/W09"},
+      {"nr": "W10", "data": "2026-05-04", "katalog": "dzienne/W10"},
+      {"nr": "W11", "data": "2026-05-11", "katalog": "dzienne/W11"},
+      {"nr": "W12", "data": "2026-05-18", "katalog": "dzienne/W12"},
+      {"nr": "W13", "data": "2026-05-25", "katalog": "dzienne/W13"},
+      {"nr": "W14", "data": "2026-06-01", "katalog": "dzienne/W14"},
+      {"nr": "W15", "data": "2026-06-08", "katalog": "dzienne/W15"}
+    ],
+    "wolne": [
+      {"data": "2026-04-06", "powod": "Przerwa świąteczna (Wielkanoc)"},
+      {"data": "2026-06-15", "powod": "Zajęcia wg planu czwartkowego"}
+    ]
+  },
+
+  "zaoczne": {
+    "uwaga": "Terminy zjazdów wyestymowane z kalendarza - do weryfikacji!",
+    "zjazdy": [
+      {"nr": "S01", "data": "2026-02-28", "katalog": "zaoczne/S01"},
+      {"nr": "S02", "data": "2026-03-14", "katalog": "zaoczne/S02"},
+      {"nr": "S03", "data": "2026-03-28", "katalog": "zaoczne/S03"},
+      {"nr": "S04", "data": "2026-04-18", "katalog": "zaoczne/S04"},
+      {"nr": "S05", "data": "2026-04-25", "katalog": "zaoczne/S05"},
+      {"nr": "S06", "data": "2026-05-09", "katalog": "zaoczne/S06"},
+      {"nr": "S07", "data": "2026-05-23", "katalog": "zaoczne/S07"},
+      {"nr": "S08", "data": "2026-05-30", "katalog": "zaoczne/S08"},
+      {"nr": "S09", "data": "2026-06-06", "katalog": "zaoczne/S09"},
+      {"nr": "S10", "data": "2026-06-13", "katalog": "zaoczne/S10"}
+    ]
+  },
+
+  "sesja_egzaminacyjna": {
+    "start": "2026-06-17",
+    "koniec": "2026-07-07"
+  },
+
+  "pliki_studenckie": {
+    "wyklad": ["*.ipynb", "*.md"],
+    "lab": ["cwiczenia.md"],
+    "wykluczone": ["plan_zajec.md", "plan_lab.md", "quiz_*.md"],
+    "komentarz": "Quizy publikowane tydzień PÓŹNIEJ (spaced repetition). Plany/stenogramy nigdy nie idą do studentów."
+  }
+}

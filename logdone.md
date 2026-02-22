@@ -65,3 +65,8 @@
 | 61 | 2026-02-22 | — | Utworzenie W04: plan_zajec.md (stenogram), numpy_advanced_demo.ipynb (zweryfikowany), quiz_w04.md |
 | 62 | 2026-02-22 | — | Utworzenie L04: plan_lab.md (instrukcja doktoranta), cwiczenia.md (broadcasting, reshape, analiza finansowa) |
 | 63 | 2026-02-22 | — | Weryfikacja odpowiedzi L04 + aktualizacja skryptu studenta (3.8-3.11: broadcasting, reshape, operacje, generowanie) |
+| 64 | 2026-02-22 | — | Pobranie i analiza kalendarza akademickiego PO 2025/2026 (zarządzenie 24/2025) |
+| 65 | 2026-02-22 | — | Obliczenie 15 poniedziałków wykładowych (23.02-08.06.2026, bez 06.04 i 15.06) |
+| 66 | 2026-02-22 | — | Utworzenie sp6jaz/python2-materialy — publiczne repo studenckie z README i harmonogramem |
+| 67 | 2026-02-22 | — | Utworzenie publikacja/: harmonogram_publikacji.json, publikuj.py, kalendarz_akademicki.md |
+| 68 | 2026-02-22 | — | Test skryptu publikacji w trybie preview — poprawne filtrowanie plików (bez stenogramów, z opóźnieniem quizów) |

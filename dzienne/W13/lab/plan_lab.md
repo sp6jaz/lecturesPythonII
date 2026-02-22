@@ -49,8 +49,6 @@ source .venv/bin/activate   # Linux/Mac
 .venv\Scripts\activate      # Windows
 
 # Instalacja brakujących bibliotek
-pip install scikit-learn plotly
-# lub z uv (szybciej):
 uv pip install scikit-learn plotly
 
 # Weryfikacja
@@ -95,6 +93,11 @@ To zainstaluje brakujące pakiety bez wychodzenia z notebooka, cicho (`-q`).
 - Szybcy studenci: Ćwiczenie 3 rozszerzenie (wielopanelowy subplot Plotly) + fig.write_html()
 - Wolni studenci: Ćwiczenia 1 + 2 + podstawowy wykres scatter z Plotly wystarczają
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ### Typowe błędy koncepcyjne (poprawiaj natychmiast)
 - Brak `StandardScaler` przed KMeans — pytaj "czy Twoje cechy są w tej samej skali?"
 - Używanie `fit_transform` na zbiorze testowym — zawsze tylko `transform`
@@ -107,14 +110,14 @@ To zainstaluje brakujące pakiety bez wychodzenia z notebooka, cicho (`-q`).
 
 | Problem | Przyczyna | Rozwiązanie |
 |---------|-----------|-------------|
-| `ModuleNotFoundError: sklearn` | Brak scikit-learn w venv | `pip install scikit-learn` lub `%pip install scikit-learn` w notebooku |
-| `ModuleNotFoundError: plotly` | Brak plotly w venv | `pip install plotly` lub `%pip install plotly` |
-| `fig.show()` nie wyświetla wykresu | Problem z renderowaniem w Jupyter | Sprawdź: `pip install "plotly>=5.0" nbformat`, zrestartuj kernel |
+| `ModuleNotFoundError: sklearn` | Brak scikit-learn w venv | `uv pip install scikit-learn` lub `%pip install scikit-learn` w notebooku |
+| `ModuleNotFoundError: plotly` | Brak plotly w venv | `uv pip install plotly` lub `%pip install plotly` |
+| `fig.show()` nie wyświetla wykresu | Problem z renderowaniem w Jupyter | Sprawdź: `uv pip install "plotly>=5.0" nbformat`, zrestartuj kernel |
 | KMeans daje inne klastry niż przykład | Różne `random_state` lub kolejność klastrów | Normalne — sprawdź `random_state=42`, ale kolejność etykiet może się różnić |
 | R² ujemne lub bardzo niskie | Model gorszy niż baseline (średnia) | Sprawdź `X_train` i `y_train` — czy nie zamieniłeś features z target? |
 | `ValueError: could not convert string to float` | Dane kategoryczne w X | Encode kategoryczne: `pd.get_dummies()` lub `LabelEncoder` |
 | `ConvergenceWarning: KMeans nie osiągnął zbieżności` | Za mało iteracji lub zły init | Zwiększ `max_iter=500` lub `n_init=20` |
-| Wykres Plotly otwiera się w przeglądarce zamiast w Jupyter | Brak `nbformat` lub stary Jupyter | `pip install nbformat; jupyter notebook stop; jupyter notebook` |
+| Wykres Plotly otwiera się w przeglądarce zamiast w Jupyter | Brak `nbformat` lub stary Jupyter | `uv pip install nbformat`, zrestartuj kernel |
 | `fig.write_html()` — FileNotFoundError | Zły path lub brak uprawnień | Użyj `fig.write_html('wykres.html')` — bez ścieżki → aktualny katalog |
 | Scatter plot wszystkie punkty jednego koloru | `color=` przyjmuje numeryczną kolumnę zamiast kategorycznej | Zamień: `klienci['segment'] = klienci['segment'].astype(str)` |
 

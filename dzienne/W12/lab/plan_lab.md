@@ -80,6 +80,11 @@ code .
 - Szybcy studenci: Ćwiczenie 3 rozszerzenie (sekcja "Rozszerzenie") + własne dane
 - Wolni studenci: Ćwiczenia 1 + 2 + commit podstawowy wystarczają — 3 i 4 bonusowe
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ### Typowe błędy koncepcyjne (poprawiaj natychmiast)
 - Mylenie `ttest_ind` z `ttest_rel` — zapytaj "czy to te same osoby czy różne grupy?"
 - Interpretacja p-wartości jako "prawdopodobieństwo że H₀ jest prawdą" — błąd! Popraw
@@ -92,8 +97,8 @@ code .
 
 | Problem | Przyczyna | Rozwiązanie |
 |---------|-----------|-------------|
-| `ModuleNotFoundError: No module named 'scipy'` | scipy nie jest zainstalowany w aktywnym venv | `pip install scipy` w aktywowanym środowisku |
-| `from scipy import stats` — ImportError | Uszkodzona instalacja scipy | `pip uninstall scipy && pip install scipy` |
+| `ModuleNotFoundError: No module named 'scipy'` | scipy nie jest zainstalowany w aktywnym venv | `uv pip install scipy` w aktywowanym środowisku |
+| `from scipy import stats` — ImportError | Uszkodzona instalacja scipy | `uv pip uninstall scipy && uv pip install scipy` |
 | `stats.shapiro()` — RuntimeWarning: p-value can be inaccurate for n > 5000 | Shapiro najlepszy dla n < 5000 | Użyj podpróby: `stats.shapiro(data[:200])` lub `stats.normaltest()` (D'Agostino-Pearson) |
 | `stats.ttest_ind` zwraca p=NaN | Wszystkie wartości w grupie identyczne (zerowa wariancja) | Sprawdź dane: `print(np.unique(data))`, dane muszą mieć zmienność |
 | Shapiro-Wilk zawsze odrzuca normalność na dużych próbach | Test bardzo czuły przy n > 1000 | Normalne zachowanie — patrz QQ-plot wizualnie, nie wyłącznie na p-wartość |

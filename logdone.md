@@ -168,3 +168,4 @@
 | 164 | 2026-02-22 | — | AUDYT KOŃCOWY — zaoczne S01-S10: KOMPLETNE (10/10 plan_zajec ze stenogramem i planem minutowym, 10/10 cwiczenia z sekcjami Sprawdzenie oprócz S10=prezentacje) |
 | 165 | 2026-02-22 | — | AUDYT KOŃCOWY — skrypt studenta: KOMPLETNY (8 rozdziałów, 1887 linii, 7114 słów, 71 bloków kodu Python, narzędzia zgodne z projektem) |
 | 166 | 2026-02-22 | — | AUDYT KOŃCOWY — drobne uwagi: W13 dashboard_klienci.html (4.7M) do dodania do .gitignore |
+| 167 | 2026-02-22 | — | Dodanie sekcji "### Pair programming" do 9 plików plan_lab.md: W06, W08, W09, W10, W11, W12, W13, W14, W15. Sekcja umieszczona po "Tempo grup" lub "Jak prowadzić zajęcia". Sprawdzono brak duplikatów. |

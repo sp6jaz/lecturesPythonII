@@ -53,7 +53,7 @@ Jak połączyć dwa DataFrame o tej samej strukturze (te same kolumny) jeden pod
 A) `df1.merge(df2)`
 B) `pd.join(df1, df2)`
 C) `pd.concat([df1, df2], ignore_index=True)`
-D) `df1.append(df2, columns=True)`
+D) `df1.join(df2, how='outer')`
 
 ---
 

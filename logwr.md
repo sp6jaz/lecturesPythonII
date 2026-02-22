@@ -42,3 +42,4 @@
 | 38 | 2026-02-22 | — | Utwórz materiały zaoczne S05 (spotkanie 5) łączące W09+W10: Matplotlib + Seaborn + dashboard. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: 5 ćwiczeń krok po kroku) |
 | 39 | 2026-02-22 | — | Utwórz materiały zaoczne S10 (spotkanie 10, ostatnie): prezentacje mini-projektów + podsumowanie semestru. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: rubryki oceny, checklist, ankieta) |
 | 40 | 2026-02-22 | — | Utwórz materiały zaoczne S02 (spotkanie 2) łączące W03+W04: NumPy od podstaw do zaawansowanych. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: 5 ćwiczeń krok po kroku) |
+| 41 | 2026-02-22 | — | Dodaj sekcję "Pair programming" do plan_lab.md w W06, W08-W15 (9 plików) |

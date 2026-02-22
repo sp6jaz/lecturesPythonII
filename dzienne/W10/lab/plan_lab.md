@@ -91,18 +91,23 @@ tips = pd.read_csv('tips.csv')
 - Szybcy studenci: Ćwiczenie 3 rozszerzone (sekcja "Rozszerzenie") + eksport do PDF
 - Wolni studenci: Ćwiczenia 1 + 2 + commit podstawowy wystarczają — 3 i 4 bonusowe
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ---
 
 ## Tabela rozwiązywania problemów (Troubleshooting)
 
 | Problem | Przyczyna | Rozwiązanie |
 |---------|-----------|-------------|
-| `ModuleNotFoundError: No module named 'seaborn'` | Seaborn nie jest zainstalowany w aktywnym venv | `pip install seaborn` w aktywowanym środowisku |
+| `ModuleNotFoundError: No module named 'seaborn'` | Seaborn nie jest zainstalowany w aktywnym venv | `uv pip install seaborn` w aktywowanym środowisku |
 | `sns.load_dataset('tips')` — timeout / brak danych | Brak internetu lub cache nie istnieje | Pobierz tips.csv osobno lub użyj backupu z kodu (patrz sekcja Backup powyżej) |
 | Wykresy nie wyświetlają się w VS Code | Brak `%matplotlib inline` lub nieprawidłowy backend | Dodaj `%matplotlib inline` jako pierwszą komórkę; lub użyj `plt.savefig()` i otwórz plik |
 | Wykresy nachodzą na siebie / tytuł obcięty | Brak `plt.tight_layout()` lub `constrained_layout=True` | Dodaj `plt.tight_layout()` przed `plt.show()`, lub przy `subplots()` dodaj `constrained_layout=True` |
 | `pairplot` nie mieści się w `ax=` | `pairplot` zwraca `PairGrid`, nie standardowy `Axes` | `sns.pairplot()` tworzy własną figurę — nie można go umieścić w `axes[i,j]`. Użyj `plt.show()` osobno. |
-| `TypeError: violinplot() got an unexpected keyword argument 'split'` | Starsza wersja seaborn (< 0.12) | Zaktualizuj: `pip install --upgrade seaborn` lub usuń `split=True` |
+| `TypeError: violinplot() got an unexpected keyword argument 'split'` | Starsza wersja seaborn (< 0.12) | Zaktualizuj: `uv pip install --upgrade seaborn` lub usuń `split=True` |
 | Kolory w `hue` nie działają z `violinplot` i `split=True` | `split=True` wymaga dokładnie 2 kategorii w `hue` | Upewnij się, że kolumna `hue` ma tylko 2 unikalne wartości (np. `sex`: Male/Female) |
 | `KeyError: 'day'` w groupby/pivot | Błąd: `observed=False` powoduje problemy z kategoriami | Dodaj `observed=True` do `groupby()`: `tips.groupby('day', observed=True)` |
 | Dashboard wychodzi za mały — wykresy nieczytelne | `figsize` za małe dla liczby paneli | Zwiększ `figsize`: dla 4 paneli minimum `(12, 8)`, dla 6 paneli `(16, 11)` |

@@ -101,6 +101,11 @@ CHECKLIST PORTFOLIO:
 | Notebooki lab | <3 | 3-7 | 8+ |
 | Historia commitów | <5 | 5-10 | 11+ |
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ---
 
 ## Tabela rozwiązywania problemów (Troubleshooting)

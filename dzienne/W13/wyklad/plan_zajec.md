@@ -362,7 +362,7 @@ try:
     print(f"Polars: {czas_polars:.3f}s")
     print(f"Polars {czas_pandas/czas_polars:.1f}x szybszy")
 except ImportError:
-    print("Polars nie zainstalowany — zainstaluj: pip install polars")
+    print("Polars nie zainstalowany — zainstaluj: uv pip install polars")
     print("Na 1M wierszy Polars jest typowo 5-20x szybszy niż Pandas")
 ```
 
@@ -382,7 +382,7 @@ except ImportError:
 
 > "Składnia Polars jest podobna do Pandas ale nie identyczna. Warto znać obie. Na rynku pracy — znajomość Polars to atut, nie wymóg. Znajomość Pandas — wymóg."
 
-> "Jeśli chcecie spróbować: `pip install polars`, a dokumentacja na polars.rs jest świetna."
+> "Jeśli chcecie spróbować: `uv pip install polars`, a dokumentacja na polars.rs jest świetna."
 
 ---
 

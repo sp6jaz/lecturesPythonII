@@ -92,7 +92,7 @@ df = pd.DataFrame({
 - [ ] Sprawdź, czy scipy jest zainstalowane: `python -c "from scipy import stats; print('OK')"`
 - [ ] Zweryfikuj import numpy i pandas
 - [ ] Miej gotowe rozwiązania Ćwiczenia 3 (najtrudniejsze — do podglądu gdy student utknął)
-- [ ] Upewnij się, że scipy zainstalowane w środowisku studentów: `pip install scipy` jeśli brak
+- [ ] Upewnij się, że scipy zainstalowane w środowisku studentów: `uv pip install scipy` jeśli brak
 
 ### Podczas zajęć
 - Pierwsze 5 min: sprawdź czy wszyscy mogą `from scipy import stats` bez błędu
@@ -104,14 +104,19 @@ df = pd.DataFrame({
 - Szybcy studenci: Ćwiczenie 3 rozszerzone — analiza per dział, wizualizacja boxplotów, pairplot
 - Wolni studenci: Ćwiczenia 1 + 2 + commit podstawowy wystarczają — 3 i 4 bonusowe
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ---
 
 ## Tabela rozwiązywania problemów (Troubleshooting)
 
 | Problem | Przyczyna | Rozwiązanie |
 |---------|-----------|-------------|
-| `ModuleNotFoundError: No module named 'scipy'` | scipy nie zainstalowane w aktywnym venv | `pip install scipy` w aktywowanym środowisku |
-| `from scipy import stats` — ImportError | Uszkodzona instalacja scipy | `pip install --upgrade scipy` |
+| `ModuleNotFoundError: No module named 'scipy'` | scipy nie zainstalowane w aktywnym venv | `uv pip install scipy` w aktywowanym środowisku |
+| `from scipy import stats` — ImportError | Uszkodzona instalacja scipy | `uv pip install --upgrade scipy` |
 | `stats.pearsonr()` zwraca obiekt zamiast tuple | scipy >= 1.9 zwraca `PearsonRResult` | Użyj `result.statistic` i `result.pvalue` lub rozpakuj: `r, p = stats.pearsonr(x, y)` |
 | `stats.spearmanr()` zwraca `SpearmanrResult` | Nowe API scipy >= 1.9 | `result = stats.spearmanr(x, y); rho = result.statistic; p = result.pvalue` |
 | `df.groupby('dział')['wynagrodzenie'].agg(...)` — FutureWarning | Kategoryczne kolumny z `observed=False` | Dodaj `observed=True`: `df.groupby('dział', observed=True)` |

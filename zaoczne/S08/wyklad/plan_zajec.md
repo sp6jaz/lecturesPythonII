@@ -372,7 +372,7 @@ try:
     print(f"Polars: {czas_polars:.3f}s")
     print(f"Polars {czas_pandas/czas_polars:.1f}x szybszy")
 except ImportError:
-    print("Polars nie zainstalowany — pip install polars")
+    print("Polars nie zainstalowany — uv pip install polars")
     print("Na 1M wierszy Polars jest typowo 5-20x szybszy")
 ```
 
@@ -424,7 +424,7 @@ except ImportError:
 |---------|-------------|
 | `ModuleNotFoundError: sklearn` | `%pip install scikit-learn` w notebooku lub `uv pip install scikit-learn` w terminalu |
 | `ModuleNotFoundError: plotly` | `%pip install plotly` w notebooku lub `uv pip install plotly` w terminalu |
-| Wykres Plotly nie wyświetla się w Jupyter | Sprawdź: `pip install "plotly>=5.0" nbformat`, zrestartuj kernel |
+| Wykres Plotly nie wyświetla się w Jupyter | Sprawdź: `uv pip install "plotly>=5.0" nbformat`, zrestartuj kernel |
 | KMeans labels inne niż w przykładzie | Normalne — kolejność klastrów nie jest deterministyczna, ale zawartość jest ta sama |
-| `fig.show()` otwiera przeglądarkę zamiast Jupyter | Zainstaluj: `pip install jupyter nbformat`, zrestartuj kernel |
+| `fig.show()` otwiera przeglądarkę zamiast Jupyter | Zainstaluj: `uv pip install jupyter nbformat`, zrestartuj kernel |
 | R² ujemne | Model gorszy niż baseline — sprawdź czy nie zamieniłeś X i y |

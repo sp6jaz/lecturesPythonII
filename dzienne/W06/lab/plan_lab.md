@@ -48,6 +48,11 @@ Po tym laboratorium osoba studiująca:
 - Podpowiadaj nazwy metod, nie rozwiązania
 - Najszybsi mogą pomóc wolniejszym
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ### Najczęstsze problemy
 
 | Problem | Rozwiązanie |

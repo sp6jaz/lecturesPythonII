@@ -101,6 +101,11 @@ code .
 - Szybcy studenci: Ćwiczenie 3 rozszerzenie — pipeline z wieloma krokami AI
 - Wolni studenci: Ćwiczenia 1 + 2 + commit podstawowy wystarczają
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ---
 
 ## Tabela rozwiązywania problemów (Troubleshooting)

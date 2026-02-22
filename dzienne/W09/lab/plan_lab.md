@@ -46,6 +46,11 @@
 - Ćwiczenie 4 kończy się commitem PNG + notebook
 - Bez commita = bez zaliczenia ćwiczenia
 
+### Pair programming
+- Studenci mogą pracować w parach: **pilot** (pisze kod) + **navigator** (czyta instrukcję, podpowiada, sprawdza)
+- Co 15-20 minut zamiana ról
+- Pair programming zmniejsza frustrację i przyspiesza naukę — zachęcaj, ale nie wymuszaj
+
 ---
 
 ## Ścieżka prowadzenia — co mówić

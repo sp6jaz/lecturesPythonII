@@ -1007,11 +1007,153 @@ df['hojnosc'] = np.where(
 )
 ```
 
+### 4.15 Brakujące wartości (NaN)
+
+W realnych danych **zawsze** czegoś brakuje. Pandas oznacza braki jako `NaN` (Not a Number).
+
+```python
+# Diagnoza
+df.isna().sum()           # ile braków w każdej kolumnie
+df.info()                 # non-null count per kolumna
+df.isna().any(axis=1).sum()  # ile wierszy ma jakikolwiek brak
+
+# Usuwanie wierszy z brakami
+df.dropna()                    # usuń wiersze z jakimkolwiek NaN
+df.dropna(subset=['cena'])     # usuń tylko gdy brak w kolumnie 'cena'
+df.dropna(thresh=3)            # zachowaj wiersze z >= 3 wartości
+
+# Uzupełnianie braków
+df['cena'].fillna(0)                       # stała wartość
+df['cena'].fillna(df['cena'].mean())       # średnia
+df['cena'].fillna(df['cena'].median())     # mediana (odporniejsza na outliers)
+df['cena'].fillna(method='ffill')          # wartość z poprzedniego wiersza
+```
+
+**Kiedy `dropna`, kiedy `fillna`?**
+- `dropna` — gdy braków jest mało (< 5%) i nie zniekształci to analizy
+- `fillna(median)` — gdy braki w danych liczbowych, nie chcemy tracić wierszy
+- `fillna('Brak')` — gdy brakuje kategorii, chcemy zachować wiersz
+
+### 4.16 Duplikaty
+
+```python
+# Diagnoza
+df.duplicated().sum()              # ile pełnych duplikatów
+df.duplicated(subset=['email'])    # duplikaty wg jednej kolumny
+
+# Usuwanie
+df.drop_duplicates()                           # pełne duplikaty
+df.drop_duplicates(subset=['email'])           # wg wybranej kolumny
+df.drop_duplicates(subset=['email'], keep='last')  # zachowaj ostatni
+```
+
+### 4.17 Konwersja typów
+
+```python
+# Zmiana typu
+df['id'] = df['id'].astype(int)
+df['cena'] = df['cena'].astype(float)
+
+# Bezpieczna konwersja (z obsługą błędów)
+df['cena'] = pd.to_numeric(df['cena'], errors='coerce')  # błędne → NaN
+
+# Daty
+df['data'] = pd.to_datetime(df['data'])
+df['rok'] = df['data'].dt.year
+df['miesiac'] = df['data'].dt.month
+df['dzien_tygodnia'] = df['data'].dt.day_name()
+```
+
+`errors='coerce'` — zamiast rzucać błąd na "nie wiem", zamienia na NaN. Kluczowe przy brudnych danych.
+
+### 4.18 Operacje na tekstach (str accessor)
+
+```python
+df['imie'] = df['imie'].str.lower()       # małe litery
+df['imie'] = df['imie'].str.upper()       # WIELKIE LITERY
+df['imie'] = df['imie'].str.title()       # Pierwsza Wielka
+df['imie'] = df['imie'].str.strip()       # usuń białe znaki
+df['imie'] = df['imie'].str.replace('ą', 'a')  # zamiana znaków
+
+# Wyszukiwanie
+df[df['email'].str.contains('gmail')]      # zawiera 'gmail'
+df[df['nazwa'].str.startswith('Pro')]      # zaczyna się od 'Pro'
+```
+
+### 4.19 Łączenie tabel (merge)
+
+W bazach danych dane są w wielu tabelach. `merge` łączy je po wspólnej kolumnie.
+
+```python
+# Łączenie zamówień z klientami
+wynik = pd.merge(zamowienia, klienci, on='klient_id')
+
+# Typy złączeń
+pd.merge(A, B, on='id', how='inner')   # tylko pasujące (domyślne)
+pd.merge(A, B, on='id', how='left')    # wszystko z A + pasujące z B
+pd.merge(A, B, on='id', how='right')   # wszystko z B + pasujące z A
+pd.merge(A, B, on='id', how='outer')   # wszystko z obu
+
+# Różne nazwy kolumn
+pd.merge(A, B, left_on='id_klienta', right_on='klient_id')
+```
+
+```mermaid
+graph TD
+    A[zamówienia] -->|klient_id| B[klienci]
+    A -->|produkt_id| C[produkty]
+    B --> D[Pełna analiza]
+    C --> D
+```
+
+### 4.20 Sklejanie tabel (concat)
+
+```python
+# Sklejanie pionowe (ten sam układ kolumn)
+wszystkie = pd.concat([q1, q2, q3, q4])
+
+# Sklejanie poziome (te same wiersze)
+pelne = pd.concat([dane_osobowe, dane_finansowe], axis=1)
+```
+
+`concat` = sklejanie tabel o tym samym kształcie. `merge` = łączenie tabel po kluczu.
+
+### 4.21 Grupowanie (groupby)
+
+Najpotężniejsza operacja w Pandas — wzorzec **split-apply-combine**.
+
+```python
+# Średni rachunek per dzień
+df.groupby('day')['total_bill'].mean()
+
+# Wiele funkcji naraz
+df.groupby('day')['total_bill'].agg(['mean', 'sum', 'count'])
+
+# Grupowanie po wielu kolumnach
+df.groupby(['day', 'time'])['total_bill'].mean()
+
+# Nazwana agregacja (czytelna)
+df.groupby('day').agg(
+    sredni_rachunek=('total_bill', 'mean'),
+    liczba=('total_bill', 'count'),
+    max_napiwek=('tip', 'max')
+)
+```
+
+### 4.22 Tabele przestawne (pivot_table, crosstab)
+
+```python
+# pivot_table — jak w Excelu
+pd.pivot_table(df, values='total_bill', index='day', columns='time',
+               aggfunc='mean')
+
+# crosstab — tabela krzyżowa (liczebności)
+pd.crosstab(df['day'], df['smoker'])
+```
+
 ---
 
 ## 5. Matplotlib — wizualizacja danych
-
-*(treść będzie uzupełniana)*
 
 ---
 

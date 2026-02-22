@@ -76,3 +76,24 @@
 | 72 | 2026-02-22 | — | Utworzenie W06 wykład: plan_zajec.md (stenogram loc/iloc/filtrowanie 90 min), pandas_selection_demo.ipynb (zweryfikowany), quiz_w06.md |
 | 73 | 2026-02-22 | — | Utworzenie L06 lab: plan_lab.md (instrukcja doktoranta), cwiczenia.md (loc/iloc, filtry, segmentacja) |
 | 74 | 2026-02-22 | — | Weryfikacja odpowiedzi L06 (poprawki: grupy≥4: 46, rachunki 10-20: 130, grupy 2/3: 194, Sob+obiad+>20: 38) + skrypt 4.10-4.14 |
+| 75 | 2026-02-22 | 13:00 | Analiza struktury kursu, wytycznych i W06 jako wzorca |
+| 76 | 2026-02-22 | 13:10 | Weryfikacja numeryczna wszystkich danych (dataset e-commerce, merge/groupby/pivot) |
+| 77 | 2026-02-22 | 13:20 | Utworzenie quiz_w08.md — 5 pytań (2 powtórki W07, 3 nowe) z tabelą odpowiedzi |
+| 78 | 2026-02-22 | 13:25 | Utworzenie plan_zajec.md — plan 90 min z pełnym stenogramem (merge/concat/groupby/pivot_table) |
+| 79 | 2026-02-22 | 13:30 | Utworzenie pandas_merge_demo.ipynb — 13 komórek, zweryfikowano wykonanie |
+| 80 | 2026-02-22 | 13:35 | Utworzenie plan_lab.md — instrukcja dla prowadzącego + tabela troubleshooting |
+| 81 | 2026-02-22 | 13:38 | Utworzenie cwiczenia.md — 4 ćwiczenia z sekcjami Sprawdzenie i zweryfikowanymi liczbami |
+| 82 | 2026-02-22 | 13:42 | Weryfikacja notebooka (nbconvert --execute), skasowanie executed_test.ipynb |
+| 83 | 2026-02-22 | 13:45 | Weryfikacja wszystkich 13 asercji numerycznych — wszystkie zaliczone |
+| 84 | 2026-02-22 | 13:50 | Eksploracja struktury W06 (plan_zajec.md, quiz_w06.md, cwiczenia.md) jako wzorzec |
+| 85 | 2026-02-22 | 13:55 | Projektowanie i weryfikacja syntetycznego brudnego datasetu HR (30 wierszy, 5 duplikatów, NaN, złe typy, brudny tekst) |
+| 86 | 2026-02-22 | 14:00 | Obliczenie i weryfikacja wszystkich numerycznych odpowiedzi do ćwiczeń (Python assertions) |
+| 87 | 2026-02-22 | 14:05 | Utworzenie plan_zajec.md W07 — 90 min stenogram (isna/fillna/dropna, duplicated, astype, str.*) |
+| 88 | 2026-02-22 | 14:10 | Utworzenie quiz_w07.md — 5 pytań (2 powtórki W06, 3 nowe o czyszczeniu) |
+| 89 | 2026-02-22 | 14:15 | Utworzenie plan_lab.md W07 — instrukcja dla doktoranta, tabela troubleshooting (12 błędów) |
+| 90 | 2026-02-22 | 14:20 | Utworzenie cwiczenia.md W07 — 4 ćwiczenia z sekcjami Sprawdzenie i zweryfikowanymi odpowiedziami |
+| 91 | 2026-02-22 | 14:25 | Utworzenie pandas_cleaning_demo.ipynb — 19 komórek, pełny pipeline czyszczenia |
+| 92 | 2026-02-22 | 14:30 | Wykonanie notebooka (nbconvert --execute) — sukces bez błędów, skasowanie executed_test.ipynb |
+| 93 | 2026-02-22 | 14:35 | Weryfikacja i korekta odpowiedzi numerycznych (po_2021: 10, wynagrodzenie>6000: 7, mediana po dedup: 5100) |
+| 94 | 2026-02-22 | 14:40 | Kompletna weryfikacja 20 asercji numerycznych — wszystkie zaliczone po poprawkach |
+| 95 | 2026-02-22 | — | Aktualizacja skryptu studenta: 4.15-4.22 (NaN, duplikaty, typy, stringi, merge, concat, groupby, pivot) |

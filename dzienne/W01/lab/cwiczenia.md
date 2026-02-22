@@ -356,6 +356,68 @@ print(f"Odchylenie standardowe: {dane.std():.2f}")
 
 ---
 
+---
+
+## Ćwiczenie 6: Struktura repozytorium na cały semestr (5 min)
+
+### Cel
+Przygotuj repozytorium na pracę przez cały semestr — foldery na laboratoria + udostępnienie prowadzącemu.
+
+### Krok 1 — Utwórz foldery na wszystkie laboratoria
+
+```bash
+cd ~/python2-lab
+
+# Utwórz foldery na każde laboratorium + projekt
+mkdir -p lab01 lab02 lab03 lab04 lab05 lab06 lab07 lab08 lab09 lab10 lab11 lab12 lab13 lab14 projekt
+```
+
+### Krok 2 — Przenieś dotychczasowe pliki
+
+```bash
+# Przenieś pliki z L01 do lab01/
+mv hello_data.py lab01/
+mv notebook_test.ipynb lab01/
+```
+
+### Krok 3 — Commituj strukturę
+
+```bash
+git add .
+git commit -m "L01: struktura repozytorium na cały semestr"
+git push
+```
+
+### Krok 4 — Udostępnij prowadzącemu
+
+**Opcja A (zalecane) — Repozytorium publiczne:**
+Twoje repo jest już publiczne — prowadzący wchodzi na:
+```
+https://github.com/TWÓJ-LOGIN/python2-lab
+```
+
+**Opcja B — Repozytorium prywatne:**
+1. Na GitHubie: otwórz repozytorium → **Settings** → **Collaborators**
+2. Kliknij **Add people**
+3. Wpisz login: **sp6jaz**
+4. Prowadzący zaakceptuje zaproszenie
+
+### Krok 5 — Wyślij link do repozytorium
+
+Wyślij link do swojego repozytorium na Moodle (zadanie "Link do repo") lub bezpośrednio na email prowadzącego. Format:
+
+```
+Imię Nazwisko — https://github.com/TWÓJ-LOGIN/python2-lab
+```
+
+### Sprawdzenie ✅
+
+- Foldery lab01/ - lab14/ + projekt/ istnieją w repo
+- Prowadzący (sp6jaz) ma dostęp do repozytorium
+- Link do repo wysłany
+
+---
+
 ## Podsumowanie
 
 Po dzisiejszych zajęciach masz:
@@ -364,5 +426,21 @@ Po dzisiejszych zajęciach masz:
 - ✅ Repozytorium z README.md (profesjonalnie sformatowanym)
 - ✅ Środowisko wirtualne z pakietami
 - ✅ Działający skrypt .py i notebook .ipynb
+- ✅ Strukturę folderów na cały semestr
+- ✅ Prowadzący ma dostęp do Twojego repo
+
+### Workflow na każde następne laboratorium
+
+```
+1. cd ~/python2-lab
+2. source .venv/bin/activate
+3. Otwórz VS Code: code .
+4. Pracuj w folderze labXX/
+5. Commituj po KAŻDYM ćwiczeniu
+6. git push na koniec zajęć
+7. Sprawdź na GitHubie czy wszystko widać
+```
+
+Pełna instrukcja: **jak_pracowac.md** (do pobrania z Moodle)
 
 **Na następnych zajęciach:** zaczynamy pracę z biblioteką NumPy — podstawą analizy danych w Pythonie.

@@ -24,9 +24,10 @@ Po tym wykładzie osoba studiująca:
 | 0:35-0:50 | **MATERIAŁ 3** | Markdown + Mermaid — dokumentacja jak profesjonalista | Live coding |
 | 0:50-1:00 | **PRZERWA** | 10 minut | — |
 | 1:00-1:15 | **MATERIAŁ 4** | VS Code + uv + venv — narzędzia kursu | Live coding |
-| 1:15-1:25 | **MATERIAŁ 5** | Jupyter Notebook — krótki pokaz | Live demo |
-| 1:25-1:35 | **AKTYWNOŚĆ** | Mini-ćwiczenie: napisz README.md w Markdown | Studenci piszą |
-| 1:35-1:45 | **PODSUMOWANIE** | 3 bullet points, co na lab, zadanie domowe | Rozmowa |
+| 1:15-1:20 | **MATERIAŁ 5** | Jupyter Notebook — krótki pokaz | Live demo |
+| 1:20-1:30 | **MATERIAŁ 6** | Jak pracujemy przez semestr: repo, workflow, udostępnianie | Pokaz + jak_pracowac.md |
+| 1:30-1:38 | **AKTYWNOŚĆ** | Mini-ćwiczenie: napisz README.md w Markdown | Studenci piszą |
+| 1:38-1:45 | **PODSUMOWANIE** | 3 bullet points, co na lab, zadanie domowe | Rozmowa |
 
 ---
 
@@ -250,7 +251,39 @@ print(f"Średnia: {dane.mean()}")
 
 ---
 
-### 1:25-1:35 — AKTYWNOŚĆ: mini-ćwiczenie
+### 1:20-1:30 — MATERIAŁ 6: Jak pracujemy przez cały semestr
+
+> "Zanim przejdziemy do ćwiczenia — jedna ważna rzecz. Pokażę wam jak będziecie pracować przez cały semestr. To jest wasz workflow na każde laboratorium."
+
+**[Wyświetl na projektorze `jak_pracowac.md` — kluczowe punkty]**
+
+> "Przez cały semestr pracujecie w JEDNYM repozytorium na GitHubie. Jedno repo — wiele folderów. Folder na każde lab."
+
+```
+python2-lab/
+├── README.md          ← wasza wizytówka
+├── .gitignore
+├── lab01/             ← folder per laboratorium
+├── lab02/
+├── ...
+└── projekt/           ← mini-projekt (pod koniec semestru)
+```
+
+> "Workflow na każdych zajęciach jest prosty: otwierasz VS Code, aktywujesz venv, tworzysz notebook w folderze labXX, rozwiązujesz ćwiczenia, commitujesz po KAŻDYM ćwiczeniu — nie na koniec! — i pushesz na GitHub."
+
+> "Commity po każdym ćwiczeniu — dlaczego? Bo ja widzę waszą historię. Jeden commit z wszystkim na koniec mówi mi: 'student skopiował na koniec'. Pięć commitów mówi: 'student pracował krok po kroku'. Różnica w ocenie."
+
+> "Ja mam wgląd do waszych repozytoriów przez cały semestr. Repozytorium publiczne — wchodzę i widzę. Albo prywatne — dodajecie mnie jako collaboratora. Login na GitHubie: **sp6jaz**."
+
+> "Notebooki przed commitem: uruchamiacie Restart & Run All — żeby wyniki były widoczne. GitHub renderuje `.ipynb` — ja widzę wasz kod, wyniki i wykresy w przeglądarce, bez uruchamiania."
+
+> "Dokumentacja: README.md w głównym katalogu — kto jesteś, spis laboratoriów. README.md w projekcie — pytanie badawcze, opis danych, wnioski. Markdown znacie — właśnie się go uczyliście."
+
+> "Pełna instrukcja jest w pliku **jak_pracowac.md** — dostaniecie ją na Moodle. Przeczytajcie w domu, wróci do was na każdym laboratorium."
+
+---
+
+### 1:30-1:38 — AKTYWNOŚĆ: mini-ćwiczenie
 
 > "Czas na was. Weźcie kartkę — albo otwórzcie notatnik na telefonie — i napiszcie w Markdown krótki opis siebie. 5 minut."
 

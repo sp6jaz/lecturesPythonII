@@ -36,8 +36,9 @@ Po tym laboratorium osoba studiująca:
 | 0:45-0:55 | **PRZERWA** | 10 minut | — |
 | 0:55-1:15 | **ĆW. 3** | Markdown: napisz README.md, podgląd w VS Code | Kreatywne |
 | 1:15-1:30 | **ĆW. 4** | VS Code + venv + pierwszy skrypt .py | Weryfikacja środowiska |
-| 1:30-1:40 | **ĆW. 5** | Jupyter Notebook w VS Code — test | Szybki test |
-| 1:40-1:45 | **PODSUMOWANIE** | Sprawdź kto skończył, odpowiedz na pytania | Zbierz feedback |
+| 1:25-1:30 | **ĆW. 5** | Jupyter Notebook w VS Code — test | Szybki test |
+| 1:30-1:38 | **ĆW. 6** | Struktura repo na semestr + udostępnienie prowadzącemu | Krok po kroku |
+| 1:38-1:45 | **PODSUMOWANIE** | Sprawdź kto skończył, zbierz linki do repo | Zbierz feedback |
 
 ---
 
@@ -235,17 +236,39 @@ uv pip install ipykernel
 
 ---
 
-### 1:40-1:45 — PODSUMOWANIE (5 min)
+### 1:30-1:38 — ĆWICZENIE 6: Struktura repo + udostępnienie (8 min)
+
+**Cel:** Każdy student ma strukturę folderów na cały semestr i prowadzący ma wgląd w repo.
+
+**Co robisz:**
+1. Pokaż jak utworzyć foldery `lab01` - `lab14` + `projekt`
+2. Pokaż jak dodać prowadzącego jako collaboratora (Settings → Collaborators → Add → **sp6jaz**)
+3. **Zbierz linki do repozytoriów** — niech studenci wpiszą je na tablicy/czacie Moodle/kartce:
+   ```
+   Imię Nazwisko — https://github.com/LOGIN/python2-lab
+   ```
+
+**Ważne:**
+- Jeśli repo jest publiczne — wystarczy link, nie trzeba dodawać collaboratora
+- Jeśli prywatne — MUSZĄ dodać `sp6jaz`
+- **Zbierz linki!** Bez linku nie masz wglądu i nie możesz oceniać
+
+---
+
+### 1:38-1:45 — PODSUMOWANIE (7 min)
 
 **Co mówisz:**
-> "Podsumujmy. Dzisiaj zainstalowaliście narzędzia, stworzyliście pierwsze repozytorium na GitHubie, napisaliście dokument w Markdown i uruchomiliście pierwszy skrypt Pythona. To fundament — na kolejnych zajęciach zaczynamy analizę danych z NumPy."
+> "Podsumujmy. Dzisiaj zainstalowaliście narzędzia, stworzyliście repozytorium na GitHubie, napisaliście dokumentację w Markdown, uruchomiliście skrypt i Jupytera, przygotowaliście strukturę na cały semestr i udostępniliście mi repo. To fundament — na kolejnych zajęciach zaczynamy analizę danych z NumPy."
+
+> "Plik **jak_pracowac.md** znajdziecie na Moodle — przeczytajcie go w domu. Opisuje jak ma wyglądać wasza praca na KAŻDYM laboratorium: aktywacja venv, notebook w folderze labXX, commit po ćwiczeniu, push na GitHub."
 
 **Sprawdź:**
 - Kto ma wszystko działające? (ręce w górę)
+- Kto wysłał link do repo?
 - Kto ma problemy? (pomagam po zajęciach lub umów się na konsultacje)
 
 **Zadanie domowe:**
-> "Na następne zajęcia: upewnijcie się, że środowisko działa. Jeśli pracujecie na laptopie — przetestujcie w domu. Jeśli macie problemy — napiszcie na Moodle."
+> "Na następne zajęcia: upewnijcie się, że środowisko działa. Przetestujcie w domu. Przeczytajcie jak_pracowac.md. Jeśli macie problemy — napiszcie na Moodle."
 
 ---
 

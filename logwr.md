@@ -27,3 +27,18 @@
 | 23 | 2026-02-22 | — | Pomysł: proste apki na telefon do ćwiczenia zagadnień przez studentów. Co o tym myślisz? |
 | 24 | 2026-02-22 | — | Zostawiamy apki na później, robimy dalej materiały |
 | 25 | 2026-02-22 | — | Repozytorium dla studentów + harmonogram publikacji (materiały widoczne tydzień po tygodniu) |
+| 26 | 2026-02-22 | 13:00 | Utwórz kompletne materiały W08: Pandas — łączenie i agregacja (merge, join, groupby, pivot). 5 plików: plan_zajec.md, quiz_w08.md, plan_lab.md, cwiczenia.md, pandas_merge_demo.ipynb |
+| 27 | 2026-02-22 | 13:50 | Utwórz kompletne materiały W07: Pandas — czyszczenie danych (NaN, duplikaty, typy, str). 5 plików: plan_zajec.md, quiz_w07.md, plan_lab.md, cwiczenia.md, pandas_cleaning_demo.ipynb |
+| 28 | 2026-02-22 | 15:00 | Utwórz wszystkie materiały W09: Matplotlib — podstawy. 5 plików: plan_zajec.md (stenogram), quiz_w09.md, plan_lab.md, cwiczenia.md, matplotlib_demo.ipynb. Weryfikacja nbconvert. |
+| 29 | 2026-02-22 | 14:05 | Utwórz kompletne materiały W12: Statystyka — rozkłady i testy hipotez. 5 plików: plan_zajec.md (stenogram 90min), quiz_w12.md, plan_lab.md, cwiczenia.md, hypothesis_demo.ipynb. Weryfikacja nbconvert. |
+| 30 | 2026-02-22 | — | Utwórz wszystkie materiały W14: LLM i AI w analizie danych. 5 plików: plan_zajec.md (stenogram 90min), quiz_w14.md, plan_lab.md, cwiczenia.md, llm_demo.ipynb (bez kluczy API). Weryfikacja nbconvert. |
+| 31 | 2026-02-22 | — | Kontynuuj pracę — dokończ wszystkie brakujące materiały (W15, zaoczne S01-S10, skrypt 7-8) |
+| 32 | 2026-02-22 | — | Dodaj do W01 instrukcje: jak realizować lab, tworzyć .md, korzystać z Gita/GitHuba, zamieszczać kody/dokumentację, udostępniać prowadzącemu |
+| 33 | 2026-02-22 | — | Pamiętaj o skrypcie studenta — uzupełnij brakujące rozdziały |
+| 34 | 2026-02-22 | — | Na koniec sprawdź spójność i zgodność z założeniami |
+| 35 | 2026-02-22 | — | Utwórz materiały zaoczne S01 (spotkanie 1) — łączy W01+W02: plan_zajec.md (wykład 90min) + cwiczenia.md (lab 90min) |
+| 36 | 2026-02-22 | — | Utwórz materiały zaoczne S03 (spotkanie 3) — łączy W05+W06: plan_zajec.md (wykład 90min) + cwiczenia.md (lab 90min). Pandas intro + selekcja/filtrowanie |
+| 37 | 2026-02-22 | — | Utwórz materiały zaoczne S08 (spotkanie 8) odpowiadające W13: scikit-learn, Plotly, Polars. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: KMeans, regresja, Plotly, mini-projekt) |
+| 38 | 2026-02-22 | — | Utwórz materiały zaoczne S05 (spotkanie 5) łączące W09+W10: Matplotlib + Seaborn + dashboard. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: 5 ćwiczeń krok po kroku) |
+| 39 | 2026-02-22 | — | Utwórz materiały zaoczne S10 (spotkanie 10, ostatnie): prezentacje mini-projektów + podsumowanie semestru. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: rubryki oceny, checklist, ankieta) |
+| 40 | 2026-02-22 | — | Utwórz materiały zaoczne S02 (spotkanie 2) łączące W03+W04: NumPy od podstaw do zaawansowanych. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: 5 ćwiczeń krok po kroku) |

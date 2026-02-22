@@ -121,3 +121,50 @@
 | 117 | 2026-02-22 | — | Utworzenie W11: plan_zajec.md (stenogram stat. opisowa), stats_demo.ipynb (zweryfikowany), quiz_w11.md |
 | 118 | 2026-02-22 | — | Utworzenie L11: plan_lab.md (14 troubleshooting) + cwiczenia.md (opisowe, korelacja, HR, outliers) |
 | 119 | 2026-02-22 | — | Aktualizacja skryptu studenta: 6.1-6.8 (opisowe, korelacja, skośność, outliers, normalność, t-test, A/B, chi2) |
+| 120 | 2026-02-22 | — | Utworzenie W14/wyklad/plan_zajec.md — stenogram 90min (LLM, tokeny, temperatura, API, generowanie kodu, interpretacja, etyka) |
+| 121 | 2026-02-22 | — | Utworzenie W14/wyklad/quiz_w14.md — 5 pytań (2×W13 scikit/Plotly + 3×W14 temperatura/API/RODO) |
+| 122 | 2026-02-22 | — | Utworzenie W14/lab/plan_lab.md — instrukcja doktoranta, 10 wpisów troubleshooting, klucz oceniania |
+| 123 | 2026-02-22 | — | Utworzenie W14/lab/cwiczenia.md — 4 ćwiczenia (prompt engineering, ocena kodu AI, analiza z AI, etyka+commit) |
+| 124 | 2026-02-22 | — | Utworzenie W14/wyklad/llm_demo.ipynb — 32 komórki, mock API (OpenAI+Anthropic), structured output, 9 sekcji |
+| 125 | 2026-02-22 | — | Weryfikacja nbconvert --execute W14: sukces, 0 błędów, executed_test.ipynb usunięty |
+| 126 | 2026-02-22 | — | Utworzenie W13/wyklad/plan_zajec.md — stenogram 90min (scikit-learn KMeans/regresja, Plotly interaktywne, Polars szybki DF) |
+| 127 | 2026-02-22 | — | Utworzenie W13/wyklad/quiz_w13.md — 5 pytań + klucz odpowiedzi |
+| 128 | 2026-02-22 | — | Utworzenie W13/wyklad/advanced_libs_demo.ipynb — zweryfikowany (nbconvert OK), dashboard_klienci.html wygenerowany |
+| 129 | 2026-02-22 | — | Utworzenie W13/lab/plan_lab.md — instrukcja doktoranta + troubleshooting |
+| 130 | 2026-02-22 | — | Utworzenie W13/lab/cwiczenia.md — ćwiczenia scikit-learn, Plotly, Polars |
+| 131 | 2026-02-22 | — | Utworzenie W15/wyklad/plan_zajec.md — stenogram 90min (prezentacje projektów, roadmapa, egzamin, ankieta) |
+| 132 | 2026-02-22 | — | Utworzenie W15/lab/plan_lab.md — instrukcja doktoranta (prezentacje + weryfikacja portfolio) |
+| 133 | 2026-02-22 | — | Utworzenie W15/lab/cwiczenia.md — rubryki oceny prezentacji (0-10), portfolio GitHub (0-5), ocena koleżeńska |
+| 134 | 2026-02-22 | — | Utworzenie W01/wyklad/jak_pracowac.md — kompletny przewodnik studenta (repo, workflow, commity, .md, GitHub, udostępnianie) |
+| 135 | 2026-02-22 | — | Aktualizacja W01/wyklad/plan_zajec.md — dodanie sekcji "Jak pracujemy przez semestr" (MATERIAŁ 6) |
+| 136 | 2026-02-22 | — | Aktualizacja W01/lab/cwiczenia.md — dodanie Ćw. 6 (struktura repo + udostępnienie prowadzącemu sp6jaz) |
+| 137 | 2026-02-22 | — | Aktualizacja W01/lab/plan_lab.md — Ćw. 6 w planie + zbieranie linków do repo |
+| 138 | 2026-02-22 | — | Uzupełnienie skryptu studenta: rozdział 7 (scikit-learn, Plotly, Polars — 7.1-7.7) |
+| 139 | 2026-02-22 | — | Uzupełnienie skryptu studenta: rozdział 8 (LLM i AI — 8.1-8.11) |
+| 140 | 2026-02-22 | — | Uzupełnienie skryptu studenta: sekcja 1.3 (jak pracować na laboratoriach), renumeracja 1.4→1.5→1.6 |
+| 141 | 2026-02-22 | — | Uruchomienie 10 równoległych agentów: materiały zaoczne S01-S10 (wyklad + lab) |
+| 142 | 2026-02-22 | — | Wczytanie wytycznepodstawowe.md, ramy_dydaktyczne.md, materiałów W01+W02 (dzienne) jako wzorca |
+| 143 | 2026-02-22 | — | Utworzenie zaoczne/S01/wyklad/plan_zajec.md — plan 90 min + stenogram (WOW demo, KOP, Git, Markdown, VS Code/uv/Jupyter, pipeline, typy danych, workflow semestralny) |
+| 144 | 2026-02-22 | — | Utworzenie zaoczne/S01/lab/cwiczenia.md — 5 ćwiczeń (instalacja, Git+GitHub+sp6jaz, README Markdown, venv+hello_data.py, Jupyter+tips dataset+wykres) |
+| 145 | 2026-02-22 | — | Wczytanie materiałów W05 (Pandas intro) i W06 (selekcja/filtrowanie) jako źródła dla S03 |
+| 146 | 2026-02-22 | — | Weryfikacja numeryczna wszystkich odpowiedzi do ćwiczeń S03 (tips dataset, pensje, segmentacja pd.cut) |
+| 147 | 2026-02-22 | — | Utworzenie zaoczne/S03/wyklad/plan_zajec.md — plan 90 min + stenogram (Series/DF, read_csv, EDA, loc/iloc, filtrowanie, isin/between/query, sortowanie, pd.cut) |
+| 148 | 2026-02-22 | — | Utworzenie zaoczne/S03/lab/cwiczenia.md — 5 ćwiczeń (Series/DF, EDA, loc/iloc, filtrowanie biznesowe, segmentacja pd.cut) z sekcjami Sprawdzenie |
+| 149 | 2026-02-22 | — | Wczytanie materiałów W13 dziennych (plan_zajec.md, cwiczenia.md, plan_lab.md) jako bazy do S08 zaocznych |
+| 150 | 2026-02-22 | — | Utworzenie zaoczne/S08/wyklad/plan_zajec.md — plan 90 min + stenogram (scikit-learn KMeans + regresja liniowa, Plotly Express scatter/bar/line, Polars benchmark, porównanie Plotly vs Matplotlib) |
+| 151 | 2026-02-22 | — | Utworzenie zaoczne/S08/lab/cwiczenia.md — 4 ćwiczenia (KMeans segmentacja 3 segmenty, regresja liniowa R²/RMSE, Plotly scatter+bar interaktywne, mini-projekt 4 segmenty + Plotly + commit) z sekcjami Sprawdzenie |
+| 152 | 2026-02-22 | — | Wczytanie materiałów W09 (Matplotlib) i W10 (Seaborn/dashboard) dziennych jako bazy do S05 zaocznych |
+| 153 | 2026-02-22 | — | Utworzenie zaoczne/S05/wyklad/plan_zajec.md — plan 90 min + stenogram (Figure/Axes, plot/bar/barh/scatter/hist, formatowanie, legend/grid/annotate, subplots, Pandas .plot(), Seaborn barplot/boxplot/heatmap/pairplot, hue, dashboard GridSpec, eksport savefig) |
+| 154 | 2026-02-22 | — | Utworzenie zaoczne/S05/lab/cwiczenia.md — 5 ćwiczeń (Matplotlib linia/słupki/scatter, formatowanie+legenda+styl+adnotacja, subplots 2x2, Seaborn barplot/boxplot/heatmap+hue, dashboard 4-panelowy+eksport PNG+commit) z sekcjami Sprawdzenie |
+| 155 | 2026-02-22 | — | Wczytanie materiałów W15 dziennych (plan_zajec.md, plan_lab.md, cwiczenia.md) jako bazy do S10 zaocznych |
+| 156 | 2026-02-22 | — | Utworzenie zaoczne/S10/wyklad/plan_zajec.md — plan 90 min + stenogram (otwarcie/zasady, prezentacje runda 1+2, roadmapa S01-S10, ścieżki rozwoju, info egzamin ze ściągą A4) |
+| 157 | 2026-02-22 | — | Utworzenie zaoczne/S10/lab/cwiczenia.md — rubryki: prezentacja 0-10 pkt (5 kryteriów), portfolio GitHub 0-5 pkt, ocena koleżeńska (do wydruku), wymagania minimalne projektu, procedura A/B/C bez prezentacji, checklist prowadzącego, ankieta ewaluacyjna 9 pytań |
+| 158 | 2026-02-22 | — | Wczytanie materiałów W03 (NumPy podstawy) i W04 (NumPy zaawansowane) dziennych jako bazy do S02 zaocznych |
+| 159 | 2026-02-22 | — | Weryfikacja numeryczna odpowiedzi: ćw. 3 (sprzedaż sklepów, axis, broadcasting), ćw. 4 (oceny studentów, reshape), wykład (mini-ćwiczenie) |
+| 160 | 2026-02-22 | — | Korekty: powyżej 5000 zł → 6 osób (nie 5), Filip: 4 niezdane (nie 3), Galeria >400 (434), kwartały >200: 4 (cały Online) |
+| 161 | 2026-02-22 | — | Utworzenie zaoczne/S02/wyklad/plan_zajec.md — plan 90 min + stenogram (tworzenie tablic, atrybuty, indeksowanie 1D/2D, operacje wektorowe, filtrowanie boolean, axis, broadcasting, reshape, generowanie danych, statystyki opisowe) |
+| 162 | 2026-02-22 | — | Utworzenie zaoczne/S02/lab/cwiczenia.md — 5 ćwiczeń (tworzenie+atrybuty, benchmark lista vs NumPy, filtrowanie+axis+broadcasting, reshape+analiza ocen, bonus: syntetyczny dataset+statystyki+korelacje) z sekcjami Sprawdzenie |
+| 163 | 2026-02-22 | — | AUDYT KOŃCOWY — dzienne W01-W15: KOMPLETNE (15/15 plan_zajec, 15/15 plan_lab, 15/15 cwiczenia, 14/14 quiz, 14/14 notebook, W15 poprawnie bez quiz/notebook) |
+| 164 | 2026-02-22 | — | AUDYT KOŃCOWY — zaoczne S01-S10: KOMPLETNE (10/10 plan_zajec ze stenogramem i planem minutowym, 10/10 cwiczenia z sekcjami Sprawdzenie oprócz S10=prezentacje) |
+| 165 | 2026-02-22 | — | AUDYT KOŃCOWY — skrypt studenta: KOMPLETNY (8 rozdziałów, 1887 linii, 7114 słów, 71 bloków kodu Python, narzędzia zgodne z projektem) |
+| 166 | 2026-02-22 | — | AUDYT KOŃCOWY — drobne uwagi: W13 dashboard_klienci.html (4.7M) do dodania do .gitignore |

@@ -135,3 +135,26 @@ Jupyter to must-have w data science, ale kluczowe jest jak:
 4. **Jupyter Lite** — Python w przeglądarce mobilnej bez instalacji (do rozważenia później)
 
 Kluczowa zasada: 80% efektu przy 5% nakładu. Własna apka to miesiące pracy, Anki deck to godzina.
+
+---
+
+### Research: najlepsze praktyki nauczania DA z Pythonem (2026-02-22, batch 2)
+
+**Datasety biznesowe — Maven Analytics Data Playground:**
+- Coffee Shop Sales (transakcje, 3 lokalizacje, timestamps) — idealny do groupby, analiz czasowych
+- Pizza Place Sales (rok zamówień pizzy) — intuicyjny, zabawny
+- B2B Sales Pipeline (lejek sprzedażowy) — uczy analizy funnel
+- Marketing Campaign (2240 klientów, demografia) — segmentacja
+- Lepsze niż Titanic/Iris — opowiadają historię biznesową
+
+**Jupyter — wzorzec z Berkeley DS Modules:**
+- Proporcja tekst:kod = 3:1 (3 komórki Markdown na 1 komórkę Code)
+- Wyjaśniaj output NAD komórką (studenci czytają od góry)
+- Małe komórki — jedna rzecz na komórkę
+- 5 poziomów trudności: (1) uruchom gotowy kod → (2) fill-in-the-code → (3) pytania prowadzone → (4) otwarta eksploracja → (5) pełna analiza od zera
+- "Restart Kernel & Run All" — od dnia 1 uczyć powtarzalności
+
+**Pipeline — podejście question-driven (Wickham):**
+- NIE zaczynaj od wykładu "co to ETL" — zacznij od brudnego CSV
+- Studenci odkrywają potrzebę czyszczenia organicznie
+- Terminologia po doświadczeniu, nie przed nim

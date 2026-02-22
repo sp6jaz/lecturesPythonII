@@ -179,7 +179,70 @@ GitHub to nie tylko miejsce na kod — to **twoje portfolio zawodowe**. Pracodaw
 - Jeden commit = jedna logiczna zmiana
 - **Nie commituj** plików tymczasowych, `.venv/`, `__pycache__/`
 
-### 1.3 Markdown — dokumentacja projektów
+### 1.3 Jak pracować na laboratoriach
+
+Przez cały semestr pracujesz w **jednym repozytorium** na GitHubie. Prowadzący ma do niego wgląd na bieżąco.
+
+#### Struktura repozytorium
+
+```
+python2-lab/
+├── README.md              ← wizytówka (opis + spis laboratoriów)
+├── .gitignore
+├── requirements.txt
+├── lab01/                 ← folder per laboratorium
+│   └── lab01_setup.ipynb
+├── lab02/
+│   └── lab02_pipeline.ipynb
+├── ...
+└── projekt/               ← mini-projekt (koniec semestru)
+    ├── README.md
+    ├── dane.csv
+    └── analiza.ipynb
+```
+
+#### Workflow każdego laboratorium
+
+```
+1. cd ~/python2-lab && source .venv/bin/activate
+2. code .                          ← otwórz VS Code
+3. Pracuj w folderze labXX/        ← notebook z ćwiczeniami
+4. Commituj po KAŻDYM ćwiczeniu    ← nie na koniec!
+5. git push na koniec zajęć
+6. Sprawdź na GitHubie czy widać
+```
+
+#### Commitowanie — regularnie, nie na koniec
+
+```bash
+# Po ćwiczeniu 1:
+git add lab03/lab03_numpy.ipynb
+git commit -m "L03: Ćw. 1 — tworzenie tablic NumPy"
+
+# Po ćwiczeniu 2:
+git add lab03/lab03_numpy.ipynb
+git commit -m "L03: Ćw. 2 — operacje wektorowe"
+
+# Na koniec labu:
+git push
+```
+
+Prowadzący widzi Twoją historię commitów. Pięć commitów = "student pracował krok po kroku". Jeden commit z wszystkim = "student skopiował na koniec".
+
+#### Udostępnianie prowadzącemu
+
+- **Repo publiczne (zalecane):** prowadzący wchodzi pod `github.com/TWÓJ-LOGIN/python2-lab`
+- **Repo prywatne:** Settings → Collaborators → Add → login prowadzącego (**sp6jaz**)
+
+#### Przed commitem: uruchom notebook
+
+```
+Restart & Run All → Ctrl+S → git add → git commit → git push
+```
+
+GitHub renderuje `.ipynb` — prowadzący widzi kod, wyniki i wykresy w przeglądarce bez uruchamiania.
+
+### 1.4 Markdown — dokumentacja projektów
 
 #### Czym jest Markdown?
 
@@ -235,7 +298,7 @@ Każde repozytorium powinno mieć `README.md`. GitHub automatycznie wyświetla t
 3. **Użycie** — przykłady
 4. **Autor** — kto to napisał
 
-### 1.4 Mermaid — diagramy w tekście
+### 1.5 Mermaid — diagramy w tekście
 
 #### Czym jest Mermaid?
 
@@ -304,7 +367,7 @@ graph TD
 - Jupyter Notebook — z odpowiednim rozszerzeniem
 - Dokumentacja online (Notion, Confluence, itp.)
 
-### 1.5 Zasady tworzenia kodu i struktury projektu
+### 1.6 Zasady tworzenia kodu i struktury projektu
 
 #### Struktura projektu analitycznego
 
@@ -1444,10 +1507,381 @@ ci = stats.t.interval(0.95, df=len(dane)-1,
 
 ## 7. Zaawansowane biblioteki i narzędzia
 
-*(treść będzie uzupełniana)*
+W tym rozdziale poznasz trzy biblioteki, które rozszerzają możliwości analityka danych poza podstawowy zestaw NumPy/Pandas/Matplotlib.
+
+### 7.1 scikit-learn — uczenie maszynowe
+
+**scikit-learn** (sklearn) to najpopularniejsza biblioteka do uczenia maszynowego w Pythonie. Oferuje spójne API: `fit()` → `predict()` → `score()`.
+
+```python
+# Instalacja (jednorazowo)
+# uv pip install scikit-learn
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+```
+
+### 7.2 Przygotowanie danych do modelu
+
+Przed użyciem algorytmu ML dane wymagają przygotowania:
+
+```python
+import numpy as np
+import pandas as pd
+
+# Przykład: dane klientów
+df = pd.DataFrame({
+    'wiek': [25, 35, 45, 55, 30, 40, 50, 60],
+    'roczny_dochod': [30000, 55000, 75000, 90000, 40000, 65000, 80000, 95000],
+    'wydatki_miesiecznie': [1200, 2500, 3500, 4000, 1800, 3000, 3800, 4200]
+})
+
+# Wybierz cechy (features)
+X = df[['wiek', 'roczny_dochod']]
+y = df['wydatki_miesiecznie']
+
+# Podział na zbiór treningowy i testowy
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
+
+# Standaryzacja (ważne dla KMeans!)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)  # tylko transform, nie fit!
+```
+
+**Dlaczego standaryzacja?** Algorytmy oparte na odległości (KMeans, KNN) są wrażliwe na skalę. Wiek (20-60) i dochód (30000-100000) mają różne zakresy — bez standaryzacji dochód zdominuje obliczenia.
+
+### 7.3 KMeans — segmentacja (klasteryzacja)
+
+KMeans grupuje dane w `k` klastrów na podstawie podobieństwa (odległości euklidesowej).
+
+```python
+# Segmentacja klientów na 3 grupy
+kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
+kmeans.fit(X_train_scaled)
+
+# Etykiety klastrów
+labels = kmeans.labels_
+print(labels)  # np. [0, 1, 2, 0, 1, 2]
+
+# Przypisz klastry do DataFrame
+df_train = X_train.copy()
+df_train['segment'] = labels
+
+# Analiza segmentów
+print(df_train.groupby('segment').mean())
+```
+
+**Interpretacja biznesowa:** Każdy klaster to segment klientów. Np.:
+- Segment 0: młodzi, niski dochód → "studenci"
+- Segment 1: średni wiek, średni dochód → "rodziny"
+- Segment 2: starsi, wysoki dochód → "premium"
+
+### 7.4 Regresja liniowa
+
+Regresja modeluje zależność liniową: y = a·x + b.
+
+```python
+# Czy dochód przewiduje wydatki?
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Predykcja
+y_pred = model.predict(X_test)
+
+# Ocena modelu
+r2 = r2_score(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+
+print(f"R² = {r2:.3f}")       # 0-1, im bliżej 1 tym lepiej
+print(f"RMSE = {rmse:.0f} zł") # błąd w jednostkach y
+
+# Współczynniki
+print(f"Współczynniki: {model.coef_}")
+print(f"Wyraz wolny: {model.intercept_:.2f}")
+```
+
+**R² (R-kwadrat):** Jaki procent zmienności y jest wyjaśniony przez model.
+- R² = 0.85 → model wyjaśnia 85% zmienności wydatków
+- R² = 0.30 → model słaby, inne czynniki mają większy wpływ
+
+### 7.5 Plotly — interaktywne wykresy
+
+**Plotly Express** tworzy wykresy HTML z interaktywnością: hover, zoom, pan, download.
+
+```python
+# Instalacja: uv pip install plotly
+import plotly.express as px
+
+# Scatter z hover (najechanie myszką)
+fig = px.scatter(
+    df, x='wiek', y='wydatki_miesiecznie',
+    color='segment',
+    size='roczny_dochod',
+    hover_data=['roczny_dochod'],
+    title='Segmentacja klientów'
+)
+fig.show()
+
+# Wykres słupkowy
+fig = px.bar(
+    df.groupby('segment')['wydatki_miesiecznie'].mean().reset_index(),
+    x='segment', y='wydatki_miesiecznie',
+    title='Średnie wydatki per segment',
+    color='segment'
+)
+fig.show()
+
+# Wykres liniowy
+fig = px.line(
+    df_monthly, x='miesiac', y='przychod',
+    title='Trend przychodów',
+    markers=True
+)
+fig.show()
+```
+
+**Plotly vs Matplotlib:**
+
+| Cecha | Matplotlib | Plotly |
+|-------|-----------|--------|
+| Typ | Statyczny (PNG/PDF) | Interaktywny (HTML) |
+| Hover | Brak | Wbudowany |
+| Zoom | Brak | Wbudowany |
+| Nadaje się do | Raportów PDF, publikacji | Dashboardów, prezentacji |
+| Rozmiar pliku | Mały (PNG) | Duży (HTML z JS) |
+
+### 7.6 Polars — szybszy DataFrame
+
+**Polars** to alternatywa dla Pandas — napisana w Rust, znacznie szybsza na dużych zbiorach danych.
+
+```python
+# Instalacja: uv pip install polars
+import polars as pl
+
+# Wczytanie danych
+df_pl = pl.read_csv('dane.csv')
+
+# Podstawowe operacje (składnia łańcuchowa)
+wynik = (
+    df_pl
+    .filter(pl.col('status') == 'zrealizowane')
+    .group_by('kategoria')
+    .agg([
+        pl.col('wartosc').sum().alias('przychod'),
+        pl.col('wartosc').count().alias('zamowienia'),
+        pl.col('wartosc').mean().alias('sr_wartosc')
+    ])
+    .sort('przychod', descending=True)
+)
+print(wynik)
+```
+
+**Kiedy Polars zamiast Pandas?**
+- Dane > 1 mln wierszy → Polars znacznie szybszy
+- Pipeline produkcyjny z ETL → Polars stabilniejszy
+- Dane < 100k wierszy → Pandas wystarczy (większy ekosystem, więcej tutoriali)
+
+### 7.7 Podsumowanie
+
+| Biblioteka | Zastosowanie | Kluczowe funkcje |
+|-----------|-------------|-----------------|
+| scikit-learn | Uczenie maszynowe | train_test_split, KMeans, LinearRegression |
+| Plotly | Interaktywne wykresy | px.scatter, px.bar, px.line, fig.show() |
+| Polars | Szybkie DataFrames | pl.read_csv, filter, group_by, agg |
 
 ---
 
 ## 8. LLM i AI w analizie danych
 
-*(treść będzie uzupełniana)*
+Modele językowe (LLM) to narzędzia, które potrafią generować tekst — w tym kod Python, interpretacje wyników i raporty. Dla analityka danych to potężny asystent, ale wymagający krytycznego myślenia.
+
+### 8.1 Czym jest LLM?
+
+**Large Language Model** (duży model językowy) to sieć neuronowa wytrenowana na ogromnych zbiorach tekstu. Generuje odpowiedzi token po tokenie — przewidując statystycznie najbardziej prawdopodobny następny fragment.
+
+Kluczowe modele (2025):
+- **GPT-4o** (OpenAI) — silny w kodzie i matematyce
+- **Claude Sonnet/Opus** (Anthropic) — silny w długich dokumentach i śledzeniu instrukcji
+- **Gemini** (Google) — integracja z Google Workspace
+
+### 8.2 Tokeny
+
+LLM nie widzi liter ani słów — widzi **tokeny** (fragmenty tekstu, zwykle 3-4 znaki).
+
+- "Data analysis" ≈ 3 tokeny
+- "Analiza danych" ≈ 5 tokenów (polski = więcej tokenów)
+- API jest rozliczane per token (input + output)
+- Modele mają limit kontekstu: GPT-4o ~ 128k tokenów, Claude ~ 200k tokenów
+
+### 8.3 Temperatura
+
+Parametr kontrolujący losowość odpowiedzi:
+
+| Temperatura | Zachowanie | Kiedy używać |
+|-------------|-----------|-------------|
+| 0.0–0.2 | Deterministyczny, powtarzalny | Generowanie kodu, SQL, obliczenia |
+| 0.3–0.7 | Zrównoważony | Wyjaśnienia, raporty, interpretacje |
+| 1.0–1.5 | Kreatywny, zróżnicowany | Brainstorming, nazwy, copywriting |
+
+**Zasada:** W analizie danych — zawsze niska temperatura dla kodu i obliczeń.
+
+### 8.4 Wywołanie API z Pythona
+
+Struktura wywołania jest podobna w obu głównych API:
+
+```python
+# === OpenAI ===
+from openai import OpenAI
+client = OpenAI()  # czyta OPENAI_API_KEY ze zmiennych środowiskowych
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "system", "content": "Jesteś asystentem analityka danych."},
+        {"role": "user", "content": "Napisz funkcję do wczytania CSV i wypisania info()."}
+    ],
+    temperature=0.1,
+    max_tokens=500
+)
+answer = response.choices[0].message.content
+```
+
+```python
+# === Anthropic ===
+import anthropic
+client = anthropic.Anthropic()  # czyta ANTHROPIC_API_KEY
+
+message = client.messages.create(
+    model="claude-sonnet-4-5",
+    max_tokens=500,
+    system="Jesteś asystentem analityka danych.",
+    messages=[
+        {"role": "user", "content": "Wyjaśnij czym jest p-wartość."}
+    ]
+)
+answer = message.content[0].text
+```
+
+**Trzy elementy wywołania:**
+1. **System message** — instrukcja "kim jest" model (persona, zasady)
+2. **User message** — Twoje pytanie/zadanie
+3. **Parametry** — model, temperatura, max_tokens
+
+### 8.5 Technika 1: Generowanie kodu
+
+Kluczem do dobrego kodu z AI jest **precyzyjny prompt**:
+
+```
+WZORZEC DOBREGO PROMPTU:
+
+KONTEKST:  Mam DataFrame `df` z kolumnami: [lista kolumn z typami]
+ZADANIE:   Napisz funkcję która: [konkretne kroki 1, 2, 3]
+FORMAT:    Zwraca: [dict / DataFrame / print]
+OGRANICZENIA: Tylko pandas i numpy. Bez zewnętrznych bibliotek.
+```
+
+**Zły prompt:** "Przeanalizuj dane sprzedażowe"
+**Dobry prompt:** Podaje kolumny, typy, konkretne zadanie, format wyjścia, ograniczenia.
+
+**Zasada:** Zawsze uruchamiaj wygenerowany kod. AI nie widzi Twoich danych — może wygenerować kod poprawny składniowo, ale logicznie błędny.
+
+### 8.6 Technika 2: Interpretacja wyników
+
+Masz wyniki analizy — prosisz AI o interpretację dla osoby nietechnicznej:
+
+```
+WZORZEC:
+Przeprowadziłem A/B test kampanii e-mailowej.
+Wyniki:
+- Wersja A (n=150): średnia = 342 PLN
+- Wersja B (n=150): średnia = 381 PLN
+- p-wartość = 0.00003
+
+Napisz interpretację dla Dyrektora Marketingu (nie-statystyka):
+1. Główny wniosek (1 zdanie)
+2. Co oznaczają liczby praktycznie
+3. Rekomendacja z uzasadnieniem finansowym
+Format: krótki raport, bez wzorów, po polsku.
+```
+
+### 8.7 Technika 3: Czyszczenie danych z AI
+
+AI jest doskonały do generowania słowników mapowania dla niejednorodnych kategorii:
+
+```python
+# Brudna kolumna: "zrealizowane", "Zrealizowane", "ZREALIZOWANE", "zrealiz."...
+# Prompt: "Napisz słownik mapujący warianty na 5 kategorii docelowych"
+
+MAPA = {
+    "zrealizowane": "zrealizowane",
+    "Zrealizowane": "zrealizowane",
+    "ZREALIZOWANE": "zrealizowane",
+    "zrealiz.": "zrealizowane",
+    # ...
+}
+
+df['status_clean'] = df['status_raw'].map(MAPA).fillna("nieznany")
+```
+
+### 8.8 Technika 4: Executive summary
+
+Zbierz wyniki analizy → podaj AI szablon → dostaniesz gotowy raport:
+
+```
+WZORZEC:
+Na podstawie wyników analizy:
+[WKLEJ KONKRETNE LICZBY]
+
+Napisz executive summary (max 150 słów):
+1. Główne osiągnięcia
+2. Obszary wymagające uwagi
+3. Trzy rekomendacje priorytetowe
+Styl: rzeczowy, zorientowany na decyzje.
+```
+
+### 8.9 Narzędzia AI dla analityka (darmowe)
+
+| Narzędzie | Dostęp | Zastosowanie |
+|-----------|--------|-------------|
+| Claude.ai | Darmowy (z limitem) | Długie dokumenty, kod, wyjaśnienia |
+| ChatGPT | Darmowy (GPT-4o mini) | Szybkie pytania, Code Interpreter |
+| GitHub Copilot | Darmowy dla studentów | Sugestie kodu w VS Code |
+| Cursor | Darmowy starter | VS Code z wbudowanym AI |
+
+**GitHub Copilot:** Zarejestruj się przez GitHub Education (adres uczelniany) → darmowy dostęp do Copilota w VS Code.
+
+### 8.10 Ograniczenia i etyka
+
+**Halucynacje:** AI może wymyślać nieistniejące funkcje (np. `pd.super_clean()`). Zawsze uruchamiaj kod i weryfikuj.
+
+**Knowledge cutoff:** Model nie zna nowości po dacie treningu. Sprawdzaj oficjalną dokumentację.
+
+**Prywatność danych:** Nigdy nie wysyłaj danych osobowych klientów (imię, email, PESEL) do publicznego API bez zgody prawników. Anonimizuj dane przed wysłaniem.
+
+**Matematyka:** LLM to model językowy, nie kalkulator. Obliczenia wykonuj Pythonem, nie ufaj liczbom z AI.
+
+**Odpowiedzialność:** AI generuje kod — ale podpisujesz się TY. Musisz rozumieć co AI wygenerowało i być w stanie to wyjaśnić.
+
+### 8.11 Zasady pracy z AI — podsumowanie
+
+```
+DOBRY PROMPT = KONTEKST + ZADANIE + FORMAT + OGRANICZENIA
+
+AI DOBRZE RADZI SOBIE Z:
+  ✓ Generowaniem kodu z precyzyjnym opisem
+  ✓ Tłumaczeniem wyników na język biznesowy
+  ✓ Normalizacją kategorii (słowniki mapowania)
+  ✓ Wyjaśnianiem błędów (wklej traceback → diagnoza)
+
+AI WYMAGA WERYFIKACJI PRZY:
+  ✗ Obliczeniach numerycznych
+  ✗ Aktualnych danych i wersjach bibliotek
+  ✗ Edge cases (NaN, puste DataFrame)
+  ✗ Faktach i źródłach — sprawdzaj!
+```

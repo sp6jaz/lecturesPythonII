@@ -62,3 +62,6 @@
 | 58 | 2026-02-22 | — | Utworzenie L03 lab: plan_lab.md (instrukcja doktoranta), cwiczenia.md (5 ćwiczeń NumPy + benchmark) |
 | 59 | 2026-02-22 | — | Weryfikacja wszystkich odpowiedzi do ćwiczeń L03 (poprawka średniej ceny) |
 | 60 | 2026-02-22 | — | Aktualizacja skryptu studenta — rozdział 3 NumPy (tworzenie tablic, indeksowanie, operacje, filtrowanie, axis) |
+| 61 | 2026-02-22 | — | Utworzenie W04: plan_zajec.md (stenogram), numpy_advanced_demo.ipynb (zweryfikowany), quiz_w04.md |
+| 62 | 2026-02-22 | — | Utworzenie L04: plan_lab.md (instrukcja doktoranta), cwiczenia.md (broadcasting, reshape, analiza finansowa) |
+| 63 | 2026-02-22 | — | Weryfikacja odpowiedzi L04 + aktualizacja skryptu studenta (3.8-3.11: broadcasting, reshape, operacje, generowanie) |

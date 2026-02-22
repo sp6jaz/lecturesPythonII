@@ -26,3 +26,4 @@
 | 22 | 2026-02-22 | 12:20 | Jak widzisz harmonogram kursu? Propozycje? |
 | 23 | 2026-02-22 | — | Pomysł: proste apki na telefon do ćwiczenia zagadnień przez studentów. Co o tym myślisz? |
 | 24 | 2026-02-22 | — | Zostawiamy apki na później, robimy dalej materiały |
+| 25 | 2026-02-22 | — | Repozytorium dla studentów + harmonogram publikacji (materiały widoczne tydzień po tygodniu) |

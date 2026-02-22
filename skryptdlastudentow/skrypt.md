@@ -662,6 +662,77 @@ dane.sum()          # 210 — suma wszystkich
 
 **Zapamiętaj:** `axis=0` = w dół, `axis=1` = w prawo.
 
+### 3.8 Broadcasting
+
+Broadcasting pozwala operować na tablicach **różnych kształtów**. NumPy automatycznie "rozciąga" mniejszą tablicę.
+
+```python
+# Macierz 3×4 * skalar → każdy element × skalar
+ceny = np.array([[100, 110, 120, 130],
+                  [200, 210, 220, 230],
+                  [50,  55,  60,  65]])
+ceny * 1.23     # VAT na wszystko
+
+# Macierz 3×4 * wektor (4,) → wektor rozciągnięty na 3 wiersze
+rabat = np.array([0.05, 0.10, 0.15, 0.20])
+ceny * (1 - rabat)   # inny rabat per kwartał
+
+# Macierz 3×4 * wektor kolumnowy (3,1) → kolumna rozciągnięta na 4 kolumny
+premia = np.array([[1.2], [1.0], [1.5]])
+ceny * premia   # inna premia per produkt
+```
+
+**Zasada:** NumPy porównuje kształty od prawej. Wymiar musi być **taki sam** lub **równy 1**.
+
+### 3.9 Zmiana kształtu tablic
+
+```python
+a = np.arange(12)           # [0, 1, 2, ..., 11]
+a.reshape(3, 4)             # macierz 3×4
+a.reshape(3, -1)            # -1 = oblicz sam → 3×4
+
+macierz = np.array([[1, 2], [3, 4]])
+macierz.flatten()           # [1, 2, 3, 4] — spłaszcza do 1D
+
+# Łączenie tablic
+np.vstack([a, b])           # pionowo (wiersze pod sobą)
+np.hstack([a, b])           # poziomo (obok siebie)
+np.column_stack([a, b])     # jako kolumny
+```
+
+### 3.10 Zaawansowane operacje
+
+```python
+# np.where — warunkowe przypisanie (jak IF w Excelu)
+status = np.where(oceny >= 3.0, 'ZDAŁ', 'NIE ZDAŁ')
+
+# Sortowanie
+np.sort(dane)               # posortowana kopia
+np.argsort(dane)            # indeksy sortowania (do rankingów!)
+
+# Unikalne wartości
+unikalne, ile = np.unique(kategorie, return_counts=True)
+
+# Korelacja Pearsona
+r = np.corrcoef(x, y)[0, 1]  # wartość od -1 do 1
+
+# Percentyle i IQR
+np.percentile(dane, 25)      # Q1
+np.percentile(dane, 75)      # Q3
+np.median(dane)               # mediana (Q2)
+```
+
+### 3.11 Generowanie danych
+
+```python
+np.random.seed(42)           # powtarzalność wyników
+
+np.random.normal(loc=5000, scale=1000, size=100)  # rozkład normalny
+np.random.uniform(low=10, high=500, size=50)       # rozkład jednostajny
+np.random.randint(1, 100, size=20)                 # losowe int
+np.random.poisson(lam=20, size=30)                 # rozkład Poissona
+```
+
 ---
 
 ## 4. Pandas — przetwarzanie i analiza danych

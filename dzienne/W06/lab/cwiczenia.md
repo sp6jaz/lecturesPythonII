@@ -7,6 +7,28 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Pandas — `DataFrame.loc[]` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html |
+| Pandas — `DataFrame.iloc[]` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html |
+| Pandas — `DataFrame.query()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html |
+| Pandas — Boolean indexing | https://pandas.pydata.org/docs/user_guide/indexing.html#boolean-indexing |
+| Pandas — `isin()`, `between()` | https://pandas.pydata.org/docs/reference/api/pandas.Series.isin.html |
+| Pandas — `sort_values()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html |
+
+### `iloc` vs `loc` — różnica
+
+| | `iloc` | `loc` |
+|---|--------|-------|
+| **Co przyjmuje** | Pozycję (0, 1, 2...) | Etykietę (nazwę indeksu) |
+| **Przykład** | `df.iloc[0]` → pierwszy wiersz | `df.loc['Anna']` → wiersz o indeksie 'Anna' |
+| **Zakres** | `df.iloc[2:5]` → wiersze 2, 3, 4 | `df.loc['B':'D']` → wiersze B, C, D (włącznie!) |
+| **Warunek** | Nie obsługuje | `df.loc[df['age'] > 30]` → filtrowanie |
+
+---
+
 ## Ćwiczenie 1: loc i iloc — selekcja (20 min)
 
 ### Cel
@@ -206,3 +228,17 @@ Po dzisiejszych zajęciach umiesz:
 - ✅ Segmentować dane na grupy biznesowe
 
 **Na następnych zajęciach:** Czyszczenie danych — brakujące wartości, duplikaty, konwersja typów. Poznasz jak wygląda "brudny" dataset i jak go naprawić.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `KeyError` przy `loc[]` | Sprawdź czy indeks istnieje: `print(df.index)`. Uwaga: `loc` używa etykiet, nie pozycji! |
+| `IndexError` przy `iloc[]` | Indeks poza zakresem. `df.shape[0]` powie ile jest wierszy (numerowane od 0) |
+| Filtr zwraca pustą tabelę | Sprawdź warunek: `df['kol'].unique()` pokaże unikalne wartości. Może literówka? |
+| `query()` nie działa z polskimi znakami | Użyj backtick: `` df.query('`nazwa kolumny` > 5') `` |
+| `isin()` nie filtruje poprawnie | Argument musi być listą: `df['kol'].isin(['A', 'B'])`, nie `isin('A', 'B')` |
+| Chcę posortować malejąco | `df.sort_values('kol', ascending=False)` |
+| Nie wiem jak połączyć warunki | Użyj `&` (i) lub `\|` (lub): `df[(df['a'] > 5) & (df['b'] < 10)]`. Nawiasy obowiązkowe! |

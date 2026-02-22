@@ -7,6 +7,31 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Jupyter Notebook — dokumentacja | https://jupyter-notebook.readthedocs.io/en/stable/ |
+| Pandas — szybki start | https://pandas.pydata.org/docs/getting_started/intro_tutorials/ |
+| Pandas — `read_csv()` | https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html |
+| Pandas — `DataFrame.describe()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html |
+| Matplotlib — `pyplot` tutorial | https://matplotlib.org/stable/tutorials/pyplot.html |
+| Dataset tips — opis | https://www.kaggle.com/datasets/jsphyg/tipping |
+
+### Kolumny datasetu `tips`
+
+| Kolumna | Opis | Typ |
+|---------|------|-----|
+| `total_bill` | Całkowita kwota rachunku (USD) | float |
+| `tip` | Napiwek (USD) | float |
+| `sex` | Płeć osoby płacącej | kategoria: Male/Female |
+| `smoker` | Czy osoba pali | kategoria: Yes/No |
+| `day` | Dzień tygodnia | kategoria: Thur/Fri/Sat/Sun |
+| `time` | Pora posiłku | kategoria: Lunch/Dinner |
+| `size` | Liczba osób przy stoliku | int |
+
+---
+
 ## Ćwiczenie 1: Jupyter Notebook — opanuj narzędzie (20 min)
 
 ### Cel
@@ -282,3 +307,16 @@ Po dzisiejszych zajęciach umiesz:
 - ✅ Tworzyć proste wykresy
 
 **Na następnych zajęciach:** NumPy — szybkie obliczenia na tablicach danych.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| Notebook nie wyświetla wykresów | Dodaj `%matplotlib inline` jako pierwszą komórkę |
+| `FileNotFoundError` przy `read_csv()` | Sprawdź URL — skopiuj cały link z instrukcji |
+| `KeyError: 'kolumna'` | Sprawdź pisownię: `df.columns` pokaże nazwy kolumn |
+| Nie wiem jak dodać nową komórkę | Naciśnij Esc → B (nowa komórka pod aktualną) lub Esc → A (nad) |
+| Komórka nie wykonuje się | Naciśnij Shift+Enter lub Ctrl+Enter |
+| `NameError: name 'df' is not defined` | Wykonaj komórkę z `df = pd.read_csv(...)` przed innymi |

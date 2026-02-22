@@ -9,6 +9,29 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Matplotlib — Pyplot tutorial | https://matplotlib.org/stable/tutorials/pyplot.html |
+| Matplotlib — `plot()` | https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html |
+| Matplotlib — `bar()` / `barh()` | https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html |
+| Matplotlib — `scatter()` | https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html |
+| Matplotlib — `hist()` | https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html |
+| Matplotlib — `subplots()` | https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html |
+| Matplotlib — Galeria przykładów | https://matplotlib.org/stable/gallery/index.html |
+| Matplotlib — Lista kolorów | https://matplotlib.org/stable/gallery/color/named_colors.html |
+| Matplotlib — Style sheets | https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html |
+
+### Kluczowe pojęcia
+
+- **Figure** — cały "obraz" (okno wykresu). Tworzy się przez `plt.figure()` lub `plt.subplots()`.
+- **Axes** — pojedynczy wykres na figurze. Figure może mieć wiele Axes (subplots).
+- **`plt.plot()` vs `ax.plot()`** — `plt.plot()` rysuje na aktualnym Axes. `ax.plot()` rysuje na konkretnym Axes. Preferuj `ax.plot()` — daje większą kontrolę.
+- **`tight_layout()`** — automatycznie dopasowuje marginesy żeby etykiety się nie nakładały.
+
+---
+
 ## Dane startowe — wklej jako pierwszą komórkę notebooka
 
 ```python
@@ -536,3 +559,17 @@ df.plot(kind='bar')   → wykres wprost z DataFrame (Pandas)
 - [ ] Ćwiczenie 3: samodzielna analiza tips — 4 wykresy + komórka Markdown z obserwacją
 - [ ] Ćwiczenie 4: dashboard 2×2 zapisany jako dashboard_tips.png
 - [ ] Commit na GitHub z komunikatem zawierającym "W09"
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| Wykres nie wyświetla się | Dodaj `%matplotlib inline` na początku notebooka. W VS Code: sprawdź czy masz Jupyter extension |
+| Etykiety osi się nakładają | Użyj `plt.tight_layout()` lub `fig.autofmt_xdate()` dla dat. Albo: `plt.xticks(rotation=45)` |
+| Legenda zasłania wykres | `plt.legend(loc='upper left')` lub `plt.legend(bbox_to_anchor=(1.05, 1))` (poza wykresem) |
+| Kolory — nie wiem jakie są dostępne | Podstawowe: `'red'`, `'blue'`, `'green'`, `'orange'`. Pełna lista: matplotlib.org/stable/gallery/color/named_colors.html |
+| `subplots()` — nie wiem jak adresować panele | `fig, axes = plt.subplots(2, 2)` → `axes[0, 0]` (lewy górny), `axes[1, 1]` (prawy dolny) |
+| Wykres się nie zapisuje | `plt.savefig('wykres.png', dpi=150, bbox_inches='tight')` — PRZED `plt.show()`! |
+| `alpha=0.6` — co to? | Przezroczystość: 0 = niewidoczny, 1 = pełny kolor. 0.6 = lekko prześwitujący |

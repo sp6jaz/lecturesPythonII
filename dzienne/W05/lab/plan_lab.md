@@ -15,6 +15,12 @@ Po tym laboratorium osoba studiująca:
 3. **Analizuje** dane biznesowe odpowiadając na pytania z użyciem podstawowych metod Pandas (Bloom 4)
 4. **Porównuje** Series i DataFrame, rozumiejąc relację między nimi (Bloom 2)
 
+## Przydatne linki dla prowadzącego
+
+- [Pandas — oficjalna dokumentacja](https://pandas.pydata.org/docs/)
+- [Pandas — Getting Started](https://pandas.pydata.org/docs/getting_started/)
+- [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/)
+
 ### Plan minutowy
 
 | Czas | Etap | Co robisz | Uwagi |

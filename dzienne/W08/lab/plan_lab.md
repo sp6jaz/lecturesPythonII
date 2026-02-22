@@ -11,6 +11,14 @@
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [Pandas — Merge, join, concatenate](https://pandas.pydata.org/docs/user_guide/merging.html)
+- [Pandas — Group by](https://pandas.pydata.org/docs/user_guide/groupby.html)
+- [Pandas — Pivot tables](https://pandas.pydata.org/docs/user_guide/reshaping.html)
+
+---
+
 ## INSTRUKCJA DLA PROWADZĄCEGO
 
 ### Przygotowanie przed zajęciami (15 min przed)

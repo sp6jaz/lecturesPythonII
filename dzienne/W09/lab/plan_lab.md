@@ -11,6 +11,14 @@
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [Matplotlib — Pyplot tutorial](https://matplotlib.org/stable/tutorials/pyplot.html)
+- [Matplotlib — Gallery](https://matplotlib.org/stable/gallery/index.html)
+- [Matplotlib — Colors](https://matplotlib.org/stable/gallery/color/named_colors.html)
+
+---
+
 ## INSTRUKCJA DLA PROWADZĄCEGO
 
 ### Przygotowanie przed zajęciami (15 min przed)

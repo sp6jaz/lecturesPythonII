@@ -24,6 +24,32 @@ print("numpy:", np.__version__)
 print("Środowisko gotowe.")
 ```
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| SciPy — `ttest_1samp()` | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_1samp.html |
+| SciPy — `ttest_ind()` (niezależny) | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html |
+| SciPy — `ttest_rel()` (sparowany) | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html |
+| SciPy — `shapiro()` (test normalności) | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html |
+| SciPy — `chi2_contingency()` | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2_contingency.html |
+| SciPy — `norm` (rozkład normalny) | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html |
+| Wikipedia — Test t-Studenta | https://pl.wikipedia.org/wiki/Test_t-Studenta |
+| Wikipedia — Wartość p | https://pl.wikipedia.org/wiki/Warto%C5%9B%C4%87_p |
+
+### Kluczowe pojęcia
+
+- **H₀ (hipoteza zerowa)** — "nie ma różnicy" / "nie ma efektu". To hipoteza którą testujemy.
+- **H₁ (hipoteza alternatywna)** — "jest różnica" / "jest efekt". To co chcemy wykazać.
+- **p-wartość** — prawdopodobieństwo uzyskania takiego wyniku (lub bardziej ekstremalnego) JEŚLI H₀ jest prawdą.
+  - p < 0.05 → odrzucamy H₀ (wynik istotny statystycznie)
+  - p ≥ 0.05 → nie ma podstaw do odrzucenia H₀
+- **t-test jednorodkowy** — czy średnia próby różni się od znanej wartości? Np. "Czy średni czas dostawy ≠ 24h?"
+- **t-test niezależny** — czy dwie NIEZALEŻNE grupy mają różne średnie? Np. "Czy grupa A ≠ grupa B?"
+- **t-test sparowany** — czy ta sama grupa ma różne wyniki PRZED i PO? Np. "Czy szkolenie pomogło?"
+- **Welch's t-test** — wersja `equal_var=False`. Bezpieczniejsza — nie zakłada równości wariancji. ZAWSZE używaj tej wersji.
+- **Chi-kwadrat** — test dla danych kategorycznych. "Czy preferencje zależą od grupy wiekowej?"
+
 ---
 
 ## Ćwiczenie 1: Rozkład normalny i testy normalności (20 min)
@@ -533,3 +559,17 @@ stat, p = stats.shapiro(dane[:200])       # normalność (podpróba)
 t, p = stats.ttest_ind(A, B, equal_var=False)  # test
 # interpretuj → wniosek biznesowy
 ```
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| Nie wiem którego t-testu użyć | Te same osoby przed/po? → `ttest_rel`. Dwie różne grupy? → `ttest_ind`. Porównanie ze stałą? → `ttest_1samp` |
+| `ttest_ind` daje inny wynik niż kolega | Sprawdź `equal_var=False` (Welch). Domyślnie `True` (Student) — to inny test! |
+| p-wartość = 0.000... | Wyświetl w notacji naukowej: `f"p = {p:.2e}"`. Np. p = 3.45e-08 |
+| Shapiro-Wilk: "p-value may be poorly conditioned" | Dla n > 5000 użyj podpróby: `stats.shapiro(dane[:500])` |
+| QQ-plot nie rysuje na axes | Użyj `plot=ax`: `stats.probplot(dane, dist='norm', plot=ax)` (nie `plot=plt`!) |
+| `chi2_contingency` — zero w tabeli | Połącz rzadkie kategorie lub sprawdź dane |
+| Przedział ufności — `stats.t.interval()` | `stats.t.interval(0.95, df=n-1, loc=mean, scale=se)` — pierwszy arg to confidence level |

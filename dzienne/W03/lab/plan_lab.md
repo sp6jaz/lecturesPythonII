@@ -15,6 +15,12 @@ Po tym laboratorium osoba studiująca:
 3. **Wykonuje** operacje wektorowe i agregacje na danych biznesowych (Bloom 3)
 4. **Porównuje** wydajność list i tablic NumPy na benchmarkach (Bloom 4)
 
+## Przydatne linki dla prowadzącego
+
+- [NumPy — Quickstart](https://numpy.org/doc/stable/user/quickstart.html)
+- [NumPy — Indexing](https://numpy.org/doc/stable/user/basics.indexing.html)
+- [NumPy — API Reference](https://numpy.org/doc/stable/reference/)
+
 ### Przed zajęciami — przygotowanie prowadzącego
 1. Sprawdź czy numpy działa: `python -c "import numpy; print(numpy.__version__)"`
 2. Przetestuj benchmark z ćwiczenia 4 — wyniki zależą od komputera

@@ -7,6 +7,17 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| OpenAI — API dokumentacja | https://platform.openai.com/docs/ |
+| Anthropic (Claude) — dokumentacja | https://docs.anthropic.com/ |
+| Prompt Engineering Guide | https://www.promptingguide.ai/ |
+| OpenAI — Python SDK | https://github.com/openai/openai-python |
+
+---
+
 ## Organizacja pracy
 
 - Otwórzcie **przeglądarkę** z Claude.ai lub ChatGPT (po jednej stronie ekranu)

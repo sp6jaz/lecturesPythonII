@@ -6,6 +6,28 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Seaborn — oficjalna dokumentacja | https://seaborn.pydata.org/ |
+| Seaborn — Tutorial | https://seaborn.pydata.org/tutorial.html |
+| Seaborn — `barplot()` | https://seaborn.pydata.org/generated/seaborn.barplot.html |
+| Seaborn — `boxplot()` | https://seaborn.pydata.org/generated/seaborn.boxplot.html |
+| Seaborn — `heatmap()` | https://seaborn.pydata.org/generated/seaborn.heatmap.html |
+| Seaborn — `pairplot()` | https://seaborn.pydata.org/generated/seaborn.pairplot.html |
+| Seaborn — Lista palet kolorów | https://seaborn.pydata.org/tutorial/color_palettes.html |
+| Matplotlib — `GridSpec` | https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html |
+
+### Kluczowe pojęcia
+
+- **`hue=`** — parametr Seaborn który koloruje dane według kategorii. Np. `hue='sex'` → mężczyźni inny kolor niż kobiety.
+- **`palette=`** — zestaw kolorów. Popularne: `'muted'`, `'Set2'`, `'husl'`, `'coolwarm'`.
+- **Dashboard** — jeden "obraz" (Figure) z wieloma wykresami (Axes), dający pełny obraz danych.
+- **`constrained_layout=True`** — nowsza alternatywa `tight_layout()`. Automatycznie dopasowuje marginesy.
+
+---
+
 ## Setup — uruchom jako pierwszą komórkę
 
 ```python
@@ -474,3 +496,17 @@ plt.savefig('plik.png', dpi=150, bbox_inches='tight', facecolor='white')
 plt.show()
 plt.close()          # zawsze na końcu!
 ```
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `sns.barplot()` — FutureWarning | Seaborn 0.13+ zmienił API. Użyj jawnie: `sns.barplot(data=df, x='kol1', y='kol2')` |
+| Heatmap — za dużo miejsc po przecinku | Dodaj `fmt='.2f'` lub `fmt='.1f'` w `sns.heatmap(..., fmt='.2f')` |
+| `pairplot()` trwa bardzo długo | Dla dużych datasetów: ogranicz kolumny `sns.pairplot(df[['kol1','kol2','kol3']])` |
+| Kolory się powtarzają | Zmień paletę: `palette='Set2'` lub `palette='husl'`. Sprawdź liczbę kategorii vs kolorów |
+| `GridSpec` — nie wiem jak ustawić proporcje | `gs = GridSpec(2, 3, width_ratios=[2, 1, 1])` → pierwsza kolumna 2× szersza |
+| Dashboard za ciasny | Zwiększ figurę: `fig = plt.figure(figsize=(16, 10))` |
+| `savefig()` ucina etykiety | Dodaj `bbox_inches='tight'`: `plt.savefig('dashboard.png', dpi=150, bbox_inches='tight')` |

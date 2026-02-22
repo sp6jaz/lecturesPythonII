@@ -7,6 +7,17 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Pandas — oficjalna dokumentacja | https://pandas.pydata.org/docs/ |
+| Pandas — 10 Minutes to Pandas | https://pandas.pydata.org/docs/user_guide/10min.html |
+| Pandas — Indexing and selecting | https://pandas.pydata.org/docs/user_guide/indexing.html |
+| Pandas — DataFrame.loc | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html |
+
+---
+
 ## Cwiczenie 1: Tworzenie Series i DataFrame, wczytanie danych (15 min)
 
 ### Cel

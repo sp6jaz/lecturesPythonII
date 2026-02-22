@@ -7,6 +7,18 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| SciPy — ttest_ind() | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html |
+| SciPy — ttest_rel() | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html |
+| SciPy — shapiro() | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html |
+| Wikipedia — Test t-Studenta | https://pl.wikipedia.org/wiki/Test_t-Studenta |
+| Wikipedia — Wartość p | https://pl.wikipedia.org/wiki/Warto%C5%9B%C4%87_p |
+
+---
+
 ## Setup — uruchom jako pierwszą komórkę
 
 ```python

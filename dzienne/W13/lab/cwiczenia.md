@@ -31,6 +31,30 @@ print(f"scikit-learn wersja: {__import__('sklearn').__version__}")
 print(f"plotly wersja: {__import__('plotly').__version__}")
 ```
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| scikit-learn — Getting Started | https://scikit-learn.org/stable/getting_started.html |
+| scikit-learn — `KMeans` | https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html |
+| scikit-learn — `StandardScaler` | https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html |
+| scikit-learn — `LinearRegression` | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html |
+| scikit-learn — `train_test_split` | https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html |
+| Plotly — Python Quick Start | https://plotly.com/python/getting-started/ |
+| Plotly — Scatter plots | https://plotly.com/python/line-and-scatter/ |
+| Plotly — Bar charts | https://plotly.com/python/bar-charts/ |
+| Plotly — `px.scatter()` | https://plotly.com/python-api-reference/generated/plotly.express.scatter |
+
+### Kluczowe pojęcia
+
+- **KMeans** — algorytm klasteryzacji. Dzieli dane na k grup tak, by punkty w grupie były blisko siebie.
+- **StandardScaler** — normalizacja danych (średnia=0, std=1). **Obowiązkowy przed KMeans** — bez niego skala danych zaburzy wyniki.
+- **Regresja liniowa** — model: y = a₁x₁ + a₂x₂ + ... + b. Szuka najlepszych współczynników minimalizując błąd.
+- **R²** — współczynnik determinacji (0-1). Im bliżej 1, tym lepiej model wyjaśnia dane. R²=0.95 → model wyjaśnia 95% zmienności.
+- **RMSE** — pierwiastek ze średniego błędu kwadratowego. W jednostkach zmiennej celu — łatwy w interpretacji.
+- **train/test split** — dzielimy dane na zbiór treningowy (model się uczy) i testowy (oceniamy jakość). Typowo 80/20.
+- **Plotly Express** — biblioteka do interaktywnych wykresów. Hover, zoom, legenda klikalna — idealne do eksploracji.
+
 ---
 
 ## Ćwiczenie 1: KMeans — segmentacja klientów (20 min)
@@ -134,6 +158,14 @@ print(klienci.groupby('nazwa_segmentu')[['srednia_wartosc', 'zamowienia_rok']].m
 1. Dlaczego używamy `StandardScaler` przed KMeans? Co by się stało bez skalowania?
 2. Jak dobierasz liczbę klastrów k? Co to jest metoda łokcia (elbow method)?
 3. Który segment warto obsłużyć priorytetowo z perspektywy biznesowej?
+
+### Sprawdzenie 1 ✅
+
+- [ ] 3 segmenty widoczne na scatter plot (różne kolory)
+- [ ] `StandardScaler` użyty PRZED KMeans
+- [ ] `klienci.groupby('segment').mean()` — różne średnie wartości dla każdego segmentu
+- [ ] Nazwy segmentów przypisane logicznie (np. "Okazjonalni", "Regularni", "VIP")
+- [ ] Inertia (`kmeans.inertia_`) obliczona — mniejsza = lepszy podział
 
 ---
 
@@ -242,6 +274,14 @@ print(f"Prognoza sprzedaży dla TV=200, Radio=30: {prognoza[0]:.1f} tys. PLN")
 1. Co oznacza R² = 0.97? Ile procent zmienności sprzedaży wyjaśnia nasz model?
 2. Jak interpretujesz RMSE w kontekście prognozowania sprzedaży?
 3. Dlaczego NIE stosujemy `fit_transform` na X_test? Co by się stało gdybyśmy tak zrobili?
+
+### Sprawdzenie 2 ✅
+
+- [ ] R² na zbiorze testowym ≥ 0.90 (dane syntetyczne z wyraźną zależnością)
+- [ ] RMSE ≈ 2-3 (szum `np.random.normal(0, 2)`)
+- [ ] Współczynniki: TV ≈ 0.05, Radio ≈ 0.10-0.12, Intercept ≈ 5
+- [ ] Wykres: wartości rzeczywiste vs przewidywane — punkty blisko linii y=x
+- [ ] Predykcja: `model.predict([[200, 30]])` → sprzedaż ≈ 18
 
 ---
 
@@ -419,6 +459,14 @@ print("Dashboard zapisany jako dashboard_klienci.html")
 2. Kiedy użyłbyś wielopanelowego dashboardu zamiast oddzielnych wykresów?
 3. `fig.write_html()` zapisuje plik HTML — co możesz z nim zrobić? Komu możesz go wysłać?
 
+### Sprawdzenie 3 ✅
+
+- [ ] 3 wykresy: scatter (segmenty), bar (średnie), line (trend)
+- [ ] Każdy wykres ma tytuł, etykiety osi i legendę
+- [ ] Hover pokazuje wartości po najechaniu myszą
+- [ ] Kolory kodują segmenty klientów
+- [ ] Wykresy są interaktywne (zoom, pan, klik na legendę)
+
 ---
 
 ## Ćwiczenie 4: Mini-projekt — segmentacja + wizualizacja + commit (15 min)
@@ -520,3 +568,17 @@ Co zrobiłeś na tych laboratoriach:
 - Commit wyników do git
 
 Następne laboratoria (L14): LLM i AI API — wywołania GPT-4/Claude przez Python, automatyzacja tekstu.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `ModuleNotFoundError: sklearn` | Zainstaluj: `uv pip install scikit-learn` (nie `sklearn`!) |
+| `ModuleNotFoundError: plotly` | Zainstaluj: `uv pip install plotly` |
+| KMeans daje inne klastry | Ustaw `random_state=42`. Uwaga: numery klastrów (0,1,2) mogą być w innej kolejności — to normalne |
+| R² jest ujemne | Model gorszy niż średnia. Sprawdź czy nie zamieniłeś features z target |
+| `fig.show()` nie wyświetla Plotly | `uv pip install nbformat`, zrestartuj kernel. W VS Code: sprawdź Jupyter extension |
+| Plotly scatter — wszystko jednego koloru | Kolumna `color=` musi być kategoryczna: `klienci['segment'] = klienci['segment'].astype(str)` |
+| `StandardScaler` — po co? | Bez niego KMeans faworyzuje cechy o dużej skali (np. wartosc 0-3000 vs zamowienia 0-25) |

@@ -43,3 +43,9 @@
 | 39 | 2026-02-22 | — | Utwórz materiały zaoczne S10 (spotkanie 10, ostatnie): prezentacje mini-projektów + podsumowanie semestru. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: rubryki oceny, checklist, ankieta) |
 | 40 | 2026-02-22 | — | Utwórz materiały zaoczne S02 (spotkanie 2) łączące W03+W04: NumPy od podstaw do zaawansowanych. plan_zajec.md (wykład 90min ze stenogramem) + cwiczenia.md (lab 90min: 5 ćwiczeń krok po kroku) |
 | 41 | 2026-02-22 | — | Dodaj sekcję "Pair programming" do plan_lab.md w W06, W08-W15 (9 plików) |
+| 42 | 2026-02-22 | — | Instrukcje muszą być bardzo intuicyjne (studenci na różnym poziomie). Nie żałuj tekstów, opisów, linków do materiałów źródłowych — na poziomie profesjonalnych opracowań książkowych. Instrukcje dla prowadzącego muszą być na tyle solidne, żeby nigdzie nie utknął. Weryfikuj kod. Loguj analizy do pliku md z wersją commita. Push przed rozpoczęciem prac. |
+| 43 | 2026-02-22 | — | Wzbogacenie 5 plików ćwiczeń (W01-W05) o: linki do dokumentacji, opisy datasetów, sekcje "Jeśli utkniesz", lepsze komentarze. Edytuj istniejące pliki, dodawaj treść, nie usuwaj. |
+| 44 | 2026-02-22 | — | Wzbogacenie 5 plików ćwiczeń (W06-W10) o: linki do dokumentacji, sekcje "Jeśli utkniesz", opisy kluczowych pojęć. Edytuj istniejące pliki, dodawaj treść, nie usuwaj. |
+| 45 | 2026-02-22 | — | Wzbogacenie materiałów zaocznych (S01-S10) o sekcje "Przydatne materiały" z linkami do dokumentacji. Edycja istniejących plików cwiczenia.md, zachowanie istniejącej treści. |
+| 46 | 2026-02-22 | — | Wzbogacenie 15 plików plan_lab.md (W01-W15) o sekcje "Przydatne linki dla prowadzącego" z linkami do dokumentacji dopasowanymi do tematu. |
+| 47 | 2026-02-22 | — | Wzbogacenie 5 plików ćwiczeń (W11-W15) o: linki do dokumentacji, sekcje "Jeśli utkniesz", opisy kluczowych pojęć. Dla W13 dodanie sekcji "Sprawdzenie" do ćwiczeń 1-3. Edycja istniejących plików, zachowanie istniejącej treści. |

@@ -15,6 +15,12 @@ Po tym laboratorium osoba studiująca:
 3. **Sortuje** dane i tworzy rankingi (nlargest, nsmallest) (Bloom 3)
 4. **Analizuje** dane biznesowe odpowiadając na złożone pytania (Bloom 4)
 
+## Przydatne linki dla prowadzącego
+
+- [Pandas — Indexing and selecting](https://pandas.pydata.org/docs/user_guide/indexing.html)
+- [Pandas — DataFrame.loc](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html)
+- [Pandas — DataFrame.query](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html)
+
 ### Plan minutowy
 
 | Czas | Etap | Co robisz | Uwagi |

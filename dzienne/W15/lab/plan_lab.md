@@ -17,6 +17,12 @@ Po tych zajęciach osoba studiująca:
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [GitHub — Viewing your repos](https://docs.github.com/en/repositories)
+- [Pandas — Cheat Sheet (PDF)](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+- [Matplotlib — Cheat Sheets](https://matplotlib.org/cheatsheets/)
+
 ## Plan minutowy
 
 | Czas | Etap | Opis | Uwagi |

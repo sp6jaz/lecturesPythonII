@@ -16,6 +16,13 @@ Po tym laboratorium osoba studiująca:
 3. **Pisze** prosty dokument w Markdown z formatowaniem i listami (Bloom 3)
 4. **Konfiguruje** środowisko wirtualne i instaluje pakiety przez uv (Bloom 3)
 
+## Przydatne linki dla prowadzącego
+
+- [uv — oficjalna dokumentacja](https://docs.astral.sh/uv/)
+- [Git — oficjalny podręcznik](https://git-scm.com/book/pl/v2)
+- [VS Code — Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+- [GitHub — tworzenie konta i repo](https://docs.github.com/en/get-started/quickstart)
+
 ### Przed zajęciami — przygotowanie prowadzącego
 1. Sprawdź, czy na komputerach w sali jest:
    - Python 3.10+ (`python3 --version`)

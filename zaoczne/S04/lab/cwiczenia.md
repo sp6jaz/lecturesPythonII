@@ -9,6 +9,17 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Pandas — Working with missing data | https://pandas.pydata.org/docs/user_guide/missing_data.html |
+| Pandas — Merge, join, concatenate | https://pandas.pydata.org/docs/user_guide/merging.html |
+| Pandas — Group by | https://pandas.pydata.org/docs/user_guide/groupby.html |
+| Pandas — Duplicate Labels | https://pandas.pydata.org/docs/user_guide/duplicates.html |
+
+---
+
 ## Dane startowe --- wklej jako pierwsza komorke notebooka
 
 ```python

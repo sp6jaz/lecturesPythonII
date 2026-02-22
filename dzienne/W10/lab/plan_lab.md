@@ -19,6 +19,12 @@ Po tych zajęciach osoba studiująca:
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [Seaborn — Tutorial](https://seaborn.pydata.org/tutorial.html)
+- [Seaborn — API Reference](https://seaborn.pydata.org/api.html)
+- [Matplotlib — GridSpec](https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html)
+
 ## Plan minutowy
 
 | Czas | Etap | Opis | Uwagi |

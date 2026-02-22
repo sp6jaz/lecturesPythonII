@@ -7,6 +7,30 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Pandas — Working with missing data | https://pandas.pydata.org/docs/user_guide/missing_data.html |
+| Pandas — `isna()` / `notna()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isna.html |
+| Pandas — `fillna()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html |
+| Pandas — `dropna()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html |
+| Pandas — `duplicated()` / `drop_duplicates()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.duplicated.html |
+| Pandas — `astype()` (zmiana typów) | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html |
+| Pandas — `str` accessor (operacje tekstowe) | https://pandas.pydata.org/docs/user_guide/text.html |
+
+### Pipeline czyszczenia danych — schemat
+
+Typowy pipeline czyszczenia wykonujesz zawsze w tej kolejności:
+1. **Diagnoza** — `df.info()`, `df.isna().sum()`, `df.duplicated().sum()`
+2. **Duplikaty** — `df.drop_duplicates()`
+3. **Braki (NaN)** — `df.fillna()` lub `df.dropna()`
+4. **Typy danych** — `pd.to_numeric()`, `pd.to_datetime()`, `df.astype()`
+5. **Tekst** — `df['kol'].str.strip()`, `.str.lower()`, `.str.replace()`
+6. **Walidacja** — `df.info()`, `df.describe()` — sprawdź czy wszystko OK
+
+---
+
 ## Dane — brudny dataset HR
 
 Na dzisiejszych zajęciach będziemy czyścić dane z działu HR pewnej firmy.
@@ -411,3 +435,16 @@ Po dzisiejszych zajęciach umiesz:
 - Budować kompletny pipeline czyszczenia danych
 
 **Na następnych zajęciach:** merge (łączenie DataFramów), groupby (agregacja), pivot_table — właściwa analiza na czystych danych.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `fillna()` nie zmienia DataFrame | Przypisz wynik: `df['kol'] = df['kol'].fillna(wartość)` |
+| `to_numeric()` — ValueError | Dodaj `errors='coerce'`: `pd.to_numeric(df['kol'], errors='coerce')` — zamieni nieparsowalne na NaN |
+| `str.strip()` nie działa | Kolumna musi być typu string. Sprawdź: `df['kol'].dtype`. Jeśli object → OK, jeśli float → zamień: `df['kol'].astype(str)` |
+| Po `drop_duplicates()` indeksy mają luki | Zresetuj: `df = df.reset_index(drop=True)` |
+| `replace()` nie zamienia | Sprawdź dokładną wartość: `df['kol'].unique()`. Może są spacje? Użyj `.str.strip()` najpierw |
+| Nie wiem ile jest NaN | `df.isna().sum()` → liczba NaN per kolumna. `df.isna().sum().sum()` → łączna |

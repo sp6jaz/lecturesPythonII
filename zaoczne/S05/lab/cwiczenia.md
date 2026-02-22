@@ -9,6 +9,18 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Matplotlib — Pyplot tutorial | https://matplotlib.org/stable/tutorials/pyplot.html |
+| Matplotlib — Gallery | https://matplotlib.org/stable/gallery/index.html |
+| Seaborn — Tutorial | https://seaborn.pydata.org/tutorial.html |
+| Seaborn — API Reference | https://seaborn.pydata.org/api.html |
+| Matplotlib — Cheat Sheets | https://matplotlib.org/cheatsheets/ |
+
+---
+
 ## Dane startowe — wklej jako pierwsza komorke notebooka
 
 ```python

@@ -18,6 +18,13 @@ Po tych zajęciach osoba studiująca:
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [scikit-learn — Getting Started](https://scikit-learn.org/stable/getting_started.html)
+- [scikit-learn — KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+- [scikit-learn — LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
+- [Plotly — Python Quick Start](https://plotly.com/python/getting-started/)
+
 ## Plan minutowy
 
 | Czas | Etap | Opis | Uwagi |

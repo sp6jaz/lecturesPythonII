@@ -7,6 +7,16 @@
 
 ---
 
+## Przydatne materiały do prezentacji
+
+| Temat | Link |
+|-------|------|
+| GitHub — tworzenie README.md | https://docs.github.com/en/get-started/writing-on-github |
+| Pandas — Cheat Sheet (PDF) | https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf |
+| Matplotlib — Cheat Sheets | https://matplotlib.org/cheatsheets/ |
+
+---
+
 ## Plan części laboratoryjnej
 
 | Czas | Etap | Opis |

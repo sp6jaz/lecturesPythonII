@@ -15,6 +15,12 @@ Po tym laboratorium osoba studiująca:
 3. **Odpowiada** na pytania biznesowe korzystając z danych w DataFrame (Bloom 3-4)
 4. **Tworzy** prosty wykres z danych przy użyciu Pandas/Matplotlib (Bloom 3)
 
+## Przydatne linki dla prowadzącego
+
+- [Jupyter Notebook — dokumentacja](https://jupyter-notebook.readthedocs.io/en/stable/)
+- [Pandas — 10 Minutes to Pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+- [Matplotlib — Pyplot tutorial](https://matplotlib.org/stable/tutorials/pyplot.html)
+
 ### Przed zajęciami — przygotowanie prowadzącego
 1. Sprawdź, czy studenci mają działające venv z pakietami (pandas, matplotlib, numpy)
 2. Jeśli ktoś nie skończył L01 — daj mu 10 min na nadrobienie, pomóż

@@ -23,6 +23,27 @@ print("pandas:", pd.__version__)
 print("Środowisko gotowe.")
 ```
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| OpenAI — API dokumentacja | https://platform.openai.com/docs/ |
+| OpenAI — Python SDK | https://github.com/openai/openai-python |
+| Anthropic (Claude) — dokumentacja | https://docs.anthropic.com/ |
+| Anthropic — Python SDK | https://github.com/anthropics/anthropic-sdk-python |
+| Prompt Engineering Guide | https://www.promptingguide.ai/ |
+| Google — Prompt Engineering (kurs) | https://cloud.google.com/discover/what-is-prompt-engineering |
+
+### Kluczowe pojęcia
+
+- **LLM** (Large Language Model) — duży model językowy trenowany na tekście. Przykłady: GPT-4, Claude, Llama.
+- **Token** — jednostka tekstu dla modelu. Słowo ≈ 1-2 tokeny. Im więcej tokenów, tym wyższy koszt.
+- **Temperatura** — kontroluje losowość odpowiedzi. 0 = deterministyczna, 1 = kreatywna, 2 = chaotyczna.
+- **Prompt** — tekst wejściowy dla modelu. Dobry prompt = dobra odpowiedź.
+- **Prompt engineering** — sztuka pisania promptów które dają najlepsze wyniki.
+- **API** (Application Programming Interface) — sposób komunikacji z modelem programowo (z Pythona).
+- **Halucynacja** — gdy model generuje informacje które brzmią wiarygodnie ale są nieprawdziwe.
+
 ---
 
 ## Ćwiczenie 1: Prompt engineering dla analizy danych (20 min)
@@ -482,3 +503,17 @@ ZASADY BEZPIECZEŃSTWA:
   ✓ Anonimizuj dane przed wysłaniem (zamień email → hash, imię → ID)
   ✓ Sprawdź politykę prywatności narzędzia przed użyciem firmowych danych
 ```
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `ModuleNotFoundError: openai` | `uv pip install openai` |
+| `AuthenticationError` | Sprawdź klucz API: `echo $OPENAI_API_KEY` (Linux) lub `echo %OPENAI_API_KEY%` (Windows) |
+| `RateLimitError` | Za dużo requestów. Poczekaj minutę lub zmniejsz częstotliwość zapytań |
+| Odpowiedź AI jest niepoprawna | To normalne — AI halucynuje. ZAWSZE weryfikuj wyniki. To jest cel ćwiczenia 2 |
+| Kod z AI nie działa | Przeczytaj błąd, popraw ręcznie. Albo doprecyzuj prompt i wygeneruj ponownie |
+| Brak klucza API | Użyj darmowego ChatGPT (chat.openai.com) lub Claude (claude.ai) — bez API, wklej odpowiedzi ręcznie |
+| `TimeoutError` | API może być przeciążone. Spróbuj ponownie za chwilę |

@@ -7,6 +7,24 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| NumPy — broadcasting | https://numpy.org/doc/stable/user/basics.broadcasting.html |
+| NumPy — `reshape()` | https://numpy.org/doc/stable/reference/generated/numpy.reshape.html |
+| NumPy — `np.where()` | https://numpy.org/doc/stable/reference/generated/numpy.where.html |
+| NumPy — `np.random` | https://numpy.org/doc/stable/reference/random/index.html |
+| NumPy — operacje na tablicach 2D | https://numpy.org/doc/stable/user/absolute_beginners.html#more-useful-array-operations |
+
+### Kluczowe pojęcia tego laboratorium
+
+- **Broadcasting** — mechanizm NumPy pozwalający wykonywać operacje na tablicach o różnych kształtach. Np. tablica (4x3) x wektor (3,) -> każdy wiersz pomnożony przez wektor.
+- **Reshape** — zmiana kształtu tablicy bez zmiany danych. Np. tablica 12-elementowa -> macierz 3x4.
+- **`np.where(warunek, wartość_tak, wartość_nie)`** — wektorowy odpowiednik `if/else` — działa na całych tablicach naraz.
+
+---
+
 ## Ćwiczenie 1: Broadcasting — zastosowania biznesowe (20 min)
 
 ### Cel
@@ -221,3 +239,15 @@ Po dzisiejszych zajęciach umiesz:
 - ✅ Generować realistyczne dane syntetyczne
 
 **Na następnych zajęciach:** Pandas — DataFrame, wczytywanie CSV, selekcja danych. NumPy pod spodem, ale z etykietami i wygodą.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `ValueError: operands could not be broadcast` | Sprawdź kształty: `print(a.shape, b.shape)`. Broadcasting wymaga kompatybilnych wymiarów |
+| Nie rozumiem broadcasting | Wyobraź sobie że mniejsza tablica jest "rozciągana" do rozmiaru większej. (3,) + (4,3) -> każdy wiersz + wektor |
+| `reshape(-1, 4)` — co oznacza `-1`? | `-1` = "oblicz automatycznie". Jeśli masz 12 elementów i chcesz 4 kolumny -> `-1` wylicza 3 wiersze |
+| `np.where` z wieloma warunkami | Zagnieżdżaj: `np.where(w1, val1, np.where(w2, val2, val3))` |
+| Wynik operacji ma zły kształt | Sprawdź: `print(wynik.shape)` — porównaj z oczekiwanym |

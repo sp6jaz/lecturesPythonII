@@ -8,6 +8,19 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Python — oficjalna strona | https://www.python.org/ |
+| VS Code — Python Tutorial | https://code.visualstudio.com/docs/python/python-tutorial |
+| Git — oficjalny podręcznik (po polsku) | https://git-scm.com/book/pl/v2 |
+| uv — dokumentacja | https://docs.astral.sh/uv/ |
+| Jupyter — dokumentacja | https://jupyter-notebook.readthedocs.io/en/stable/ |
+| Pandas — 10 Minutes to Pandas | https://pandas.pydata.org/docs/user_guide/10min.html |
+
+---
+
 ## Ćwiczenie 1: Instalacja Python, uv, VS Code, Git + konfiguracja (25 min)
 
 ### Cel

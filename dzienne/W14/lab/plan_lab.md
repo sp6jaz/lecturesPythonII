@@ -18,6 +18,12 @@ Po tych zajęciach osoba studiująca:
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [OpenAI — API docs](https://platform.openai.com/docs/)
+- [Anthropic — API docs](https://docs.anthropic.com/)
+- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+
 ## Plan minutowy
 
 | Czas | Etap | Opis | Uwagi |

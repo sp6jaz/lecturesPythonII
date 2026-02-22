@@ -3,6 +3,16 @@
 **Programowanie w Pythonie II** | Laboratorium 15
 **Format:** prezentacje studenckie (5 min + 2 min pytania)
 
+## Przydatne materiały do prezentacji
+
+| Temat | Link |
+|-------|------|
+| Jak robić dobre prezentacje techniczne | https://speakerdeck.com/ (inspiracje) |
+| GitHub — tworzenie README.md | https://docs.github.com/en/get-started/writing-on-github |
+| Pandas — Cheat Sheet (ściąga) | https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf |
+| Matplotlib — Cheat Sheets | https://matplotlib.org/cheatsheets/ |
+| Seaborn — Cheat Sheet | https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Seaborn_Cheat_Sheet.pdf |
+
 ---
 
 ## Rubryka oceny prezentacji (dla prowadzącego)

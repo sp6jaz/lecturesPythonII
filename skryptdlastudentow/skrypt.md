@@ -21,6 +21,15 @@
 
 ## 1. Warsztat pracy analityka
 
+> **Dokumentacja i materiały źródłowe:**
+> - [Python — oficjalna strona](https://www.python.org/)
+> - [uv — dokumentacja](https://docs.astral.sh/uv/)
+> - [VS Code — Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+> - [Git — oficjalny podręcznik (po polsku)](https://git-scm.com/book/pl/v2)
+> - [GitHub — Getting Started](https://docs.github.com/en/get-started/quickstart)
+> - [Markdown Guide](https://www.markdownguide.org/)
+> - [Mermaid — dokumentacja](https://mermaid.js.org/intro/)
+
 ### 1.1 Środowisko pracy
 
 W tym kursie korzystamy z profesjonalnych narzędzi stosowanych w branży analityki danych:
@@ -430,6 +439,12 @@ Instalacja: `uv pip install -r requirements.txt`
 
 ## 2. Wprowadzenie do analizy danych
 
+> **Dokumentacja i materiały źródłowe:**
+> - [Jupyter Notebook — dokumentacja](https://jupyter-notebook.readthedocs.io/en/stable/)
+> - [Python — typy wbudowane](https://docs.python.org/3/library/stdtypes.html)
+> - [Pandas — 10 Minutes to Pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+> - [Real Python — Data Science Tutorials](https://realpython.com/tutorials/data-science/)
+
 ### 2.1 Pipeline analityczny
 
 Analiza danych to **proces** — sekwencja kroków od pytania biznesowego do decyzji.
@@ -602,6 +617,14 @@ print(f"NumPy:  {czas_numpy*1000:.1f} ms")
 ---
 
 ## 3. NumPy — obliczenia numeryczne
+
+> **Dokumentacja i materiały źródłowe:**
+> - [NumPy — oficjalna dokumentacja](https://numpy.org/doc/stable/)
+> - [NumPy — Quickstart Tutorial](https://numpy.org/doc/stable/user/quickstart.html)
+> - [NumPy — Absolute Beginners Guide](https://numpy.org/doc/stable/user/absolute_beginners.html)
+> - [NumPy — Broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html)
+> - [NumPy — Indexing](https://numpy.org/doc/stable/user/basics.indexing.html)
+> - [NumPy — API Reference](https://numpy.org/doc/stable/reference/)
 
 ### 3.1 Czym jest NumPy?
 
@@ -799,6 +822,14 @@ np.random.poisson(lam=20, size=30)                 # rozkład Poissona
 ---
 
 ## 4. Pandas — przetwarzanie i analiza danych
+
+> **Dokumentacja i materiały źródłowe:**
+> - [Pandas — oficjalna dokumentacja](https://pandas.pydata.org/docs/)
+> - [Pandas — 10 Minutes to Pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+> - [Pandas — Getting Started Tutorials](https://pandas.pydata.org/docs/getting_started/intro_tutorials/)
+> - [Pandas — User Guide](https://pandas.pydata.org/docs/user_guide/index.html)
+> - [Pandas — API Reference](https://pandas.pydata.org/docs/reference/index.html)
+> - [Pandas — Cheat Sheet (PDF)](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 
 ### 4.1 Czym jest Pandas?
 
@@ -1218,6 +1249,16 @@ pd.crosstab(df['day'], df['smoker'])
 
 ## 5. Matplotlib — wizualizacja danych
 
+> **Dokumentacja i materiały źródłowe:**
+> - [Matplotlib — oficjalna dokumentacja](https://matplotlib.org/stable/)
+> - [Matplotlib — Pyplot Tutorial](https://matplotlib.org/stable/tutorials/pyplot.html)
+> - [Matplotlib — Gallery (przykłady)](https://matplotlib.org/stable/gallery/index.html)
+> - [Matplotlib — Cheat Sheets](https://matplotlib.org/cheatsheets/)
+> - [Matplotlib — Lista kolorów](https://matplotlib.org/stable/gallery/color/named_colors.html)
+> - [Seaborn — oficjalna dokumentacja](https://seaborn.pydata.org/)
+> - [Seaborn — Tutorial](https://seaborn.pydata.org/tutorial.html)
+> - [Seaborn — Palety kolorów](https://seaborn.pydata.org/tutorial/color_palettes.html)
+
 ### 5.1 Czym jest Matplotlib?
 
 Matplotlib to główna biblioteka do wizualizacji danych w Pythonie. Seaborn, Pandas `.plot()` i wiele innych narzędzi korzysta z Matplotlib pod spodem.
@@ -1374,6 +1415,16 @@ sns.color_palette('viridis', 5)     # 5 kolorów z palety
 
 ## 6. Statystyka w Pythonie
 
+> **Dokumentacja i materiały źródłowe:**
+> - [SciPy — moduł stats](https://docs.scipy.org/doc/scipy/reference/stats.html)
+> - [SciPy — Descriptive Statistics](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.describe.html)
+> - [SciPy — T-tests](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
+> - [SciPy — Shapiro-Wilk](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html)
+> - [SciPy — Chi-square](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2_contingency.html)
+> - [Wikipedia — Statystyka opisowa (PL)](https://pl.wikipedia.org/wiki/Statystyka_opisowa)
+> - [Wikipedia — Test t-Studenta (PL)](https://pl.wikipedia.org/wiki/Test_t-Studenta)
+> - [Wikipedia — Wartość p (PL)](https://pl.wikipedia.org/wiki/Warto%C5%9B%C4%87_p)
+
 ### 6.1 Statystyki opisowe
 
 ```python
@@ -1506,6 +1557,15 @@ ci = stats.t.interval(0.95, df=len(dane)-1,
 ---
 
 ## 7. Zaawansowane biblioteki i narzędzia
+
+> **Dokumentacja i materiały źródłowe:**
+> - [scikit-learn — oficjalna dokumentacja](https://scikit-learn.org/stable/)
+> - [scikit-learn — Getting Started](https://scikit-learn.org/stable/getting_started.html)
+> - [scikit-learn — User Guide](https://scikit-learn.org/stable/user_guide.html)
+> - [Plotly — Python Quick Start](https://plotly.com/python/getting-started/)
+> - [Plotly — Express API](https://plotly.com/python-api-reference/plotly.express.html)
+> - [Polars — oficjalna dokumentacja](https://docs.pola.rs/)
+> - [Polars — User Guide](https://docs.pola.rs/user-guide/)
 
 W tym rozdziale poznasz trzy biblioteki, które rozszerzają możliwości analityka danych poza podstawowy zestaw NumPy/Pandas/Matplotlib.
 
@@ -1698,6 +1758,14 @@ print(wynik)
 ---
 
 ## 8. LLM i AI w analizie danych
+
+> **Dokumentacja i materiały źródłowe:**
+> - [OpenAI — API Documentation](https://platform.openai.com/docs/)
+> - [OpenAI — Python SDK](https://github.com/openai/openai-python)
+> - [Anthropic (Claude) — API Documentation](https://docs.anthropic.com/)
+> - [Anthropic — Python SDK](https://github.com/anthropics/anthropic-sdk-python)
+> - [Prompt Engineering Guide](https://www.promptingguide.ai/)
+> - [Google — What is Prompt Engineering](https://cloud.google.com/discover/what-is-prompt-engineering)
 
 Modele językowe (LLM) to narzędzia, które potrafią generować tekst — w tym kod Python, interpretacje wyników i raporty. Dla analityka danych to potężny asystent, ale wymagający krytycznego myślenia.
 

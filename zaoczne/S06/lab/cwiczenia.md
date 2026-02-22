@@ -7,6 +7,17 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| SciPy — Stats module | https://docs.scipy.org/doc/scipy/reference/stats.html |
+| SciPy — describe() | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.describe.html |
+| Pandas — describe() | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html |
+| Wikipedia — Statystyka opisowa | https://pl.wikipedia.org/wiki/Statystyka_opisowa |
+
+---
+
 ## Setup — uruchom jako pierwsza komorkę
 
 ```python

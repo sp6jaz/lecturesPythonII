@@ -7,6 +7,32 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Pandas — oficjalna dokumentacja | https://pandas.pydata.org/docs/ |
+| Pandas — 10 Minutes to Pandas | https://pandas.pydata.org/docs/user_guide/10min.html |
+| Pandas — `Series` | https://pandas.pydata.org/docs/reference/api/pandas.Series.html |
+| Pandas — `DataFrame` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html |
+| Pandas — `read_csv()` | https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html |
+| Pandas — `describe()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html |
+| Palmer Penguins — opis datasetu | https://allisonhorst.github.io/palmerpenguins/ |
+
+### Kolumny datasetu `penguins`
+
+| Kolumna | Opis | Typ |
+|---------|------|-----|
+| `species` | Gatunek pingwina | kategoria: Adelie/Chinstrap/Gentoo |
+| `island` | Wyspa na Antarktydzie | kategoria: Torgersen/Biscoe/Dream |
+| `bill_length_mm` | Długość dzioba (mm) | float |
+| `bill_depth_mm` | Głębokość dzioba (mm) | float |
+| `flipper_length_mm` | Długość płetwy (mm) | float |
+| `body_mass_g` | Masa ciała (g) | int |
+| `sex` | Płeć | kategoria: Male/Female |
+
+---
+
 ## Ćwiczenie 1: Series — tworzenie i operacje (20 min)
 
 ### Cel
@@ -216,3 +242,16 @@ Po dzisiejszych zajęciach umiesz:
 - ✅ Wyciągać wnioski z danych (EDA)
 
 **Na następnych zajęciach:** loc/iloc, filtrowanie z warunkami logicznymi, sortowanie — zaczniecie odpowiadać na precyzyjne pytania o danych.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `KeyError: 'nazwa_kolumny'` | Sprawdź dokładną pisownię: `df.columns` wyświetli wszystkie kolumny |
+| Różnica `df['kol']` vs `df.kol` | Oba działają, ale `df['kol']` jest bezpieczniejsze (działa zawsze, nawet gdy nazwa ma spacje) |
+| `NaN` w wynikach | Dane zawierają brakujące wartości. `df.isna().sum()` pokaże ile w każdej kolumnie |
+| Series vs DataFrame | `df['kol']` -> Series (jedna kolumna). `df[['kol1','kol2']]` -> DataFrame (tabela) |
+| `read_csv()` — URLError | Sprawdź połączenie z internetem. Alternatywa: pobierz plik i wczytaj lokalnie |
+| Nie wiem jak filtrować | `df[df['kolumna'] > wartość]` — warunek w nawiasach kwadratowych |

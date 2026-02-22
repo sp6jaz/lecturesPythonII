@@ -7,6 +7,19 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| NumPy — oficjalna dokumentacja | https://numpy.org/doc/stable/ |
+| NumPy — szybki start | https://numpy.org/doc/stable/user/quickstart.html |
+| NumPy — tworzenie tablic | https://numpy.org/doc/stable/reference/routines.array-creation.html |
+| NumPy — indeksowanie i slicing | https://numpy.org/doc/stable/user/basics.indexing.html |
+| NumPy — operacje matematyczne | https://numpy.org/doc/stable/reference/routines.math.html |
+| NumPy — statystyki (mean, std, min, max) | https://numpy.org/doc/stable/reference/routines.statistics.html |
+
+---
+
 ## Ćwiczenie 1: Tworzenie tablic (20 min)
 
 ### Cel
@@ -344,3 +357,16 @@ Po dzisiejszych zajęciach umiesz:
 - ✅ Mierzyć i porównywać wydajność
 
 **Na następnych zajęciach:** NumPy zaawansowane — broadcasting, reshape, algebra liniowa.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `IndexError: index out of bounds` | Indeksy zaczynają się od 0. Tablica 12-elementowa ma indeksy 0-11 |
+| Nie wiem jak wybrać fragment tablicy | Slicing: `tablica[start:stop]` — stop NIE jest włączony. Np. `t[2:5]` → elementy 2, 3, 4 |
+| Różnica `tablica[2:5]` vs `tablica[[2,5]]` | `[2:5]` = zakres (indeksy 2,3,4). `[[2,5]]` = konkretne pozycje (indeksy 2 i 5) |
+| `ValueError: shape mismatch` | Sprawdź kształty tablic: `print(a.shape, b.shape)` — muszą być kompatybilne |
+| Nie wiem czym jest `axis=0` vs `axis=1` | `axis=0` = operacja wzdłuż wierszy (w dół). `axis=1` = wzdłuż kolumn (w prawo) |
+| `.argmax()` vs `.max()` | `.max()` zwraca wartość, `.argmax()` zwraca pozycję (indeks) tej wartości |

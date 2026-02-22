@@ -19,6 +19,13 @@ Po tych zajęciach osoba studiująca:
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [SciPy — T-tests](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
+- [SciPy — Shapiro-Wilk](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html)
+- [SciPy — Chi-square](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2_contingency.html)
+- [Wikipedia — Wartość p](https://pl.wikipedia.org/wiki/Warto%C5%9B%C4%87_p)
+
 ## Plan minutowy
 
 | Czas | Etap | Opis | Uwagi |

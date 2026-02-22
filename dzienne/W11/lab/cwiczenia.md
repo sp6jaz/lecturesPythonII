@@ -49,6 +49,31 @@ print("\nTypy kolumn:")
 print(df.dtypes)
 ```
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| SciPy — `scipy.stats` | https://docs.scipy.org/doc/scipy/reference/stats.html |
+| SciPy — `describe()` | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.describe.html |
+| SciPy — `pearsonr()` | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html |
+| SciPy — `spearmanr()` | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html |
+| SciPy — `zscore()` | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.zscore.html |
+| Pandas — `describe()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html |
+| Pandas — `groupby()` | https://pandas.pydata.org/docs/user_guide/groupby.html |
+| Wikipedia — Statystyka opisowa | https://pl.wikipedia.org/wiki/Statystyka_opisowa |
+
+### Kluczowe pojęcia
+
+- **Średnia** (`mean`) — suma wartości / liczba obserwacji. Wrażliwa na wartości odstające.
+- **Mediana** (`median`) — wartość środkowa po posortowaniu. Odporna na outliery.
+- **Dominanta** (`mode`) — najczęściej występująca wartość.
+- **Odchylenie standardowe** (`std`) — jak bardzo wartości rozpraszają się wokół średniej.
+- **IQR** (rozstęp międzykwartylowy) — Q3 - Q1, obejmuje środkowe 50% danych. Stabilny miernik rozproszenia.
+- **Korelacja Pearsona** (`r`) — siła liniowej zależności (-1 do +1). Wrażliwa na outliery.
+- **Korelacja Spearmana** (`ρ`) — siła monotonicznej zależności. Oparta na rangach, odporniejsza.
+- **Skośność** (`skewness`) — > 0 = prawostronna (długi prawy ogon), < 0 = lewostronna.
+- **Z-score** — ile odchyleń standardowych od średniej. |z| > 3 = prawdopodobny outlier.
+
 ---
 
 ## Ćwiczenie 1: Statystyki opisowe na danych biznesowych (20 min)
@@ -423,3 +448,17 @@ Po ukończeniu wszystkich ćwiczeń osoba studiująca potrafi:
 - Łączyć statystyki z wizualizacją w spójnym raporcie
 
 **Zapowiedź L12:** testy hipotez z scipy — t-test, Mann-Whitney, chi-kwadrat, symulacja testu A/B.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `ModuleNotFoundError: scipy` | Zainstaluj: `uv pip install scipy` w aktywowanym venv |
+| `stats.pearsonr()` zwraca obiekt, nie tuple | Od scipy 1.9: `result = stats.pearsonr(x, y)` → `result.statistic` (r) i `result.pvalue` (p) |
+| `df.mode()` zwraca DataFrame | Dla jednej kolumny: `df['kol'].mode()[0]` — `[0]` to pierwsza dominanta |
+| Z-score: `TypeError: can't convert str` | Z-score działa tylko na liczbach: `stats.zscore(df['wynagrodzenie'])`, nie na kolumnie tekstowej |
+| Histogram nie pokazuje się | Dodaj `%matplotlib inline` na początku notebooka |
+| Korelacja wychodzi NaN | Sprawdź czy w danych nie ma NaN: `df[['kol1','kol2']].dropna()` przed obliczeniem |
+| `groupby` — FutureWarning | Dodaj `observed=True`: `df.groupby('dział', observed=True)` |

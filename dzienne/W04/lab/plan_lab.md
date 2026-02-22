@@ -15,6 +15,12 @@ Po tym laboratorium osoba studiująca:
 3. **Analizuje** dane finansowe stosując where, sort, korelację (Bloom 4)
 4. **Generuje** dane syntetyczne do symulacji biznesowych (Bloom 3)
 
+## Przydatne linki dla prowadzącego
+
+- [NumPy — Broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html)
+- [NumPy — Reshape](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html)
+- [NumPy — np.where()](https://numpy.org/doc/stable/reference/generated/numpy.where.html)
+
 ### Plan minutowy
 
 | Czas | Etap | Co robisz | Uwagi |

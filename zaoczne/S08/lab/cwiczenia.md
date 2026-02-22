@@ -5,6 +5,18 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| scikit-learn — Getting Started | https://scikit-learn.org/stable/getting_started.html |
+| scikit-learn — KMeans | https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html |
+| scikit-learn — LinearRegression | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html |
+| Plotly — Python Quick Start | https://plotly.com/python/getting-started/ |
+| Plotly — Scatter plots | https://plotly.com/python/line-and-scatter/ |
+
+---
+
 ## Przygotowanie — uruchom PRZED ćwiczeniami
 
 Utwórz nowy notebook `s08_advanced_libs.ipynb` i jako **pierwszą komórkę** wpisz:

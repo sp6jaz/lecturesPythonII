@@ -7,6 +7,20 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Python — oficjalna strona | https://www.python.org/ |
+| VS Code — dokumentacja | https://code.visualstudio.com/docs |
+| Git — oficjalny podręcznik (po polsku) | https://git-scm.com/book/pl/v2 |
+| uv — menedżer pakietów | https://docs.astral.sh/uv/ |
+| NumPy — dokumentacja | https://numpy.org/doc/stable/ |
+| Pandas — dokumentacja | https://pandas.pydata.org/docs/ |
+| Matplotlib — dokumentacja | https://matplotlib.org/stable/ |
+
+---
+
 ## Ćwiczenie 1: Instalacja narzędzi (20 min)
 
 ### Cel
@@ -444,3 +458,17 @@ Po dzisiejszych zajęciach masz:
 Pełna instrukcja: **jak_pracowac.md** (do pobrania z Moodle)
 
 **Na następnych zajęciach:** zaczynamy pracę z biblioteką NumPy — podstawą analizy danych w Pythonie.
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `python: command not found` | Dodaj Python do PATH. Windows: zainstaluj ponownie z python.org zaznaczając "Add to PATH" |
+| `uv: command not found` | Zainstaluj uv ponownie: `curl -LsSf https://astral.sh/uv/install.sh \| sh` (Linux/Mac) lub `powershell -c "irm https://astral.sh/uv/install.ps1 \| iex"` (Windows) |
+| `(.venv)` nie pojawia się przed promptem | Upewnij się, że wykonałeś `source .venv/bin/activate` (Linux/Mac) lub `.venv\Scripts\activate` (Windows) |
+| `git: command not found` | Zainstaluj Git: https://git-scm.com/download |
+| VS Code nie widzi Pythona z venv | W VS Code: Ctrl+Shift+P → "Python: Select Interpreter" → wybierz `.venv` |
+| `ModuleNotFoundError: No module named 'numpy'` | Aktywuj venv i zainstaluj: `uv pip install numpy pandas matplotlib` |
+| Nie wiem jak scommitować | `git add .` → `git commit -m "opis zmian"` → `git push` |

@@ -8,6 +8,17 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| NumPy — oficjalna dokumentacja | https://numpy.org/doc/stable/ |
+| NumPy — Szybki start | https://numpy.org/doc/stable/user/quickstart.html |
+| NumPy — Broadcasting | https://numpy.org/doc/stable/user/basics.broadcasting.html |
+| NumPy — Indexing | https://numpy.org/doc/stable/user/basics.indexing.html |
+
+---
+
 ## Ćwiczenie 1: Tworzenie tablic i atrybuty (15 min)
 
 ### Cel

@@ -19,6 +19,12 @@ Po tych zajęciach osoba studiująca:
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [SciPy — Stats module](https://docs.scipy.org/doc/scipy/reference/stats.html)
+- [SciPy — Descriptive statistics](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.describe.html)
+- [Pandas — Correlation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html)
+
 ## Plan minutowy
 
 | Czas | Etap | Opis | Uwagi |

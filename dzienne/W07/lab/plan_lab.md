@@ -20,6 +20,12 @@ Po tych zajęciach osoba studiująca:
 
 ---
 
+## Przydatne linki dla prowadzącego
+
+- [Pandas — Working with missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html)
+- [Pandas — Duplicate Labels](https://pandas.pydata.org/docs/user_guide/duplicates.html)
+- [Pandas — Text data](https://pandas.pydata.org/docs/user_guide/text.html)
+
 ## Plan minutowy
 
 | Czas | Etap | Opis | Uwagi |

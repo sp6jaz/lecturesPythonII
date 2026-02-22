@@ -9,6 +9,29 @@
 
 ---
 
+## Przydatne materiały
+
+| Temat | Link |
+|-------|------|
+| Pandas — `merge()` | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html |
+| Pandas — `concat()` | https://pandas.pydata.org/docs/reference/api/pandas.concat.html |
+| Pandas — `groupby()` | https://pandas.pydata.org/docs/user_guide/groupby.html |
+| Pandas — `pivot_table()` | https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html |
+| Pandas — Merge, join, concatenate guide | https://pandas.pydata.org/docs/user_guide/merging.html |
+
+### Typy łączenia (`merge`) — wizualnie
+
+| `how=` | Co robi | Wynik |
+|--------|---------|-------|
+| `'inner'` | Tylko wspólne klucze | A ∩ B |
+| `'left'` | Wszystko z lewej + pasujące z prawej | A + (A ∩ B) |
+| `'right'` | Wszystko z prawej + pasujące z lewej | (A ∩ B) + B |
+| `'outer'` | Wszystko z obu tabel | A ∪ B |
+
+Przykład: jeśli klient złożył zamówienie ale nie ma go w tabeli klientów → `inner` go pominie, `left` zachowa zamówienie z NaN w danych klienta.
+
+---
+
 ## Dane startowe — wklej jako pierwszą komórkę notebooka
 
 ```python
@@ -494,3 +517,16 @@ pd.crosstab()    → tabela liczebności / częstości
 - [ ] Ćwiczenie 3: samodzielna analiza — top produkty + trend miesięczny
 - [ ] Ćwiczenie 4: pivot_table z margins + crosstab z normalize
 - [ ] Commit na GitHub z komunikatem zawierającym "W08"
+
+---
+
+## Jeśli utkniesz
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `MergeError: columns overlap` | Tabele mają kolumny o tych samych nazwach. Użyj `suffixes=('_left', '_right')` |
+| Po merge za dużo/za mało wierszy | Sprawdź typ merge: `how='inner'` wycina, `how='left'` zachowuje. Sprawdź duplikaty w kluczu |
+| `groupby()` nie pokazuje wszystkich kolumn | `groupby()` domyślnie pokazuje tylko grupowane i agregowane kolumny. Dodaj `as_index=False` |
+| `pivot_table` — ValueError | Sprawdź czy `values=`, `index=`, `columns=` wskazują na istniejące kolumny |
+| `agg()` — nie wiem jak podać wiele funkcji | `df.groupby('kol').agg({'cena': ['mean', 'sum'], 'ilość': 'count'})` |
+| Wynik groupby ma MultiIndex | Spłaszcz: `df.columns = ['_'.join(col) for col in df.columns]` lub użyj named agg |

@@ -737,7 +737,184 @@ np.random.poisson(lam=20, size=30)                 # rozkład Poissona
 
 ## 4. Pandas — przetwarzanie i analiza danych
 
-*(treść będzie uzupełniana)*
+### 4.1 Czym jest Pandas?
+
+Pandas to **najważniejsza biblioteka** w ekosystemie analizy danych w Pythonie. Pod spodem korzysta z NumPy, ale dodaje etykiety, nazwy kolumn i dziesiątki wygodnych metod do pracy z danymi tabelarycznymi.
+
+```python
+import pandas as pd    # konwencja — zawsze pd
+```
+
+Dwie kluczowe struktury danych:
+- **Series** — jednowymiarowa tablica z etykietami (jak kolumna w Excelu)
+- **DataFrame** — dwuwymiarowa tabela z wierszami i kolumnami (jak arkusz)
+
+### 4.2 Series
+
+Series to tablica NumPy + indeks (etykiety).
+
+```python
+# Z listy — domyślny indeks (0, 1, 2, ...)
+oceny = pd.Series([4.5, 3.0, 5.0, 3.5, 4.0])
+
+# Z dict — klucze stają się indeksem
+pensje = pd.Series({
+    'Anna': 5500,
+    'Jan': 7200,
+    'Marek': 9100
+})
+
+# Z etykietami
+sprzedaz = pd.Series(
+    [340, 120, 560],
+    index=['Laptop', 'Tablet', 'Smartfon']
+)
+```
+
+#### Dostęp do elementów
+
+```python
+pensje['Anna']        # po etykiecie → 5500
+pensje.iloc[0]        # po pozycji → 5500
+pensje[:2]            # slice — pierwsze 2
+```
+
+#### Operacje na Series
+
+```python
+# Operacje wektorowe — jak NumPy
+pensje * 1.10              # podwyżka 10%
+pensje[pensje > 6000]      # filtrowanie boolean
+
+# Agregacje
+pensje.mean()              # średnia
+pensje.sum()               # suma
+pensje.max()               # wartość max
+pensje.idxmax()            # ETYKIETA max (nie indeks jak w NumPy!)
+```
+
+### 4.3 DataFrame
+
+DataFrame to tabela — kolekcja Series o wspólnym indeksie.
+
+```python
+# Tworzenie z dict list
+dane = pd.DataFrame({
+    'produkt': ['Laptop', 'Tablet', 'Smartfon'],
+    'cena': [3500, 1800, 2500],
+    'sprzedaz': [340, 120, 560]
+})
+```
+
+#### Podstawowe atrybuty
+
+```python
+dane.shape      # (3, 3) — wiersze × kolumny
+dane.columns    # nazwy kolumn
+dane.index      # indeks wierszy
+dane.dtypes     # typy danych w kolumnach
+dane.size       # łączna liczba elementów
+dane.ndim       # 2 (dwuwymiarowy)
+```
+
+### 4.4 Wczytywanie danych
+
+```python
+# Z pliku CSV
+df = pd.read_csv('dane.csv')
+
+# Z URL
+df = pd.read_csv('https://example.com/dane.csv')
+
+# Z Excela
+df = pd.read_excel('dane.xlsx')
+
+# Przydatne parametry read_csv:
+pd.read_csv('dane.csv', sep=';')           # separator ;
+pd.read_csv('dane.csv', encoding='utf-8')  # kodowanie
+pd.read_csv('dane.csv', index_col=0)       # pierwsza kolumna jako indeks
+```
+
+### 4.5 Eksploracja danych (EDA)
+
+Pierwsze 5 minut z każdym nowym datasetem — **Exploratory Data Analysis**.
+
+```python
+df.head()          # pierwsze 5 wierszy
+df.head(10)        # pierwsze 10
+df.tail()          # ostatnie 5
+df.sample(3)       # losowe 3 wiersze
+
+df.shape           # rozmiar (wiersze, kolumny)
+df.dtypes          # typy danych
+df.info()          # RTG danych: typy, braki, pamięć
+df.describe()      # statystyki kolumn liczbowych
+df.describe(include='all')  # wszystkich kolumn
+```
+
+#### Sprawdzenie braków
+
+```python
+df.isna().sum()           # braki w każdej kolumnie
+df.isna().sum().sum()     # łączna liczba braków
+df.isna().any(axis=1).sum()  # ile wierszy ma jakikolwiek brak
+```
+
+### 4.6 Rozkłady wartości
+
+```python
+# Ile razy każda wartość wystąpiła
+df['kolumna'].value_counts()
+
+# Procenty zamiast liczebności
+df['kolumna'].value_counts(normalize=True)
+
+# Unikalne wartości
+df['kolumna'].unique()       # tablica unikalnych
+df['kolumna'].nunique()      # ile unikalnych
+```
+
+### 4.7 Selekcja kolumn
+
+```python
+# Jedna kolumna → Series
+rachunki = df['total_bill']
+
+# Wiele kolumn → DataFrame (podwójne nawiasy!)
+pieniadze = df[['total_bill', 'tip']]
+```
+
+**Zapamiętaj:** `df['x']` → Series. `df[['x', 'y']]` → DataFrame (wewnątrz jest lista).
+
+### 4.8 Tworzenie nowych kolumn
+
+```python
+# Obliczenie z istniejących kolumn
+df['tip_pct'] = (df['tip'] / df['total_bill'] * 100).round(1)
+df['wartosc'] = df['cena'] * df['ilosc']
+```
+
+### 4.9 Pandas a NumPy
+
+```python
+# Pod spodem to NumPy
+wartosci = df['total_bill'].values    # numpy.ndarray
+print(type(wartosci))                  # <class 'numpy.ndarray'>
+
+# Funkcje NumPy działają na kolumnach Pandas
+np.median(df['total_bill'])    # działa
+df['total_bill'].median()     # ale to jest wygodniejsze
+```
+
+| Cecha | NumPy | Pandas |
+|-------|-------|--------|
+| Struktura | ndarray | Series / DataFrame |
+| Indeks | pozycyjny (0, 1, 2) | etykiety (nazwy, daty) |
+| Typy w kolumnie | jeden typ | jeden typ |
+| Typy między kolumnami | jeden typ | różne typy |
+| Brakujące dane | brak natywnego wsparcia | NaN + metody (isna, fillna, dropna) |
+| Wczytywanie plików | np.loadtxt (ograniczone) | read_csv, read_excel, read_sql |
+| Szybkość obliczeń | najszybszy | nieco wolniejszy (etykiety kosztują) |
 
 ---
 

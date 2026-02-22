@@ -70,3 +70,6 @@
 | 66 | 2026-02-22 | — | Utworzenie sp6jaz/python2-materialy — publiczne repo studenckie z README i harmonogramem |
 | 67 | 2026-02-22 | — | Utworzenie publikacja/: harmonogram_publikacji.json, publikuj.py, kalendarz_akademicki.md |
 | 68 | 2026-02-22 | — | Test skryptu publikacji w trybie preview — poprawne filtrowanie plików (bez stenogramów, z opóźnieniem quizów) |
+| 69 | 2026-02-22 | — | Utworzenie W05 wykład: plan_zajec.md (stenogram Pandas intro 90 min), pandas_intro_demo.ipynb (zweryfikowany), quiz_w05.md |
+| 70 | 2026-02-22 | — | Utworzenie L05 lab: plan_lab.md (instrukcja doktoranta), cwiczenia.md (Series, DataFrame, EDA penguins) |
+| 71 | 2026-02-22 | — | Weryfikacja odpowiedzi L05 (poprawka średniej pensji 6380→6580) + aktualizacja skryptu studenta (4.1-4.9: Pandas intro) |

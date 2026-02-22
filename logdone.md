@@ -73,3 +73,6 @@
 | 69 | 2026-02-22 | — | Utworzenie W05 wykład: plan_zajec.md (stenogram Pandas intro 90 min), pandas_intro_demo.ipynb (zweryfikowany), quiz_w05.md |
 | 70 | 2026-02-22 | — | Utworzenie L05 lab: plan_lab.md (instrukcja doktoranta), cwiczenia.md (Series, DataFrame, EDA penguins) |
 | 71 | 2026-02-22 | — | Weryfikacja odpowiedzi L05 (poprawka średniej pensji 6380→6580) + aktualizacja skryptu studenta (4.1-4.9: Pandas intro) |
+| 72 | 2026-02-22 | — | Utworzenie W06 wykład: plan_zajec.md (stenogram loc/iloc/filtrowanie 90 min), pandas_selection_demo.ipynb (zweryfikowany), quiz_w06.md |
+| 73 | 2026-02-22 | — | Utworzenie L06 lab: plan_lab.md (instrukcja doktoranta), cwiczenia.md (loc/iloc, filtry, segmentacja) |
+| 74 | 2026-02-22 | — | Weryfikacja odpowiedzi L06 (poprawki: grupy≥4: 46, rachunki 10-20: 130, grupy 2/3: 194, Sob+obiad+>20: 38) + skrypt 4.10-4.14 |

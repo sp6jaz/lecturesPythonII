@@ -916,6 +916,97 @@ df['total_bill'].median()     # ale to jest wygodniejsze
 | Wczytywanie plików | np.loadtxt (ograniczone) | read_csv, read_excel, read_sql |
 | Szybkość obliczeń | najszybszy | nieco wolniejszy (etykiety kosztują) |
 
+### 4.10 Selekcja wierszy: loc i iloc
+
+Pandas oferuje dwa główne sposoby wybierania wierszy i kolumn:
+
+| Metoda | Klucz | Przykład |
+|--------|-------|---------|
+| **iloc** | pozycja (numer) | `df.iloc[0]` — pierwszy wiersz |
+| **loc** | etykieta (nazwa) | `df.loc['Laptop']` — wiersz o etykiecie |
+
+```python
+# iloc — Integer Location (pozycja)
+df.iloc[0]          # pierwszy wiersz
+df.iloc[0:5]        # wiersze 0-4
+df.iloc[-1]         # ostatni wiersz
+df.iloc[::5]        # co piąty wiersz
+df.iloc[0:3, 0:2]   # wiersze 0-2, kolumny 0-1
+
+# loc — Label Location (etykieta)
+df.loc['Laptop']               # wiersz o etykiecie 'Laptop'
+df.loc['Laptop', 'cena']       # konkretna komórka
+df.loc[['Laptop', 'Monitor']]  # wiele etykiet
+df.loc[:, 'total_bill']        # cała kolumna
+df.loc[df['cena'] > 2000]      # filtrowanie z warunkiem
+```
+
+**Zasada:** `iloc` = numer, `loc` = nazwa/warunek. W 90% przypadków używasz `loc` z warunkami.
+
+### 4.11 Filtrowanie z warunkami logicznymi
+
+```python
+# Filtr prosty
+drogie = df[df['total_bill'] > 30]
+
+# AND — operator & (nawiasy obowiązkowe!)
+wynik = df[(df['day'] == 'Sat') & (df['total_bill'] > 30)]
+
+# OR — operator |
+weekend = df[(df['day'] == 'Sat') | (df['day'] == 'Sun')]
+
+# NOT — operator ~
+niepalacze = df[~(df['smoker'] == 'Yes')]
+```
+
+**Uwaga:** Nie używaj `and`/`or` — Pandas wymaga `&`/`|`. Każdy warunek w nawiasach!
+
+### 4.12 Wygodne metody filtrowania
+
+```python
+# isin — czy wartość jest na liście
+weekend = df[df['day'].isin(['Sat', 'Sun'])]
+
+# between — zakres wartości (oba końce włączone)
+srednie = df[df['total_bill'].between(15, 25)]
+
+# query — filtr w stylu SQL
+wynik = df.query("total_bill > 30 and day == 'Sat'")
+```
+
+### 4.13 Sortowanie
+
+```python
+# Po jednej kolumnie
+df.sort_values('total_bill', ascending=False)    # malejąco
+
+# Po wielu kolumnach
+df.sort_values(['day', 'total_bill'], ascending=[True, False])
+
+# TOP-N / BOTTOM-N (szybsze niż sort + head)
+df.nlargest(5, 'total_bill')      # 5 najwyższych
+df.nsmallest(5, 'total_bill')     # 5 najniższych
+```
+
+**Pattern:** `df.sort_values('kolumna', ascending=False).head(5)` = TOP-5. Albo krócej: `df.nlargest(5, 'kolumna')`.
+
+### 4.14 Segmentacja danych
+
+Segmentacja dzieli dane na grupy na podstawie warunków.
+
+```python
+import numpy as np
+
+# Dwa segmenty
+df['segment'] = np.where(df['total_bill'] > 30, 'Premium', 'Standard')
+
+# Trzy segmenty (zagnieżdżony where)
+df['hojnosc'] = np.where(
+    df['tip_pct'] > 20, 'Hojny',
+    np.where(df['tip_pct'] > 10, 'Przeciętny', 'Skąpy')
+)
+```
+
 ---
 
 ## 5. Matplotlib — wizualizacja danych

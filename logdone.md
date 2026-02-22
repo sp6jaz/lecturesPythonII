@@ -58,3 +58,7 @@
 | 54 | 2026-02-22 | — | Utworzenie dzienne/W02/lab/cwiczenia.md — 4 ćwiczenia (Jupyter, eksploracja, pytania biznesowe, wykres) |
 | 55 | 2026-02-22 | — | Weryfikacja wszystkich odpowiedzi do ćwiczeń L02 (tips dataset, 5 pytań) |
 | 56 | 2026-02-22 | — | Aktualizacja skryptdlastudentow/skrypt.md — rozdział 2 (pipeline, Jupyter, typy danych, źródła, motywacja NumPy) |
+| 57 | 2026-02-22 | — | Utworzenie W03 wykład: plan_zajec.md (stenogram NumPy 90 min), numpy_demo.ipynb (zweryfikowany), quiz_w03.md |
+| 58 | 2026-02-22 | — | Utworzenie L03 lab: plan_lab.md (instrukcja doktoranta), cwiczenia.md (5 ćwiczeń NumPy + benchmark) |
+| 59 | 2026-02-22 | — | Weryfikacja wszystkich odpowiedzi do ćwiczeń L03 (poprawka średniej ceny) |
+| 60 | 2026-02-22 | — | Aktualizacja skryptu studenta — rozdział 3 NumPy (tworzenie tablic, indeksowanie, operacje, filtrowanie, axis) |

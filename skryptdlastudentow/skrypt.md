@@ -540,7 +540,127 @@ print(f"NumPy:  {czas_numpy*1000:.1f} ms")
 
 ## 3. NumPy — obliczenia numeryczne
 
-*(treść będzie uzupełniana)*
+### 3.1 Czym jest NumPy?
+
+NumPy (Numerical Python) to fundament ekosystemu data science w Pythonie. Pandas, Matplotlib, scikit-learn — wszystkie te biblioteki pod spodem korzystają z NumPy. Kluczowa struktura danych to **ndarray** (n-dimensional array) — tablica n-wymiarowa.
+
+### 3.2 Tworzenie tablic
+
+```python
+import numpy as np    # konwencja — zawsze np
+
+# Z listy
+a = np.array([10, 20, 30, 40, 50])
+
+# Zera i jedynki
+zera = np.zeros(5)              # [0, 0, 0, 0, 0]
+jedynki = np.ones((3, 4))      # macierz 3×4 wypełniona jedynkami
+
+# Sekwencje
+sekwencja = np.arange(0, 10, 2)     # [0, 2, 4, 6, 8] — jak range()
+rownomierne = np.linspace(0, 1, 5)  # [0, 0.25, 0.5, 0.75, 1] — 5 punktów
+
+# Losowe
+losowe = np.random.randint(1, 100, size=10)   # 10 losowych int z [1, 100)
+normalne = np.random.randn(5)                  # 5 wartości z rozkładu normalnego
+
+np.random.seed(42)    # ustawienie ziarna — wyniki powtarzalne
+```
+
+### 3.3 Atrybuty tablicy
+
+```python
+m = np.array([[1, 2, 3], [4, 5, 6]])
+
+m.shape    # (2, 3) — 2 wiersze, 3 kolumny
+m.ndim     # 2 — dwa wymiary
+m.size     # 6 — łączna liczba elementów
+m.dtype    # int64 — typ danych
+```
+
+### 3.4 Indeksowanie i slicing
+
+#### Tablica 1D
+
+```python
+dane = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+
+dane[0]       # 10 — pierwszy element
+dane[-1]      # 100 — ostatni
+dane[2:5]     # [30, 40, 50] — od indeksu 2 do 5 (bez 5!)
+dane[:3]      # [10, 20, 30] — pierwsze 3
+dane[7:]      # [80, 90, 100] — od indeksu 7
+dane[::2]     # [10, 30, 50, 70, 90] — co drugi
+dane[::-1]    # odwrócona tablica
+```
+
+#### Tablica 2D
+
+```python
+macierz = np.array([[1, 2, 3],
+                     [4, 5, 6],
+                     [7, 8, 9]])
+
+macierz[0, 1]     # 2 — wiersz 0, kolumna 1
+macierz[1]        # [4, 5, 6] — cały wiersz 1
+macierz[:, 0]     # [1, 4, 7] — cała kolumna 0
+macierz[1:, 1:]   # [[5, 6], [8, 9]] — fragment
+```
+
+**Zapamiętaj:** `[wiersz, kolumna]`. Dwukropek `:` sam = "wszystko".
+
+### 3.5 Operacje wektorowe
+
+Operacje na tablicach NumPy działają na **wszystkich elementach naraz** — bez pętli.
+
+```python
+ceny = np.array([100, 200, 150, 300, 250])
+
+# Arytmetyka
+ceny * 0.9          # rabat 10%: [90, 180, 135, 270, 225]
+ceny * 1.23         # VAT 23%
+ceny + 50           # podwyżka o 50 zł
+
+# Agregacje
+ceny.sum()          # 1000
+ceny.mean()         # 200.0
+ceny.std()          # 70.71
+ceny.min()          # 100
+ceny.max()          # 300
+ceny.argmax()       # 3 — INDEKS maksymalnego elementu
+
+# Operacje między tablicami
+ilosci = np.array([5, 3, 10, 2, 7])
+wartosc = ceny * ilosci    # element po elemencie
+obrot = wartosc.sum()      # łączny obrót
+```
+
+### 3.6 Filtrowanie boolean
+
+```python
+ceny = np.array([100, 200, 150, 300, 250])
+
+ceny > 200              # [False, False, False, True, True]
+ceny[ceny > 200]        # [300, 250] — tylko drogie produkty
+(ceny > 200).sum()      # 2 — ile jest drogich
+```
+
+**Zasada:** Warunek tworzy tablicę True/False. Użycie jej jako indeksu filtruje dane. True = 1, False = 0 — stąd `.sum()` liczy ile spełnia warunek.
+
+### 3.7 Parametr axis
+
+W tablicach 2D `axis` określa kierunek operacji:
+
+```python
+dane = np.array([[10, 20, 30],    # wiersz 0
+                  [40, 50, 60]])   # wiersz 1
+
+dane.sum(axis=0)    # [50, 70, 90] — suma "w dół" (per kolumna)
+dane.sum(axis=1)    # [60, 150] — suma "w prawo" (per wiersz)
+dane.sum()          # 210 — suma wszystkich
+```
+
+**Zapamiętaj:** `axis=0` = w dół, `axis=1` = w prawo.
 
 ---
 

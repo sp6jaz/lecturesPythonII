@@ -33,3 +33,7 @@ This project lives inside the `~/agent/` git repo (branch: `master`, remote: `gi
 - Język komunikacji: **polski**
 - Mermaid: **ZAWSZE układ pionowy (TD)**, max 3 bloczki w rzędzie
 - Działaj autonomicznie, raportuj wyniki
+
+### Przy każdym starcie sesji
+- Wczytaj `wytycznepodstawowe.md` — główne zasady projektu i dydaktyki
+- Wczytaj `teoriadydaktyki/ramy_dydaktyczne.md` — struktura jednostki dydaktycznej, Backward Design, Bloom

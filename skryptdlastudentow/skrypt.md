@@ -1311,7 +1311,134 @@ sns.color_palette('viridis', 5)     # 5 kolorów z palety
 
 ## 6. Statystyka w Pythonie
 
-*(treść będzie uzupełniana)*
+### 6.1 Statystyki opisowe
+
+```python
+import numpy as np
+from scipy import stats
+
+dane = np.array([5500, 7200, 4800, 9100, 6300, 4200, 8500, 5800])
+
+# Miary tendencji centralnej
+np.mean(dane)               # średnia arytmetyczna
+np.median(dane)             # mediana (odporna na outliers)
+stats.mode(dane)            # moda (najczęstsza wartość)
+
+# Miary rozproszenia
+np.std(dane)                # odchylenie standardowe
+np.var(dane)                # wariancja
+np.percentile(dane, [25, 75])  # Q1, Q3
+iqr = np.percentile(dane, 75) - np.percentile(dane, 25)  # IQR
+```
+
+**Kiedy średnia, kiedy mediana?**
+- **Średnia** — gdy dane symetryczne, bez outlierów
+- **Mediana** — gdy dane skośne lub z outlierami (np. wynagrodzenia, ceny nieruchomości)
+
+### 6.2 Korelacja
+
+Korelacja mierzy siłę związku liniowego między zmiennymi.
+
+```python
+# Korelacja Pearsona (liniowa)
+r, p_value = stats.pearsonr(x, y)
+
+# Korelacja Spearmana (rangowa, odporna na outliers)
+rho, p_value = stats.spearmanr(x, y)
+
+# Macierz korelacji (Pandas)
+df.corr(numeric_only=True)
+```
+
+| Wartość r | Interpretacja |
+|-----------|--------------|
+| 0.0 – 0.3 | słaba |
+| 0.3 – 0.7 | umiarkowana |
+| 0.7 – 1.0 | silna |
+
+**Uwaga:** Korelacja ≠ przyczynowość! Wysoka korelacja nie oznacza, że jedna zmienna powoduje drugą.
+
+### 6.3 Skośność i kurtoza
+
+```python
+stats.skew(dane)       # skośność: >0 prawostronna, <0 lewostronna
+stats.kurtosis(dane)   # kurtoza: >0 leptokurtyczna, <0 platykurtyczna
+```
+
+### 6.4 Wykrywanie outlierów
+
+```python
+# Metoda IQR
+Q1 = np.percentile(dane, 25)
+Q3 = np.percentile(dane, 75)
+IQR = Q3 - Q1
+dolna = Q1 - 1.5 * IQR
+gorna = Q3 + 1.5 * IQR
+outliers = dane[(dane < dolna) | (dane > gorna)]
+
+# Metoda z-score
+z_scores = np.abs(stats.zscore(dane))
+outliers = dane[z_scores > 3]    # > 3 odchylenia standardowe
+```
+
+### 6.5 Rozkład normalny
+
+```python
+from scipy import stats
+
+# Prawdopodobieństwa
+stats.norm.cdf(60, loc=50, scale=10)    # P(X ≤ 60)
+stats.norm.ppf(0.95, loc=50, scale=10)  # wartość dla P = 95%
+
+# Test normalności (Shapiro-Wilk)
+stat, p = stats.shapiro(dane)
+# p > 0.05 → nie odrzucamy normalności
+```
+
+### 6.6 Testy hipotez
+
+```python
+# t-test jednorodkowy: czy średnia = μ₀?
+stat, p = stats.ttest_1samp(dane, popmean=5000)
+
+# t-test dla dwóch grup niezależnych (Welch)
+stat, p = stats.ttest_ind(grupa_A, grupa_B, equal_var=False)
+
+# t-test sparowany (te same osoby, przed/po)
+stat, p = stats.ttest_rel(przed, po)
+```
+
+**Interpretacja p-value:**
+- p < 0.05 → różnica **istotna statystycznie** (odrzucamy H₀)
+- p ≥ 0.05 → **brak podstaw** do odrzucenia H₀
+
+### 6.7 A/B testing w biznesie
+
+A/B test to kontrolowany eksperyment: porównujemy grupę kontrolną (A) z grupą testową (B).
+
+```python
+# Przykład: kampania e-mailowa
+# Grupa A: stary email (n=200, średni zakup 45.2 zł)
+# Grupa B: nowy email (n=200, średni zakup 52.8 zł)
+
+stat, p = stats.ttest_ind(grupa_A, grupa_B, equal_var=False)
+if p < 0.05:
+    print("Nowy email istotnie lepszy!")
+else:
+    print("Brak istotnej różnicy")
+```
+
+### 6.8 Chi-kwadrat i przedziały ufności
+
+```python
+# Chi-kwadrat — test niezależności zmiennych kategorycznych
+tabela = pd.crosstab(df['segment'], df['konwersja'])
+chi2, p, dof, expected = stats.chi2_contingency(tabela)
+
+# Przedział ufności dla średniej
+ci = stats.t.interval(0.95, df=len(dane)-1,
+                       loc=np.mean(dane), scale=stats.sem(dane))
+```
 
 ---
 

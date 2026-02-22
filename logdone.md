@@ -109,3 +109,15 @@
 | 105 | 2026-02-22 | — | Utworzenie W10: plan_zajec.md (stenogram Seaborn/dashboard), seaborn_dashboard_demo.ipynb (zweryfikowany 16 komórek), quiz_w10.md |
 | 106 | 2026-02-22 | — | Utworzenie L10: plan_lab.md (doktorant, 13 błędów troubleshooting) + cwiczenia.md (barplot/boxplot/heatmap, subplots, dashboard, eksport) |
 | 107 | 2026-02-22 | — | Aktualizacja skryptu studenta: 5.1-5.10 (Matplotlib, Seaborn, subplots, dashboard, eksport, style) |
+| 108 | 2026-02-22 | 14:05 | Eksploracja W10/W11 dla konwencji (plan_zajec, quiz, plan_lab, cwiczenia) |
+| 109 | 2026-02-22 | 14:06 | Weryfikacja scipy.stats: norm, shapiro, ttest_1samp/ind/rel, chi2_contingency, t.interval — wszystkie OK |
+| 110 | 2026-02-22 | 14:10 | Utworzenie W12/wyklad/plan_zajec.md — stenogram 90min z 8 sekcjami, live coding, p-wartość w kontekście biznesowym |
+| 111 | 2026-02-22 | 14:11 | Utworzenie W12/wyklad/quiz_w12.md — 5 pytań (2 z W11, 3 nowe o testach hipotez) |
+| 112 | 2026-02-22 | 14:12 | Utworzenie W12/lab/plan_lab.md — plan doktoranta, 13 wpisów troubleshooting, klucz odpowiedzi |
+| 113 | 2026-02-22 | 14:13 | Utworzenie W12/lab/cwiczenia.md — 4 ćwiczenia, checkslisty, A/B test onboarding SaaS, commit |
+| 114 | 2026-02-22 | 14:14 | Utworzenie W12/wyklad/hypothesis_demo.ipynb — 8 sekcji, 37KB, scipy.stats, seed(42) |
+| 115 | 2026-02-22 | 14:15 | Weryfikacja nbconvert --execute: sukces, 0 błędów, executed_test.ipynb usunięty |
+| 116 | 2026-02-22 | 14:16 | Weryfikacja odpowiedzi ćwiczeń: wszystkie obliczenia zgodne z oczekiwaniami |
+| 117 | 2026-02-22 | — | Utworzenie W11: plan_zajec.md (stenogram stat. opisowa), stats_demo.ipynb (zweryfikowany), quiz_w11.md |
+| 118 | 2026-02-22 | — | Utworzenie L11: plan_lab.md (14 troubleshooting) + cwiczenia.md (opisowe, korelacja, HR, outliers) |
+| 119 | 2026-02-22 | — | Aktualizacja skryptu studenta: 6.1-6.8 (opisowe, korelacja, skośność, outliers, normalność, t-test, A/B, chi2) |

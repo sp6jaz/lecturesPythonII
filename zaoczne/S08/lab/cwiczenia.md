@@ -14,6 +14,10 @@
 | scikit-learn — LinearRegression | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html |
 | Plotly — Python Quick Start | https://plotly.com/python/getting-started/ |
 | Plotly — Scatter plots | https://plotly.com/python/line-and-scatter/ |
+| Polars — User Guide | https://docs.pola.rs/user-guide/ |
+| Polars — Lazy API | https://docs.pola.rs/user-guide/lazy/using/ |
+
+> **Warto wiedzieć:** Polars oferuje tryb **lazy evaluation** — buduje plan obliczeń i optymalizuje go przed wykonaniem (jak SQL). Użyj `pl.scan_csv()` zamiast `pl.read_csv()` i zakończ `.collect()`. Polars automatycznie pomija niepotrzebne kolumny i filtruje wcześnie. Idealne dla dużych zbiorów danych. Więcej w rozdziale 7.6 skryptu studenta.
 
 ---
 

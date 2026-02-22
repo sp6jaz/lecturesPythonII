@@ -929,6 +929,44 @@ pd.read_csv('dane.csv', encoding='utf-8')  # kodowanie
 pd.read_csv('dane.csv', index_col=0)       # pierwsza kolumna jako indeks
 ```
 
+#### Inne formaty plików
+
+W firmach dane rzadko są w CSV. Pandas obsługuje wiele formatów:
+
+```python
+# Excel — popularny w biznesie (.xlsx)
+df = pd.read_excel('raport.xlsx', sheet_name='Sprzedaż')
+df.to_excel('wynik.xlsx', index=False, sheet_name='Wyniki')
+
+# Wiele arkuszy jednocześnie
+with pd.ExcelWriter('raport_kwartalny.xlsx') as writer:
+    df_q1.to_excel(writer, sheet_name='Q1', index=False)
+    df_q2.to_excel(writer, sheet_name='Q2', index=False)
+
+# Wczytanie wszystkich arkuszy naraz (zwraca dict)
+arkusze = pd.read_excel('raport.xlsx', sheet_name=None)
+# arkusze['Q1'], arkusze['Q2'] — osobne DataFrames
+
+# JSON — dane z API, konfiguracje
+df = pd.read_json('dane.json')
+df.to_json('wynik.json', orient='records', force_ascii=False, indent=2)
+
+# Parquet — szybki format kolumnowy (wymaga: uv pip install pyarrow)
+df = pd.read_parquet('dane.parquet')
+df.to_parquet('wynik.parquet', index=False)
+```
+
+**Kiedy który format?**
+
+| Format | Zalety | Wady | Typowe użycie |
+|--------|-------|------|---------------|
+| CSV | Prosty, uniwersalny | Brak typów, wolny | Wymiana danych, import |
+| Excel | Znany w biznesie, wiele arkuszy | Limit 1M wierszy, wolny | Raporty dla zarządu |
+| JSON | Dane z API, zagnieżdżone | Duży rozmiar | REST API, konfiguracje |
+| Parquet | Bardzo szybki, kompresja, typy | Nieczytelny dla ludzi | Duże dane, pipelines |
+
+> **Instalacja:** `uv pip install openpyxl` (Excel) i `uv pip install pyarrow` (Parquet)
+
 ### 4.5 Eksploracja danych (EDA)
 
 Pierwsze 5 minut z każdym nowym datasetem — **Exploratory Data Analysis**.
@@ -1245,6 +1283,63 @@ pd.pivot_table(df, values='total_bill', index='day', columns='time',
 pd.crosstab(df['day'], df['smoker'])
 ```
 
+### 4.23 Pobieranie danych z internetu (web scraping)
+
+Analityk danych często musi sam pozyskać dane — ze stron WWW, API lub tabel HTML. Python ma do tego proste narzędzia.
+
+#### requests — pobieranie stron i API
+
+```python
+# Instalacja: uv pip install requests
+import requests
+
+# Pobranie strony HTML
+response = requests.get('https://example.com', timeout=10)
+print(response.status_code)  # 200 = OK
+print(response.text[:200])   # treść HTML
+
+# Pobranie danych z API (JSON)
+response = requests.get('https://api.example.com/dane', timeout=10)
+dane = response.json()       # automatyczna konwersja na dict/list
+```
+
+#### BeautifulSoup — parsowanie HTML
+
+```python
+# Instalacja: uv pip install beautifulsoup4
+from bs4 import BeautifulSoup
+
+html = response.text
+soup = BeautifulSoup(html, 'html.parser')
+
+# Znajdź wszystkie linki
+for link in soup.find_all('a'):
+    print(link.get('href'))
+
+# Znajdź tabelę i zamień na DataFrame
+tabela = soup.find('table')
+wiersze = tabela.find_all('tr')
+dane = []
+for wiersz in wiersze[1:]:           # pomijamy nagłówek
+    komorki = wiersz.find_all('td')
+    dane.append([k.text.strip() for k in komorki])
+
+df = pd.DataFrame(dane, columns=['Produkt', 'Cena'])
+```
+
+#### pd.read_html — najszybsza metoda na tabele
+
+```python
+from io import StringIO
+
+# Wczytaj WSZYSTKIE tabele ze strony HTML (zwraca listę DataFrames)
+dfs = pd.read_html(StringIO(response.text))
+print(f"Znaleziono {len(dfs)} tabel")
+df = dfs[0]  # pierwsza tabela
+```
+
+> **Uwaga etyczna:** Przed scrapingiem sprawdź `robots.txt` strony i warunki użytkowania. Nie obciążaj serwerów — dodawaj `time.sleep(1)` między żądaniami. Wiele serwisów udostępnia oficjalne API — zawsze preferuj API nad scraping.
+
 ---
 
 ## 5. Matplotlib — wizualizacja danych
@@ -1366,7 +1461,44 @@ sns.boxplot(data=df, x='day', y='total_bill', hue='smoker')
 sns.scatterplot(data=df, x='total_bill', y='tip', hue='time')
 ```
 
-### 5.9 Dashboard — wiele wykresów na jednym rysunku
+### 5.9 Wykresy regresji i siatki (regplot, FacetGrid)
+
+#### regplot — szybka regresja na wykresie
+
+```python
+# Wykres punktowy z linią regresji i przedziałem ufności
+sns.regplot(data=df, x='total_bill', y='tip')
+```
+
+`regplot` automatycznie dopasowuje regresję liniową i rysuje 95% przedział ufności (szary obszar wokół linii).
+
+#### lmplot — regresja z podziałem na grupy
+
+```python
+# Osobna linia regresji dla palaczy i niepalących
+sns.lmplot(data=df, x='total_bill', y='tip', hue='smoker', height=5)
+```
+
+#### FacetGrid — siatka wykresów wg kategorii
+
+```python
+# Siatka: kolumny = pora dnia, wiersze = palenie
+g = sns.FacetGrid(df, col='time', row='smoker', height=4)
+g.map_dataframe(sns.histplot, x='total_bill', bins=15)
+g.set_titles('{col_name} | {row_name}')
+```
+
+`FacetGrid` tworzy osobny wykres dla każdej kombinacji kategorii — idealne do porównywania segmentów klientów.
+
+#### jointplot — rozkład dwóch zmiennych
+
+```python
+# Scatter + histogramy na osiach
+sns.jointplot(data=df, x='total_bill', y='tip', kind='reg', height=6)
+# kind: 'scatter', 'reg', 'hex', 'kde'
+```
+
+### 5.10 Dashboard — wiele wykresów na jednym rysunku
 
 ```python
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
@@ -1388,7 +1520,7 @@ plt.tight_layout()
 plt.savefig('dashboard.png', dpi=150, bbox_inches='tight')
 ```
 
-### 5.10 Eksport i style
+### 5.11 Eksport i style
 
 ```python
 # Eksport
@@ -1553,6 +1685,143 @@ chi2, p, dof, expected = stats.chi2_contingency(tabela)
 ci = stats.t.interval(0.95, df=len(dane)-1,
                        loc=np.mean(dane), scale=stats.sem(dane))
 ```
+
+### 6.9 Analiza szeregów czasowych
+
+> **Dokumentacja i materiały źródłowe:**
+> - [statsmodels — Time Series Analysis](https://www.statsmodels.org/stable/tsa.html)
+> - [Pandas — Time Series / Date Functionality](https://pandas.pydata.org/docs/user_guide/timeseries.html)
+> - [pmdarima — auto_arima](https://alkaline-ml.com/pmdarima/)
+
+Szeregi czasowe to dane uporządkowane chronologicznie — sprzedaż dzienna, temperatura co godzinę, kurs akcji co minutę. Dla analityka biznesowego to jeden z najważniejszych typów danych: pozwala na **prognozowanie** i **wykrywanie trendów**.
+
+#### Tworzenie danych czasowych
+
+```python
+import pandas as pd
+import numpy as np
+
+np.random.seed(42)
+
+# Generowanie przykładowych danych sprzedażowych (365 dni)
+dates = pd.date_range('2023-01-01', periods=365, freq='D')
+trend = np.linspace(100, 150, 365)                        # trend rosnący
+sezonowosc = 20 * np.sin(2 * np.pi * np.arange(365) / 365)  # cykl roczny
+szum = np.random.normal(0, 5, 365)                        # szum losowy
+
+df = pd.DataFrame({
+    'data': dates,
+    'sprzedaz': trend + sezonowosc + szum
+})
+df = df.set_index('data')
+```
+
+#### Średnia krocząca (rolling)
+
+Średnia krocząca wygładza dane — pokazuje trend bez dziennych wahań.
+
+```python
+df['sr_7d'] = df['sprzedaz'].rolling(window=7).mean()    # średnia z 7 dni
+df['sr_30d'] = df['sprzedaz'].rolling(window=30).mean()  # średnia z 30 dni
+
+# Wykres
+df[['sprzedaz', 'sr_7d', 'sr_30d']].plot(figsize=(12, 5),
+    title='Sprzedaż dzienna + średnie kroczące')
+plt.ylabel('Sprzedaż (tys. zł)')
+```
+
+#### Resampling — zmiana częstotliwości
+
+```python
+# Z danych dziennych → miesięczne
+miesieczne = df['sprzedaz'].resample('ME').mean()   # średnia miesięczna
+# Można też: .sum(), .max(), .min(), .count()
+
+# Z danych dziennych → tygodniowe
+tygodniowe = df['sprzedaz'].resample('W').sum()     # suma tygodniowa
+```
+
+#### Zmiana procentowa i porównanie z poprzednim okresem
+
+```python
+# Zmiana procentowa dzień do dnia
+df['zmiana_pct'] = df['sprzedaz'].pct_change() * 100
+
+# Porównanie z wartością sprzed 7 dni
+df['tydzien_temu'] = df['sprzedaz'].shift(7)
+df['roznica'] = df['sprzedaz'] - df['tydzien_temu']
+```
+
+#### Dekompozycja szeregu czasowego
+
+Każdy szereg czasowy można rozłożyć na składowe: **trend**, **sezonowość** i **reszta** (szum).
+
+```python
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+# Instalacja: uv pip install statsmodels
+dekompozycja = seasonal_decompose(df['sprzedaz'], model='additive', period=30)
+dekompozycja.plot()
+plt.tight_layout()
+```
+
+Wykres dekompozycji pokazuje 4 panele:
+1. **Observed** — oryginalne dane
+2. **Trend** — długoterminowy kierunek
+3. **Seasonal** — powtarzający się wzorzec
+4. **Residual** — to, czego model nie wyjaśnia
+
+#### Prognozowanie — ARIMA
+
+**ARIMA** (AutoRegressive Integrated Moving Average) to klasyczny model prognozowania. Parametry `(p, d, q)` oznaczają:
+- **p** — ile przeszłych wartości bierzemy pod uwagę (autoregresja)
+- **d** — ile razy różnicujemy dane (stacjonarność)
+- **q** — ile przeszłych błędów bierzemy pod uwagę (średnia krocząca)
+
+```python
+from statsmodels.tsa.arima.model import ARIMA
+
+# Dane miesięczne (ARIMA lepiej działa na zagregowanych danych)
+miesieczne = df['sprzedaz'].resample('ME').mean()
+
+# Dopasowanie modelu ARIMA(1,1,1)
+model = ARIMA(miesieczne, order=(1, 1, 1))
+wynik = model.fit()
+
+# Prognoza na 6 miesięcy do przodu
+prognoza = wynik.forecast(steps=6)
+
+# Wykres: dane historyczne + prognoza
+fig, ax = plt.subplots(figsize=(12, 5))
+ax.plot(miesieczne.index, miesieczne.values, 'b-o', label='Dane historyczne',
+        markersize=4)
+ax.plot(prognoza.index, prognoza.values, 'r--o', label='Prognoza ARIMA',
+        markersize=4)
+ax.set_title('Prognoza sprzedaży (ARIMA)')
+ax.set_xlabel('Data')
+ax.set_ylabel('Sprzedaż (tys. zł)')
+ax.legend()
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+```
+
+#### Automatyczny dobór parametrów — auto_arima
+
+Ręczny dobór `(p, d, q)` jest trudny. Biblioteka `pmdarima` robi to automatycznie:
+
+```python
+# Instalacja: uv pip install pmdarima
+from pmdarima import auto_arima
+
+auto_model = auto_arima(miesieczne, seasonal=False,
+                         suppress_warnings=True, stepwise=True)
+print(f"Najlepszy model: ARIMA{auto_model.order}")
+print(f"AIC: {auto_model.aic():.2f}")
+
+prognoza_auto = auto_model.predict(n_periods=6)
+```
+
+> **Dla analityka biznesowego:** Szeregi czasowe to fundament prognozowania sprzedaży, planowania zapasów, budżetowania. Nawet prosty model ARIMA daje lepsze prognozy niż "tak na oko". W praktyce stosuje się też Prophet (Meta) i modele ML — ale ARIMA to solidna baza, którą warto znać.
 
 ---
 
@@ -1746,6 +2015,68 @@ print(wynik)
 - Dane > 1 mln wierszy → Polars znacznie szybszy
 - Pipeline produkcyjny z ETL → Polars stabilniejszy
 - Dane < 100k wierszy → Pandas wystarczy (większy ekosystem, więcej tutoriali)
+
+#### Lazy evaluation — kluczowa przewaga Polars
+
+Polars ma tryb **lazy** — nie wykonuje operacji od razu, lecz buduje plan (graf obliczeniowy) i optymalizuje go przed wykonaniem. To jak pisanie zapytania SQL — baza danych też najpierw planuje, potem wykonuje.
+
+```python
+# scan_csv — wczytuje LENIWIE (nie ładuje całego pliku od razu)
+lazy_df = pl.scan_csv('dane.csv')    # typ: LazyFrame (nie DataFrame!)
+
+# Budujemy łańcuch operacji — nic się jeszcze nie wykonuje
+wynik = (
+    lazy_df
+    .filter(pl.col('cena') > 500)
+    .group_by('produkt')
+    .agg([
+        pl.col('cena').mean().alias('sr_cena'),
+        pl.col('ilosc').sum().alias('suma_ilosc')
+    ])
+    .sort('sr_cena', descending=True)
+)
+
+# Sprawdź plan wykonania (jak EXPLAIN w SQL)
+print(wynik.explain())
+
+# Teraz wykonaj — Polars optymalizuje cały plan naraz
+wynik_df = wynik.collect()    # → zwraca DataFrame
+```
+
+**Dlaczego lazy jest szybszy?** Polars automatycznie:
+- pomija kolumny, których nie potrzebujesz (projection pushdown)
+- filtruje wcześnie, zanim wczyta cały plik (predicate pushdown)
+- łączy operacje w jedno przejście po danych
+
+```python
+# Można też zamienić zwykły DataFrame na lazy
+df = pl.read_csv('dane.csv')
+wynik = (
+    df.lazy()
+    .with_columns(
+        (pl.col('cena') * pl.col('ilosc')).alias('wartosc')
+    )
+    .filter(pl.col('wartosc') > 1000)
+    .group_by('kategoria')
+    .agg(pl.col('wartosc').sum().alias('przychod'))
+    .collect()
+)
+```
+
+#### Polars + Parquet — idealne połączenie
+
+```python
+# Zapis do Parquet (szybki format kolumnowy)
+df.write_parquet('dane.parquet')
+
+# Odczyt lazy z Parquet — najszybsza ścieżka
+wynik = (
+    pl.scan_parquet('dane.parquet')
+    .filter(pl.col('cena') > 1000)
+    .select(['produkt', 'cena'])
+    .collect()
+)
+```
 
 ### 7.7 Podsumowanie
 

@@ -49,3 +49,12 @@
 | 45 | 2026-02-22 | — | Wzbogacenie materiałów zaocznych (S01-S10) o sekcje "Przydatne materiały" z linkami do dokumentacji. Edycja istniejących plików cwiczenia.md, zachowanie istniejącej treści. |
 | 46 | 2026-02-22 | — | Wzbogacenie 15 plików plan_lab.md (W01-W15) o sekcje "Przydatne linki dla prowadzącego" z linkami do dokumentacji dopasowanymi do tematu. |
 | 47 | 2026-02-22 | — | Wzbogacenie 5 plików ćwiczeń (W11-W15) o: linki do dokumentacji, sekcje "Jeśli utkniesz", opisy kluczowych pojęć. Dla W13 dodanie sekcji "Sprawdzenie" do ćwiczeń 1-3. Edycja istniejących plików, zachowanie istniejącej treści. |
+| 48 | 2026-02-22 | — | Przeanalizuj stare materiały z python2OLD.zip pod kątem jakości i naszych wymogów. Zweryfikuj kod. Oceń co dodać do tej edycji. |
+| 49 | 2026-02-22 | — | ZASADA: Zanim cokolwiek dodasz — najpierw oceń sensowność, potem zapytaj użytkownika. Nie możemy stracić spójności całego cyklu. |
+| 50 | 2026-02-22 | — | Przeanalizuj WSZYSTKIE notebooki .ipynb z pythonOLD/!!!WykładyLab_Python_II_lato2025/ pod kątem jakości kodu: deprecated API, pip install, anaconda, anti-patterns, warnings, hardcoded paths. Raport po polsku. |
+| 51 | 2026-02-22 | — | Porównaj stare materiały (pythonOLD/!!!WykładyLab_Python_II_lato2025/) z nowymi (lecturesPythonII/). Tabela mapowania: nowe vs stare tematy, co stare mają a nowe nie, co nowe mają a stare nie. Raport po polsku. |
+| 52 | 2026-02-22 | — | Dodaj do skryptu studenta: szeregi czasowe (bonus), formaty plików, web scraping, Polars lazy API, Seaborn regplot. Sprawdzaj kody czy działają. Nie ruszaj harmonogramu W01-W15. |
+| 53 | 2026-02-22 | — | AUDYT: Sprawdź kontekst biznesowy we WSZYSTKICH plikach cwiczenia.md (W01-W15 + S01-S10). Raport po polsku. |
+| 54 | 2026-02-22 | — | AUDYT: Sprawdź strukturę 4-częściową (Wprowadzenie, Materiał, Aktywność, Podsumowanie) we WSZYSTKICH plan_zajec.md i plan_lab.md. Raport tabelaryczny. |
+| 55 | 2026-02-22 | — | Napraw ALL groupby() bez observed=True w 6 plikach (tips dataset, kolumny kategoryczne day/time/sex/smoker). |
+| 56 | 2026-02-22 | — | Dodaj brakujące sekcje AKTYWNOŚĆ do 8 zaocznych plan_zajec.md (S01,S03,S04,S05,S06,S07,S08,S09) + PODSUMOWANIE do S04. Dodaj PODSUMOWANIE do dziennych W08 i W09 lab/plan_lab.md. |

@@ -394,6 +394,18 @@ except ImportError:
 
 ---
 
+### 1:17-1:20 — AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. Dlaczego przed KMeans stosujemy `StandardScaler`? Co sie stanie jesli tego nie zrobimy?
+2. Model regresji liniowej dal R² = 0.95 i RMSE = 2.1. Co to oznacza w jednym zdaniu?
+3. Kiedy uzyjesz Plotly zamiast Matplotlib? Podaj jeden konkretny scenariusz.
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) Bez skalowania kolumna z wiekszymi liczbami (np. cena w tysiącach) zdominuje odleglosci — klastry beda oparte tylko na niej, ignorujac mniejsze zmienne; 2) Model wyjasnia 95% zmiennosci danych, a sredni blad predykcji to 2.1 jednostki — bardzo dobry model; 3) Np. prezentacja dla zarzadu — interaktywny wykres z hover, zoom, legenda klikalna, eksport do HTML bez Pythona]"
+
+---
+
 ### 1:20-1:30 — PODSUMOWANIE i zapowiedź laba
 
 > "Podsumujmy."

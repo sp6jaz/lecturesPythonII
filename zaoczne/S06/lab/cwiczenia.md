@@ -15,6 +15,11 @@
 | SciPy — describe() | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.describe.html |
 | Pandas — describe() | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html |
 | Wikipedia — Statystyka opisowa | https://pl.wikipedia.org/wiki/Statystyka_opisowa |
+| statsmodels — Time Series Analysis | https://www.statsmodels.org/stable/tsa.html |
+| statsmodels — seasonal_decompose | https://www.statsmodels.org/stable/generated/statsmodels.tsa.seasonal.seasonal_decompose.html |
+| Pandas — Time Series | https://pandas.pydata.org/docs/user_guide/timeseries.html |
+
+> **Warto wiedzieć:** Statystyka w analizie danych obejmuje też **szeregi czasowe** — dane uporządkowane chronologicznie (sprzedaż dzienna, kurs walut). Kluczowe techniki to: średnia krocząca (`rolling()`), dekompozycja (trend + sezonowość + szum) i prognozowanie (ARIMA). To fundament planowania biznesowego. Więcej w rozdziale 6.9 skryptu studenta.
 
 ---
 
@@ -26,8 +31,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
-import warnings
-warnings.filterwarnings('ignore')
 
 # Seed zapewnia identyczne dane u kazdego studenta
 np.random.seed(2026)

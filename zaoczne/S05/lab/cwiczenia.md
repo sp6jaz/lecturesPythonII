@@ -18,6 +18,11 @@
 | Seaborn — Tutorial | https://seaborn.pydata.org/tutorial.html |
 | Seaborn — API Reference | https://seaborn.pydata.org/api.html |
 | Matplotlib — Cheat Sheets | https://matplotlib.org/cheatsheets/ |
+| Seaborn — regplot (regresja) | https://seaborn.pydata.org/generated/seaborn.regplot.html |
+| Seaborn — FacetGrid (siatki) | https://seaborn.pydata.org/generated/seaborn.FacetGrid.html |
+| Seaborn — jointplot | https://seaborn.pydata.org/generated/seaborn.jointplot.html |
+
+> **Warto wiedzieć:** Seaborn oferuje też `regplot()` (wykres z linią regresji), `FacetGrid` (osobny wykres dla każdej kategorii) i `jointplot()` (scatter + histogramy na osiach). Te narzędzia są szczególnie przydatne w analizie zależności między zmiennymi. Więcej w rozdziale 5 skryptu studenta.
 
 ---
 
@@ -82,7 +87,7 @@ print("Zapisano: trend_2024.png")
 Oblicz sredni rachunek per dzien tygodnia i narysuj wykres slupkowy.
 
 ```python
-sredni_rachunek = tips.groupby('day')['total_bill'].mean().round(2)
+sredni_rachunek = tips.groupby('day', observed=True)['total_bill'].mean().round(2)
 print(sredni_rachunek)
 
 fig, ax = plt.subplots(figsize=(8, 5))
@@ -238,7 +243,7 @@ Stworz Figure z 4 wykresami w ukladzie 2x2 uzywajac datasetu tips:
 fig, axes = plt.subplots(2, 2, figsize=(13, 9))
 
 # [0, 0] — Sredni napiwek per dzien (slupkowy)
-sredni_napiwek_dzien = tips.groupby('day')['tip'].mean()
+sredni_napiwek_dzien = tips.groupby('day', observed=True)['tip'].mean()
 axes[0, 0].bar(
     sredni_napiwek_dzien.index,
     sredni_napiwek_dzien.values,
@@ -267,7 +272,7 @@ axes[1, 0].set_xlabel('Napiwek [$]')
 axes[1, 0].set_ylabel('Liczba obserwacji')
 
 # [1, 1] — Liczba zamowien per dzien
-zamowienia_dzien = tips.groupby('day')['total_bill'].count()
+zamowienia_dzien = tips.groupby('day', observed=True)['total_bill'].count()
 axes[1, 1].bar(
     zamowienia_dzien.index,
     zamowienia_dzien.values,
@@ -566,7 +571,7 @@ plt.suptitle('Tytul glowny')
 
 # === PANDAS .plot() ===
 df.plot(kind='bar', figsize=(8, 5), title='Tytul')
-tips.groupby('day')['tip'].mean().plot(kind='bar')
+tips.groupby('day', observed=True)['tip'].mean().plot(kind='bar')
 
 # === SEABORN ===
 import seaborn as sns

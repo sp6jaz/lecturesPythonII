@@ -195,3 +195,11 @@ plt.tight_layout()
 plt.savefig('dashboard_techshop.png', dpi=100)
 plt.close()
 ```
+
+---
+
+## Podsumowanie (5 min)
+
+- **Co zrobiliśmy:** Tworzenie podstawowych typów wykresów (liniowy, słupkowy, scatter, histogram), formatowanie wykresów (tytuły, etykiety, legendy, kolory, siatka), układ wielu wykresów (`subplots` 2x2) z eksportem do PNG
+- **Zadanie domowe:** Dashboard 2x2 z danymi TechShop (trend, miasto, kategoria, scatter) — zapisz jako PNG i commituj na GitHub
+- **Następne zajęcia:** W10 — Seaborn: wykresy statystyczne (barplot, boxplot, heatmap, pairplot) i budowanie dashboardów

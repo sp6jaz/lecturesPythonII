@@ -173,3 +173,11 @@ wielomiesiac = (
 )
 print(wielomiesiac)
 ```
+
+---
+
+## Podsumowanie (5 min)
+
+- **Co zrobiliśmy:** Łączenie tabel (`merge` inner/left/outer), agregacja danych (`groupby` + `agg` z nazwaną agregacją), tabele przestawne (`pivot_table`, `crosstab` z margins)
+- **Zadanie domowe:** Znajdź klientów kupujących w co najmniej 2 różnych miesiącach (groupby + nunique). Commituj wynik na GitHub.
+- **Następne zajęcia:** W09 — Matplotlib: podstawy wizualizacji danych (wykresy liniowe, słupkowe, scatter, histogram, subplots)

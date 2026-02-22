@@ -17,6 +17,10 @@
 | Pandas — Merge, join, concatenate | https://pandas.pydata.org/docs/user_guide/merging.html |
 | Pandas — Group by | https://pandas.pydata.org/docs/user_guide/groupby.html |
 | Pandas — Duplicate Labels | https://pandas.pydata.org/docs/user_guide/duplicates.html |
+| Pandas — IO Tools (Excel, Parquet, JSON) | https://pandas.pydata.org/docs/user_guide/io.html |
+| requests — HTTP dla Pythona | https://requests.readthedocs.io/en/latest/ |
+
+> **Warto wiedzieć:** W praktyce dane w firmach rzadko są w CSV — częściej w Excel (`pd.read_excel()`), JSON (`pd.read_json()`) lub Parquet (`pd.read_parquet()`). Dane można też pobierać ze stron WWW za pomocą `requests` + `BeautifulSoup` (web scraping) lub `pd.read_html()`. Więcej w rozdziale 4.23 skryptu studenta.
 
 ---
 

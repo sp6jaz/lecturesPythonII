@@ -464,6 +464,18 @@ OGRANICZENIA LLM — 5 ZAGROŻEŃ:
 
 ---
 
+### 1:32-1:35 — AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. Czym rozni sie `system message` od `user message` w API? Do czego sluzy kazdy z nich?
+2. Dlaczego przy analizie danych ustawiamy temperature blisko 0, a nie 1.5?
+3. Firma ma CSV z danymi 10 000 klientow (imie, email, zakupy). Chcesz uzyc ChatGPT do napisania skryptu segmentacji. Czy uploadujesz plik? Co robisz zamiast tego?
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) system = instrukcja 'kim jestes' i jak sie zachowywac, user = wlasciwe pytanie/zadanie. System kontroluje ton i format; 2) Niska temperatura = deterministyczny, powtarzalny kod. Wysoka = losowy, kreatywny — w kodzie to bledy; 3) NIE uploadujesz — dane osobowe + RODO. Anonimizujesz (ID zamiast imion, hash zamiast emaili) lub OPISUJESZ strukture w prompcie bez prawdziwych wartosci]"
+
+---
+
 ### 1:35-1:45 — PODSUMOWANIE
 
 > "Podsumujmy wykład w trzech punktach:"

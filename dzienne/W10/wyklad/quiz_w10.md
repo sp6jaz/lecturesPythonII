@@ -80,7 +80,7 @@ sns.histplot(data=tips, x='day')
 
 **D)**
 ```python
-ax.bar(tips.groupby('day')['total_bill'].mean())
+ax.bar(tips.groupby('day', observed=True)['total_bill'].mean())
 ```
 
 **Odpowiedź: B** — `sns.barplot()` domyślnie wyświetla średnią i rysuje wąsy z 95% przedziałem ufności (CI) wyliczonym przez bootstrapping. Nie musicie nic dodawać — to jest wbudowane. Matplotlib (`plt.bar`, `ax.bar`) tego nie robi — musielibyście liczyć ręcznie.

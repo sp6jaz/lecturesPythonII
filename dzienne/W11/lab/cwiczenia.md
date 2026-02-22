@@ -14,8 +14,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
-import warnings
-warnings.filterwarnings('ignore')
 
 # Seed zapewnia identyczne dane u każdego studenta
 np.random.seed(42)

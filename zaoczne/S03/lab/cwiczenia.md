@@ -15,6 +15,11 @@
 | Pandas — 10 Minutes to Pandas | https://pandas.pydata.org/docs/user_guide/10min.html |
 | Pandas — Indexing and selecting | https://pandas.pydata.org/docs/user_guide/indexing.html |
 | Pandas — DataFrame.loc | https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html |
+| Pandas — IO Tools (CSV, Excel, Parquet, JSON) | https://pandas.pydata.org/docs/user_guide/io.html |
+| requests — dokumentacja | https://requests.readthedocs.io/en/latest/ |
+| BeautifulSoup — dokumentacja | https://www.crummy.com/software/BeautifulSoup/bs4/doc/ |
+
+> **Warto wiedzieć:** Pandas obsługuje wiele formatów plików poza CSV: `pd.read_excel()` (raporty firmowe), `pd.read_json()` (dane z API), `pd.read_parquet()` (szybki format kolumnowy). W praktyce biznesowej dane rzadko są w CSV — warto znać te metody. Więcej w rozdziale 4 skryptu studenta.
 
 ---
 

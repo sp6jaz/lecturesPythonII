@@ -416,6 +416,18 @@ for seg in ['Niski', 'Sredni', 'Wysoki']:
 
 > "Ciekawy wynik — im wyzszy rachunek, tym **nizszy procent** napiwku! Niskie rachunki = 18.4%, wysokie = 12.2%. To jest insight biznesowy — takie rzeczy znajdujecie dzieki Pandas."
 
+#### AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. Czym różni się `loc` od `iloc`? (podpowiedź: etykiety vs pozycje)
+2. Napisz filtr Pandas: rachunki powyżej 30$ w sobotę. Użyj `&` i nawiasów.
+3. Co robi `tips.query("day == 'Sun' and tip > 5")`? Jak to samo zapisać bez `query`?
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) loc = nazwa/warunek, iloc = numer pozycji, 2) tips[(tips['total_bill'] > 30) & (tips['day'] == 'Sat')], 3) filtruje niedziele z napiwkiem > 5$; bez query: tips[(tips['day'] == 'Sun') & (tips['tip'] > 5)]]"
+
+---
+
 #### Podsumowanie (5 min)
 
 > "Podsumujmy dzisiejszy wyklad:"

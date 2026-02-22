@@ -158,4 +158,4 @@ To zainstaluje brakujące pakiety bez wychodzenia z notebooka, cicho (`-q`).
 
 ## Zapowiedź L14
 
-> "Na kolejnych zajęciach: LLM i AI API. Nauczymy się wywoływać GPT-4 lub Claude przez Python — automatyczne generowanie tekstów, klasyfikacja, streszczenia. Kto chce się przygotować — rejestracja na platform.openai.com i zapoznanie się z Python SDK: `pip install openai`. Będziemy potrzebować klucza API (możecie użyć darmowego kredytu próbnego)."
+> "Na kolejnych zajęciach: LLM i AI API. Nauczymy się wywoływać GPT-4 lub Claude przez Python — automatyczne generowanie tekstów, klasyfikacja, streszczenia. Kto chce się przygotować — rejestracja na platform.openai.com i zapoznanie się z Python SDK: `uv pip install openai`. Będziemy potrzebować klucza API (możecie użyć darmowego kredytu próbnego)."

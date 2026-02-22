@@ -40,7 +40,7 @@ Pełny audyt 6-wymiarowy: Bloom, struktura 4-częściowa, narzędzia, metody dyd
 
 ---
 
-## Rewizja 2 — Intuicyjność i profesjonalizm (w toku)
+## Rewizja 2 — Intuicyjność i profesjonalizm (commit `b2b95e8`)
 
 ### Zakres
 Kompleksowe wzbogacenie materiałów o: linki do dokumentacji, opisy kluczowych pojęć, sekcje "Jeśli utkniesz", opisy datasetów, brakujące sekcje "Sprawdzenie".
@@ -83,13 +83,71 @@ Kompleksowe wzbogacenie materiałów o: linki do dokumentacji, opisy kluczowych 
 
 ---
 
+## Rewizja 3 — Wzbogacenie z analizy starych materiałów
+
+### Zakres
+Analiza starych materiałów z `python2OLD.zip` (606 notebooków, foldery 1-11 + NS, lato 2025). Identyfikacja wartościowych treści brakujących w nowej edycji. Weryfikacja kodu i dodanie do skryptu studenta + materiałów zaocznych.
+
+### Audyt starych materiałów
+
+| Kategoria | Status | Szczegóły |
+|-----------|--------|-----------|
+| Deprecated pandas (inplace=True) | ~15 plików OLD | Nie kopiujemy — nowy kod jest czysty |
+| OneHotEncoder(sparse=False) | 2 pliki OLD | Usunięty w sklearn 1.4+ |
+| Mutable default `context=[]` | 4 pliki OLD | Klasyczny Python bug |
+| Deprecated freq='H' | 3 pliki OLD | Od pandas 2.2 → 'h' |
+| Conda metadane | 50+ plików OLD | Nie kopiujemy |
+| pip install | 30+ plików OLD | Nowy kod używa uv |
+| numpy 2.0 deprecated | BRAK | Czysto |
+| Broken imports | BRAK | Czysto |
+
+### Decyzja o dodaniu treści
+
+| Temat | Decyzja | Uzasadnienie |
+|-------|---------|-------------|
+| Szeregi czasowe (ARIMA, dekompozycja) | DODANO do skryptu (6.9) | Fundament analityki biznesowej — prognozowanie |
+| Formaty plików (Parquet, Excel, JSON) | DODANO do skryptu (4.4) | W firmach dane NIE są w CSV |
+| Web scraping (requests + BS4) | DODANO do skryptu (4.23) | Pozyskiwanie danych = pierwszy krok pipeline |
+| Seaborn regplot + FacetGrid | DODANO do skryptu (5.9) | Analiza zależności, siatki kategorii |
+| Polars lazy API | DODANO do skryptu (7.6) | Kluczowa przewaga Polars nad Pandas |
+| TensorFlow/CNN/LSTM | ODRZUCONO | Za duży temat, osobny kurs |
+| Matplotlib animacje | ODRZUCONO | Gadżet, nie narzędzie analityka |
+| Lokalne LLM (Ollama) | ODRZUCONO | Wymaga GPU, studenci na słabych laptopach |
+| Selenium web scraping | ODRZUCONO | Za ciężkie, requests+BS4 wystarczy |
+
+### Zmiany wprowadzone
+
+#### A. Skrypt studenta (skryptdlastudentow/skrypt.md)
+- **4.4** — "Inne formaty plików": read_excel, read_json, read_parquet, multi-sheet Excel, tabela porównawcza
+- **4.23** — "Pobieranie danych z internetu": requests, BeautifulSoup, pd.read_html(StringIO()), uwaga etyczna
+- **5.9** — "Wykresy regresji i siatki": regplot, lmplot, FacetGrid, jointplot (renumeracja 5.10→5.11)
+- **6.9** — "Analiza szeregów czasowych": rolling, resample, pct_change, shift, dekompozycja, ARIMA, auto_arima
+- **7.6** — rozszerzenie Polars: lazy evaluation, scan_csv, explain(), collect(), Parquet
+
+#### B. Materiały zaoczne (cwiczenia.md)
+- **S03** — linki: IO Tools, requests, BeautifulSoup + wzmianka o formatach plików
+- **S04** — linki: IO Tools, requests + wzmianka o web scrapingu i formatach
+- **S05** — linki: regplot, FacetGrid, jointplot + wzmianka o regresji na wykresach
+- **S06** — linki: statsmodels TSA, seasonal_decompose, Pandas Time Series + wzmianka o szeregach czasowych
+- **S08** — linki: Polars User Guide, Lazy API + wzmianka o lazy evaluation
+
+### Weryfikacja kodu
+Cały dodany kod zweryfikowany lokalnie (Python 3.10, pandas 2.3.3, statsmodels 0.14.6, polars, pmdarima):
+- Formaty plików: CSV, Excel, JSON, Parquet — odczyt i zapis OK
+- Web scraping: requests + BS4 + pd.read_html(StringIO()) — bez FutureWarning
+- Seaborn: regplot, lmplot, FacetGrid, jointplot — wykresy generują się poprawnie
+- Szeregi czasowe: rolling, resample, dekompozycja, ARIMA(1,1,1), auto_arima — bez warningów
+- Polars: eager, lazy (scan_csv), explain(), collect(), write_parquet — OK
+
+---
+
 ## Notatki do przyszłych rewizji
 
 ### Do rozważenia
 1. **Fill-in-the-blanks W02-W07** — wcześniejsze ćwiczenia mają za dużo gotowego kodu, powinny mieć `???` i `___`
 2. **Quizy zaoczne S02-S10** — brak quizów spaced repetition z poprzednich spotkań
 3. **Gamifikacja** — elementy punktowe, wyzwania — niska priorytetowość
-4. **Skrypt studenta** — brak linków do dokumentacji w rozdziałach
+4. ~~**Skrypt studenta** — brak linków do dokumentacji w rozdziałach~~ ✅ ZROBIONE (Rewizja 2)
 
 ### Zasady kontroli jakości (ustalone)
 - Każdy `pip install` → `uv pip install`
@@ -98,3 +156,4 @@ Kompleksowe wzbogacenie materiałów o: linki do dokumentacji, opisy kluczowych 
 - Seed losowości (`np.random.seed(42)`) na początku każdego bloku generującego dane
 - Sekcja "Sprawdzenie ✅" po każdym ćwiczeniu
 - Linki do dokumentacji na początku każdego pliku ćwiczeń
+- Przed dodaniem nowych treści: oceń sensowność, sprawdź spójność z cyklem, zapytaj użytkownika

@@ -448,6 +448,6 @@ ZADANIE:
 |---------|-------------|
 | `ModuleNotFoundError: sklearn` | Uruchom komórkę 1 z `%pip install scikit-learn` lub aktywuj venv i `uv pip install scikit-learn` |
 | `ModuleNotFoundError: plotly` | Uruchom komórkę 1 z `%pip install plotly` |
-| Wykres Plotly nie wyświetla się w Jupyter | Sprawdź wersję: `pip install "plotly>=5.0"` i `pip install nbformat` |
+| Wykres Plotly nie wyświetla się w Jupyter | Sprawdź wersję: `uv pip install "plotly>=5.0"` i `uv pip install nbformat` |
 | KMeans labels są inne niż w przykładzie | Normalne — kolejność klastrów nie jest deterministyczna, ale zawartość jest ta sama |
-| `fig.show()` otwiera przeglądarkę zamiast Jupyter | Zainstaluj: `pip install jupyter nbformat` |
+| `fig.show()` otwiera przeglądarkę zamiast Jupyter | Zainstaluj: `uv pip install jupyter nbformat` |

@@ -553,6 +553,18 @@ Jak zmniejszyć błąd II typu? → Większa próba (więcej danych)
 
 ---
 
+### 1:22-1:25 — AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. A/B test emaili: sredni zakup w grupie A = 280 PLN, w B = 320 PLN, p = 0.12. Czy wdrazasz wersje B? Dlaczego?
+2. Kiedy uzywasz t-testu sparowanego (`ttest_rel`) zamiast niezaleznego (`ttest_ind`)? Podaj przyklad.
+3. Test chi-kwadrat dal p = 0.001. Co to oznacza w kontekscie tabeli kontyngencji kanal x segment?
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) NIE — p = 0.12 > 0.05, brak podstaw do odrzucenia H0. Roznica moze byc przypadkowa. Potrzebujesz wiecej danych lub wiekszego efektu; 2) Gdy mierzysz TE SAME osoby przed i po — np. produktywnosc przed i po szkoleniu; 3) Istnieje istotna statystycznie zaleznosc miedzy kanalem pozyskania a segmentem klienta — kanaly przyciagaja rozne typy klientow]"
+
+---
+
 ### 1:25-1:30 — PODSUMOWANIE
 
 > "Pięć kluczowych punktów z dzisiejszego wykładu."

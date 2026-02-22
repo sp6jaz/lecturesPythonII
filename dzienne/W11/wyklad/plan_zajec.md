@@ -78,8 +78,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from scipy import stats
-import warnings
-warnings.filterwarnings('ignore')
 
 %matplotlib inline
 

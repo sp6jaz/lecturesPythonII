@@ -454,7 +454,35 @@ print((ct_pct * 100).round(1))
 
 > "crosstab liczy ile razy wystepuje kombinacja dwoch zmiennych. Normalize='index' zamienia na procenty per wiersz."
 
-> "I to tyle --- od brudnych danych, przez czyszczenie, laczenie tabel, grupowanie, az do gotowego raportu. Na laboratorium bedziecie robic to sami na datasecie e-commerce. Gotowi? Przerwa 5 minut i zaczynamy lab."
+> "I to tyle --- od brudnych danych, przez czyszczenie, laczenie tabel, grupowanie, az do gotowego raportu."
+
+---
+
+### 1:27-1:30 --- AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. Jaka jest roznica miedzy `merge(how='inner')` a `merge(how='left')`? Kiedy uzyjesz ktorego?
+2. Co zwraca `df.groupby('dzial')['wynagrodzenie'].mean()` — Series czy DataFrame?
+3. Napisz jedno zdanie: czemu `fillna(mediana)` jest lepsze niz `fillna(srednia)` dla wynagrodzen?
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) inner = tylko wspólne klucze, left = wszystko z lewej + dopasowania z prawej (NaN gdzie brak); 2) Series z indeksem = nazwy działów; 3) Mediana jest odporna na outliery — jeden prezes z pensją 200 tys. nie zaburza mediany, ale zaburza średnią]"
+
+---
+
+### 1:30 --- PODSUMOWANIE
+
+> "Podsumujmy. Dzis przeszlismy pelny pipeline: od brudnych danych do raportu."
+
+> "**Czyszczenie:** `isna()` + `fillna()` / `dropna()` — braki. `drop_duplicates()` — duplikaty. `pd.to_numeric(errors='coerce')` — zle typy. `str.strip().str.title()` — brudny tekst."
+
+> "**Laczenie:** `merge()` — laczy po kluczu (jak JOIN w SQL). `concat()` — klei tabele pionowo."
+
+> "**Agregacja:** `groupby()` + `agg()` — Split-Apply-Combine. Nazwana agregacja daje czytelne kolumny."
+
+> "**Tabele przestawne:** `pivot_table()` — deklaratywny groupby + reshape. `crosstab()` — liczebnosci."
+
+> "Na laboratorium bedziecie robic to sami na datasecie e-commerce. Gotowi? Przerwa 5 minut i zaczynamy lab."
 
 ---
 

@@ -411,7 +411,7 @@ Oblicz liczbę zamówień per `time` (Lunch/Dinner) i per `sex`. Narysuj wykres 
 
 ```python
 # Zlicz zamówienia per pora dnia i płeć
-count_df = tips.groupby(['time', 'sex'])['total_bill'].count().unstack()
+count_df = tips.groupby(['time', 'sex'], observed=True)['total_bill'].count().unstack()
 print(count_df)
 
 # Wykres słupkowy grupowany
@@ -454,7 +454,7 @@ Stwórz Figure z 4 wykresami w układzie 2×2:
 fig, axes = plt.subplots(2, 2, figsize=(13, 9))
 
 # [0, 0] — Średni napiwek per dzień (słupkowy)
-sredni_napiwek_dzien = tips.groupby('day')['tip'].mean()
+sredni_napiwek_dzien = tips.groupby('day', observed=True)['tip'].mean()
 axes[0, 0].bar(sredni_napiwek_dzien.index,
                sredni_napiwek_dzien.values,
                color='steelblue')
@@ -481,7 +481,7 @@ axes[1, 0].set_xlabel('Napiwek [$]')
 axes[1, 0].set_ylabel('Liczba obserwacji')
 
 # [1, 1] — Liczba zamówień per dzień (bar)
-zamowienia_dzien = tips.groupby('day')['total_bill'].count()
+zamowienia_dzien = tips.groupby('day', observed=True)['total_bill'].count()
 axes[1, 1].bar(zamowienia_dzien.index,
                zamowienia_dzien.values,
                color='lightsteelblue',

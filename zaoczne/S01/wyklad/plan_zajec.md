@@ -334,6 +334,18 @@ python2-lab/
 
 ---
 
+### 1:17-1:20 — AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. Jakie trzy kroki ma workflow Gita? (add → ??? → push)
+2. Czym różni się `uv venv` od `pip install`? (podpowiedź: izolacja)
+3. Wymień 3 etapy pipeline'u analitycznego (od danych surowych do decyzji).
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) add-commit-push, 2) uv venv tworzy środowisko wirtualne — izolacja pakietów, pip install instaluje pakiet, 3) np. pozyskanie → czyszczenie → analiza → wizualizacja → decyzja]"
+
+---
+
 ### 1:20-1:30 — PODSUMOWANIE
 
 > "Podsumujmy. Dzisiaj omówiliśmy dwa tematy:"

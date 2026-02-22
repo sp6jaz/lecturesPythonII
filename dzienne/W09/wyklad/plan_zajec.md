@@ -446,7 +446,7 @@ print("Zapisano: plan_vs_wykonanie.png")
 
 ```python
 # Sprzedaż per dzień tygodnia w datasecie tips
-sprzedaz_dzien = tips.groupby('day')['total_bill'].mean().round(2)
+sprzedaz_dzien = tips.groupby('day', observed=True)['total_bill'].mean().round(2)
 print("Średni rachunek per dzień:")
 print(sprzedaz_dzien)
 
@@ -483,7 +483,7 @@ print("Zapisano: rachunek_dzien.png")
 ZADANIE — 3 wykresy z datasetu tips:
 
 1. Wykres słupkowy: ile zamówień (count) per dzień tygodnia?
-   tips.groupby('day')['total_bill'].count().plot(kind='bar', ...)
+   tips.groupby('day', observed=True)['total_bill'].count().plot(kind='bar', ...)
 
 2. Scatter: total_bill na osi X, tip na osi Y.
    Kolor = dzień (możesz użyć prostego koloru, niekoniecznie mapowania)
@@ -501,7 +501,7 @@ Każdy wykres: tytuł + etykiety osi + plt.savefig() + plt.close()
 
 ```python
 # Rozwiązanie 1: liczba zamówień per dzień
-zamowienia_dzien = tips.groupby('day')['total_bill'].count()
+zamowienia_dzien = tips.groupby('day', observed=True)['total_bill'].count()
 ax = zamowienia_dzien.plot(
     kind='bar', figsize=(7, 4), color='steelblue',
     title='Liczba zamówień per dzień', ylabel='Liczba zamówień', rot=0

@@ -67,8 +67,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
-import warnings
-warnings.filterwarnings('ignore')
 
 %matplotlib inline
 
@@ -483,6 +481,18 @@ print(f"  Wniosek: {'Brak podstaw do odrzucenia H0' if p_bez >= 0.05 else 'Odrzu
 > "Dane symulowane: p > 0.05, nie odrzucamy — logiczne, bo je sami wygenerowalismy z rozkladu normalnego. Wynagrodzenia: p bliskie zera — silne odrzucenie, dane nie sa normalne. Ale uwaga: nawet bez outlierow wynagrodzenia czesto nie sa normalne — bo maja naturalna dolna granice (minimalne wynagrodzenie) i prawostronny ogon."
 
 > "Dlaczego to wazne? Wiele testow statystycznych — t-test, ANOVA — zaklada normalnosc. Jesli dane nie sa normalne, musimy uzywac testow nieparametrycznych (Mann-Whitney, Kruskal-Wallis). O tym porozmawiamy szerzej na kolejnych zajeciach."
+
+---
+
+### 1:17-1:20 — AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. Mediana wynagrodzen = 9 450 PLN, srednia = 9 900 PLN. Co to mowi o ksztalcie rozkladu?
+2. Korelacja Pearsona r = 0.85 miedzy liczba reklam a sprzedaza. Czy reklamy POWODUJA wieksza sprzedaz? Dlaczego?
+3. Metoda IQR wykryla 5 outlierow w wynagrodzeniach. Czy od razu je usuwasz? Co robisz najpierw?
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) Rozklad prawostronnie skosny — kilka wysokich pensji ciagnie srednia w gore, mediana jest odporniejsza; 2) NIE — korelacja nie jest przyczynowoscia. Moze byc trzeci czynnik (np. sezon, wielkosc firmy); 3) Nie usuwasz automatycznie. Najpierw weryfikacja: blad danych? Popraw. Realny przypadek (specjalny kontrakt)? Analizuj osobno.]"
 
 ---
 

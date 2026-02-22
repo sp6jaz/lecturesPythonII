@@ -339,7 +339,7 @@ plt.close()
 > "Najsilniejsza kombinacja: `groupby` + `.plot()`. Pelny pipeline w pieciu linijkach."
 
 ```python
-ax = tips.groupby('day')['total_bill'].mean().plot(
+ax = tips.groupby('day', observed=True)['total_bill'].mean().plot(
     kind='bar', figsize=(8, 5), color='steelblue',
     title='Sredni rachunek per dzien tygodnia',
     ylabel='Sredni rachunek [$]', rot=0
@@ -562,6 +562,18 @@ plt.savefig(
 > "Formaty: PNG — rastrowy, do internetu. PDF — wektorowy, do druku. SVG — wektorowy, do stron www."
 
 > "`sns.despine()` — usuwa gorna i prawa ramke osi. Minimalistyczny wyglad, popularny w publikacjach."
+
+---
+
+### 1:17-1:20 — AKTYWNOŚĆ — Mini-quiz (3 min)
+
+> **Prowadzący mówi:** "Zanim podsumujemy — szybki quiz. Odpowiedzcie na kartce lub w parach."
+
+1. Czym rozni sie `fig, ax = plt.subplots()` od `plt.plot()`? Ktory styl jest zalecany i dlaczego?
+2. Co robi parametr `hue` w Seaborn? Podaj przyklad uzycia z `sns.barplot()`.
+3. Jakie trzy parametry `savefig()` powinniscie ZAWSZE ustawiac przy eksporcie wykresu?
+
+> **[Po 2 min]** "Kto chce odpowiedzieć? [Omów odpowiedzi: 1) Obiektowy (fig, ax) daje pelna kontrole nad wieloma wykresami, imperatywny (plt.plot) jest szybszy ale sie gubi przy subplots; 2) hue dzieli dane na grupy kolorem, np. hue='sex' w barplot — oddzielne slupki dla kazdej plci; 3) dpi=150, bbox_inches='tight', facecolor='white']"
 
 ---
 

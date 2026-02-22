@@ -24,3 +24,5 @@
 | 20 | 2026-02-22 | 12:00 | Wczytaj materiały z Moodle (kurs e-dydaktyka PO) — użyj sesji przeglądarki |
 | 21 | 2026-02-22 | 12:15 | Będziesz sam wrzucał materiały na Moodle w przyszłości |
 | 22 | 2026-02-22 | 12:20 | Jak widzisz harmonogram kursu? Propozycje? |
+| 23 | 2026-02-22 | — | Pomysł: proste apki na telefon do ćwiczenia zagadnień przez studentów. Co o tym myślisz? |
+| 24 | 2026-02-22 | — | Zostawiamy apki na później, robimy dalej materiały |

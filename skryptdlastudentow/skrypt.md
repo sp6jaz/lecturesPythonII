@@ -367,7 +367,174 @@ Instalacja: `uv pip install -r requirements.txt`
 
 ## 2. Wprowadzenie do analizy danych
 
-*(treść będzie uzupełniana)*
+### 2.1 Pipeline analityczny
+
+Analiza danych to **proces** — sekwencja kroków od pytania biznesowego do decyzji.
+
+```mermaid
+graph TD
+    A[Pytanie biznesowe] --> B[Pozyskanie danych]
+    B --> C{Dane kompletne?}
+    C -- Nie --> D[Czyszczenie]
+    D --> E[Analiza]
+    C -- Tak --> E
+    E --> F[Wizualizacja]
+    F --> G[Decyzja / Raport]
+```
+
+#### Kroki pipeline'u
+
+1. **Pytanie biznesowe** — "Który produkt sprzedaje się najlepiej w grudniu?" Bez pytania nie ma analizy.
+2. **Pozyskanie danych** — CSV, Excel, baza danych, API, scraping.
+3. **Czyszczenie danych** — brakujące wartości, duplikaty, błędne formaty. Zajmuje 60-80% czasu analityka.
+4. **Analiza** — obliczenia, agregacje, grupowanie, statystyki.
+5. **Wizualizacja** — wykresy, dashboardy. Ludzie lepiej rozumieją obrazy niż tabele.
+6. **Decyzja / Raport** — odpowiedź na pytanie, rekomendacja dla biznesu.
+
+#### Przykład: analiza napiwków w restauracji
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Krok 1-2: Wczytaj dane
+df = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
+
+# Krok 3: Poznaj dane
+print(f"Rozmiar: {df.shape}")   # (244, 7)
+print(df.head())                 # pierwsze 5 wierszy
+print(df.describe())            # statystyki opisowe
+
+# Krok 4: Odpowiedz na pytanie — który dzień przynosi najwyższe napiwki?
+df.groupby('day')['tip'].mean().sort_values(ascending=False)
+# Sun     3.26
+# Sat     2.99
+# Thur    2.77
+# Fri     2.73
+
+# Krok 5: Wizualizacja
+df.groupby('day')['tip'].mean().plot(kind='bar', title='Średni napiwek wg dnia')
+plt.ylabel('USD')
+plt.tight_layout()
+plt.show()
+
+# Krok 6: Decyzja — w niedzielę i sobotę zatrudnić więcej kelnerów
+```
+
+### 2.2 Jupyter Notebook
+
+Jupyter Notebook to interaktywne środowisko łączące **kod, tekst i wykresy** w jednym dokumencie. Idealny do eksploracji danych.
+
+#### Komórki
+
+Notebook składa się z komórek dwóch typów:
+- **Code** — kod Pythona, uruchamiany przez `Shift+Enter`
+- **Markdown** — tekst formatowany (nagłówki, listy, tabele)
+
+#### Najważniejsze skróty
+
+| Skrót | Co robi | Tryb |
+|-------|---------|------|
+| `Shift+Enter` | Uruchom komórkę, przejdź dalej | oba |
+| `Ctrl+Enter` | Uruchom komórkę, zostań | oba |
+| `Esc` | Tryb komend | — |
+| `Enter` | Tryb edycji | — |
+| `A` | Dodaj komórkę powyżej | komendy |
+| `B` | Dodaj komórkę poniżej | komendy |
+| `M` | Zmień na Markdown | komendy |
+| `Y` | Zmień na Code | komendy |
+| `DD` | Usuń komórkę | komendy |
+
+#### Dobre praktyki
+
+- **Naprzemiennie** komórki Code i Markdown — notebook to narracja, nie skrypt
+- **Uruchamiaj od góry do dołu** — unikaj bałaganu z kolejnością
+- Gdy się pogubisz: **Restart Kernel and Run All**
+- Notebook wyświetla automatycznie wynik ostatniego wyrażenia (nie trzeba `print()`)
+
+#### Przydatne funkcje
+
+```python
+# Autouzupełnianie: Tab po kropce
+df.    # Tab → lista metod
+
+# Dokumentacja: Shift+Tab
+df.groupby    # Shift+Tab → docstring
+
+# Mierzenie czasu wykonania
+%timeit sum(range(1000))
+```
+
+### 2.3 Typy danych w kontekście analizy
+
+#### Typy Pythona vs typy Pandas
+
+| Typ Python | Typ Pandas/NumPy | Przykład | Kontekst biznesowy |
+|-----------|------------------|---------|-------------------|
+| `int` | `int64` | 42 | ilości, ID, liczba sztuk |
+| `float` | `float64` | 19.99 | ceny, kwoty, wyniki |
+| `str` | `object` | "Laptop" | nazwy, kategorie, opisy |
+| `bool` | `bool` | True | flagi (aktywny, zapłacone) |
+| — | `datetime64` | 2026-01-15 | daty zamówień, rejestracji |
+
+```python
+# Sprawdzenie typów w DataFrame
+df.dtypes
+# total_bill    float64
+# tip           float64
+# sex            object
+# smoker         object
+# day            object
+# time           object
+# size            int64
+```
+
+#### Problem brakujących danych
+
+W realnych danych **zawsze** czegoś brakuje. Listy Pythona nie mają mechanizmu obsługi braków — Pandas ma `NaN` (Not a Number) i dedykowane metody:
+
+```python
+df.info()         # pokaże ile wartości nie-null w każdej kolumnie
+df.isna().sum()   # policz brakujące wartości
+df.dropna()       # usuń wiersze z brakami
+df.fillna(0)      # zastąp braki wartością
+```
+
+### 2.4 Źródła danych w biznesie
+
+| Źródło | Format | Jak wczytać w Pandas |
+|--------|--------|---------------------|
+| Arkusze kalkulacyjne | CSV, Excel | `pd.read_csv()`, `pd.read_excel()` |
+| Bazy danych | SQL | `pd.read_sql()` |
+| API internetowe | JSON | `pd.read_json()`, `requests` |
+| Pliki logów | JSON, tekst | `pd.read_json()`, parsowanie |
+| Big Data | Parquet | `pd.read_parquet()` |
+
+### 2.5 Dlaczego listy Pythona nie wystarczają
+
+```python
+import numpy as np
+import time
+
+# Milion wartości
+lista = list(range(1_000_000))
+tablica = np.array(lista)
+
+# Pomnóż przez 2
+start = time.perf_counter()
+wynik_lista = [x * 2 for x in lista]
+czas_lista = time.perf_counter() - start
+
+start = time.perf_counter()
+wynik_numpy = tablica * 2
+czas_numpy = time.perf_counter() - start
+
+print(f"Lista:  {czas_lista*1000:.1f} ms")
+print(f"NumPy:  {czas_numpy*1000:.1f} ms")
+# NumPy jest ~10-20× szybszy!
+```
+
+**Dlaczego?** Lista Pythona przechowuje każdy element jako osobny obiekt rozrzucony po pamięci. NumPy przechowuje dane w **ciągłym bloku pamięci** i korzysta z zoptymalizowanych instrukcji procesora (SIMD). To fundament, na którym stoi Pandas i cały ekosystem data science.
 
 ---
 

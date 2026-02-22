@@ -122,3 +122,16 @@ Jupyter to must-have w data science, ale kluczowe jest jak:
 - Studenci znają Colaba z Python I — Jupyter w przeglądarce będzie znajomy, VS Code da więcej
 - Format: `.ipynb` do eksploracji i wykresów, `.py` do czystego kodu i modułów — oba w Git
 - Ważne: nauczyć studentów kiedy notebook, a kiedy skrypt — to częsty problem początkujących
+
+---
+
+### Apki mobilne do ćwiczenia (analiza 2026-02-22)
+
+**Decyzja:** NIE tworzymy własnej apki mobilnej — za duży nakład przy niepewnym zwrocie. Zamiast tego używamy istniejących narzędzi:
+
+1. **Anki** (fiszki z spaced repetition) — przygotujemy decki z pojęciami i składnią od W03-W04
+2. **Kahoot/Quizizz** — quizy na żywo na wykładzie (zamiennik papierowych quizów, element gamifikacji)
+3. **GitHub Mobile** — studenci sprawdzają repo na telefonie (zero pracy z naszej strony)
+4. **Jupyter Lite** — Python w przeglądarce mobilnej bez instalacji (do rozważenia później)
+
+Kluczowa zasada: 80% efektu przy 5% nakładu. Własna apka to miesiące pracy, Anki deck to godzina.

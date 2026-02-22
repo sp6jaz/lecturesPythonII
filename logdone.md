@@ -51,3 +51,10 @@
 | 47 | 2026-02-22 | — | Utworzenie dzienne/W01/lab/plan_lab.md — pełny plan L01 + instrukcja krok po kroku dla doktoranta |
 | 48 | 2026-02-22 | — | Utworzenie dzienne/W01/lab/cwiczenia.md — 5 ćwiczeń laboratoryjnych z weryfikacją |
 | 49 | 2026-02-22 | — | Aktualizacja skryptdlastudentow/skrypt.md — rozdziały 1.2-1.5 (Git, Markdown, Mermaid, zasady kodu) |
+| 50 | 2026-02-22 | — | Utworzenie dzienne/W02/wyklad/plan_zajec.md — plan minutowy 90 min + stenogram (pipeline, typy, Jupyter, NumPy motywacja) |
+| 51 | 2026-02-22 | — | Utworzenie dzienne/W02/wyklad/pipeline_demo.ipynb — notebook demo pipeline analityczny, zweryfikowany |
+| 52 | 2026-02-22 | — | Utworzenie dzienne/W02/wyklad/quiz_w02.md — 5 pytań (2 powtórkowe W01 + 3 nowe W02) |
+| 53 | 2026-02-22 | — | Utworzenie dzienne/W02/lab/plan_lab.md — plan L02 + instrukcja dla doktoranta |
+| 54 | 2026-02-22 | — | Utworzenie dzienne/W02/lab/cwiczenia.md — 4 ćwiczenia (Jupyter, eksploracja, pytania biznesowe, wykres) |
+| 55 | 2026-02-22 | — | Weryfikacja wszystkich odpowiedzi do ćwiczeń L02 (tips dataset, 5 pytań) |
+| 56 | 2026-02-22 | — | Aktualizacja skryptdlastudentow/skrypt.md — rozdział 2 (pipeline, Jupyter, typy danych, źródła, motywacja NumPy) |
